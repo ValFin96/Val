@@ -1,152 +1,289 @@
-:root{
-  --blush:#f4dde6;
-  --shell:#e9e0d6;
-  --char:#1f1f23;
-  --rose:#d8a7b1;
-  --rasp:#d6457a;
-  --cerise:#e83e8c;
-  --radius:22px;
-  --shadow:0 10px 30px rgba(31,31,35,.08);
-  --pad:28px; /* container padding (desktop) */
+:root {
+  --blush: #f4dde6;
+  --shell: #e9e0d6;
+  --char: #1f1f23;
+  --rose: #d8a7b1;
+  --rasp: #d6457a;
+  --cerise: #e83e8c;
+  --radius: 22px;
+  --shadow: 0 10px 30px rgba(31, 31, 35, 0.08);
+  --pad: 28px; /* container padding (desktop) */
 }
 
-*{box-sizing:border-box}
-
-html,body{
-  margin:0;
-  background:linear-gradient(180deg,var(--shell),var(--blush));
-  color:var(--char);
-  font-family: "Old Standard TT", serif;
-  padding-bottom:env(safe-area-inset-bottom);
+* {
+  box-sizing: border-box;
 }
 
-a{color:inherit;text-decoration:none}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: linear-gradient(180deg, var(--shell), var(--blush));
+  color: var(--char);
+  font-family: "Mulish", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 /* Container uses a var so we can perfectly counter it for mobile bleed */
-.container{max-width:960px;margin:auto;padding:var(--pad)}
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: var(--pad);
+}
 
 /* ---------- HERO LAYOUT ---------- */
-.hero{
-  display:grid; gap:28px; align-items:start;
-  grid-template-columns:1fr 1fr; /* photo | intro on desktop */
+.hero {
+  display: grid;
+  gap: 28px;
+  align-items: start;
+  grid-template-columns: 1fr 1fr; /* photo | intro on desktop */
+  min-height: 100vh; /* makes hero full screen */
+  padding-top: env(safe-area-inset-top); /* fixes iPhone notch */
 }
-@media (max-width:900px){
-  .hero{ grid-template-columns:1fr; row-gap:0; } /* stacked, no seam gap */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  } /* stacked, no seam gap */
 }
 
 /* Photo card (desktop look) */
-.photo{
-  position:relative; overflow:hidden; border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  background:
-    radial-gradient(120% 120% at 10% 10%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 60%),
-    linear-gradient(180deg, rgba(216,167,177,.15), rgba(216,167,177,0));
-  border:1px solid rgba(216,167,177,.35);
+.photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: radial-gradient(
+      120% 120% at 10% 10%,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0) 60%
+    ),
+    linear-gradient(180deg, rgba(216, 167, 177, 0.15), rgba(216, 167, 177, 0));
+  border: 1px solid rgba(216, 167, 177, 0.35);
 }
-.photo img{
-  display:block; width:100%; height:auto; object-fit:cover; border-radius:var(--radius);
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius);
 }
 
 /* Intro card (desktop) */
-.intro{
-  background:rgba(255,255,255,.65);
-  padding:24px; border-radius:var(--radius);
-  border:1px solid rgba(216,167,177,.45);
-  box-shadow:var(--shadow);
+.intro {
+  background: rgba(255, 255, 255, 0.65);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(216, 167, 177, 0.45);
+  box-shadow: var(--shadow);
 }
 
-
 /* Headings use DM Serif Display */
-h1, h2, h3, .h1, .section h2 {
-  font-family: 'Old Standard TT', serif;
-  font-weight: 700; 
+h1,
+h2,
+h3,
+.h1,
+.section h2 {
+  font-family: "Old Standard TT", serif;
+  font-weight: 700;
   line-height: 1.2;
 }
 
-@supports (backdrop-filter: blur(8px)){
-  .intro{ backdrop-filter: blur(8px); }
+@supports (backdrop-filter: blur(8px)) {
+  .intro {
+    backdrop-filter: blur(8px);
+  }
 }
 
 /* ---------- TYPE & BADGES ---------- */
-.h1{font-size: clamp(35px, 4.2vw, 44px);line-height:1.1;margin:10px 0 14px;font-weight:800;font-style: italic;};
-.p{font-size:clamp(15px,1.5vw,18px);opacity:.9}
+.h1 {
+  font-size: clamp(35px, 4.2vw, 44px);
+  line-height: 1.1;
+  margin: 10px 0 14px;
+  font-weight: 800;
+  font-style: italic;
+}
+.p {
+  font-size: clamp(15px, 1.5vw, 18px);
+  opacity: 0.9;
+}
 
 /* ---------- BUTTONS ---------- */
-.cta{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
-.button{
-  padding:14px 18px;border-radius:14px;background:var(--rasp);color:#fff;font-weight:700;
-  border:1px solid rgba(255,255,255,.35);
-  box-shadow:0 6px 18px rgba(214,69,122,.28);
-  transition:transform .08s ease, background .2s ease;
+.cta {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
-.button:hover{background:var(--cerise);transform:translateY(-1px)}
-.button--ghost{background:transparent;color:var(--char);border:1.5px solid var(--rose)}
-.button,.link{min-height:44px} /* big tap targets */
+.button {
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: var(--rasp);
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 18px rgba(214, 69, 122, 0.28);
+  transition: transform 0.08s ease, background 0.2s ease;
+}
+.button:hover {
+  background: var(--cerise);
+  transform: translateY(-1px);
+}
+.button--ghost {
+  background: transparent;
+  color: var(--char);
+  border: 1.5px solid var(--rose);
+}
+.button,
+.link {
+  min-height: 44px;
+} /* big tap targets */
 
 /* ---------- FEATURED LINKS ---------- */
-.section h2{font-size:clamp(22px,2.8vw,28px);margin:24px 0 16px}
-.cardgrid{margin:8px 0 34px;display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
-@media (max-width:900px){ .cardgrid{grid-template-columns:1fr} }
-.card{
-  padding:18px;border-radius:18px;background:rgba(255,255,255,.6);
-  border:1px solid rgba(216,167,177,.45);box-shadow:var(--shadow)
+.section h2 {
+  font-size: clamp(22px, 2.8vw, 28px);
+  margin: 24px 0 16px;
 }
-.card h3{margin:0 0 8px;font-size:18px}
-.card p{margin:0;opacity:.85}
+.cardgrid {
+  margin: 8px 0 34px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 900px) {
+  .cardgrid {
+    grid-template-columns: 1fr;
+  }
+}
+.card {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(216, 167, 177, 0.45);
+  box-shadow: var(--shadow);
+}
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+.card p {
+  margin: 0;
+  opacity: 0.85;
+}
 .link {
   position: relative;
   display: flex;
-  justify-content: center;    /* center all text horizontally */
-  align-items: center;        /* center vertically */
-  padding: 16px;              /* consistent padding */
-  width: 100%;                /* full width in grid column */
-  min-height: 60px;           /* ensures equal height */
+  justify-content: center; /* center all text horizontally */
+  align-items: center; /* center vertically */
+  padding: 16px; /* consistent padding */
+  width: 100%; /* full width in grid column */
+  min-height: 60px; /* ensures equal height */
   background: #fff;
-  border: 1px solid rgba(216,167,177,.45);
+  border: 1px solid rgba(216, 167, 177, 0.45);
   border-radius: 18px;
-  box-shadow: 0 6px 16px rgba(31,31,35,.08);
-  transition: transform .15s ease, box-shadow .25s ease, border-color .25s ease;
-  text-align: center;         /* centers inline text */
+  box-shadow: 0 6px 16px rgba(31, 31, 35, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  text-align: center; /* centers inline text */
 }
 
 .link:hover {
   transform: translateY(-3px);
   border-color: var(--rasp);
-  box-shadow: 
-    0 10px 24px rgba(214,69,122,.25),  /* pink glow */
-    0 0 0 6px rgba(214,69,122,.08);    /* soft ambient ring */
+  box-shadow: 0 10px 24px rgba(214, 69, 122, 0.25),
+    /* pink glow */ 0 0 0 6px rgba(214, 69, 122, 0.08); /* soft ambient ring */
 }
-.link span{font-weight:600}
-.link small{opacity:.7}
+.link span {
+  font-weight: 600;
+}
+.link small {
+  opacity: 0.7;
+}
 
 /* ---------- NEWSLETTER ---------- */
-.footer{
-  margin-top:26px;padding:22px;border-radius:18px;background:rgba(255,255,255,.6);
-  border:1px solid rgba(216,167,177,.45);box-shadow:var(--shadow)
+.footer {
+  margin-top: 26px;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(216, 167, 177, 0.45);
+  box-shadow: var(--shadow);
 }
-input,button{font-family:inherit;font-size:16px} /* avoid iOS zoom */
-.form{display:grid;gap:12px;grid-template-columns:1.2fr 1.2fr 1fr auto}
-@media (max-width:900px){ .form{grid-template-columns:1fr} }
-.input{padding:14px 12px;border-radius:12px;border:1.5px solid var(--rose);background:#fff}
-.notice{font-size:13px;opacity:.7;margin-top:8px}
-.success,.error{margin-top:10px;font-weight:600}
-.success{color:#1a7f37}.error{color:#b00020}
+input,
+button {
+  font-family: inherit;
+  font-size: 16px;
+} /* avoid iOS zoom */
+.form {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1.2fr 1.2fr 1fr auto;
+}
+@media (max-width: 900px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
+.input {
+  padding: 14px 12px;
+  border-radius: 12px;
+  border: 1.5px solid var(--rose);
+  background: #fff;
+}
+.notice {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+.success,
+.error {
+  margin-top: 10px;
+  font-weight: 600;
+}
+.success {
+  color: #1a7f37;
+}
+.error {
+  color: #b00020;
+}
 
 /* ---------- MOBILE: FULL-BLEED PHOTO + BLUSH FADE + NO CARD CHROME ---------- */
-@media (max-width:900px){
-  :root{ --pad:20px; } /* reduce container padding on mobile */
+@media (max-width: 900px) {
+  :root {
+    --pad: 20px;
+  } /* reduce container padding on mobile */
 
   /* Full-bleed photo: cancel container padding on all sides at top */
-  .photo{
-    margin:calc(-1 * var(--pad)) calc(-1 * var(--pad)) 0;
-    border:none; border-radius:0; box-shadow:none; background:none;
+  .photo {
+    margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
   }
-  .photo img{
-    border-radius:0; width:100%; height:auto; object-fit:cover;
+  .photo img {
+    border-radius: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 
     /* Keep your exact look: fade from ~65% downwards */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 65%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 65%,
+      rgba(0, 0, 0, 0) 100%
+    );
 
     /* Blush tint during the fade to match your previous style */
     background: linear-gradient(to bottom, transparent 65%, var(--blush) 100%);
@@ -154,106 +291,149 @@ input,button{font-family:inherit;font-size:16px} /* avoid iOS zoom */
   }
 
   /* Remove the intro card chrome; pull text up into the fade */
-  .intro{
-    margin-top:-50px; padding:0 6px 14px;
-    background:transparent !important;
-    border:0 !important; box-shadow:none !important; border-radius:0 !important;
-    backdrop-filter:none !important;
+  .intro {
+    margin-top: -50px;
+    padding: 0 6px 14px;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
   }
 
   /* Mobile sizing polish */
-  .footer{padding:18px;border-radius:14px}
-  .card{padding:14px;border-radius:14px}
-  .button{padding:13px 16px;border-radius:12px}
+  .footer {
+    padding: 18px;
+    border-radius: 14px;
+  }
+  .card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .button {
+    padding: 13px 16px;
+    border-radius: 12px;
+  }
 }
 
 /* Reduced motion */
-@media (prefers-reduced-motion:reduce){
-  *{transition:none !important;animation:none !important}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 /* -------- Subheading (under hero headline) -------- */
-.subheading{
+.subheading {
   font-size: clamp(18px, 2.4vw, 24px);
   font-weight: 400;
-  font-family: 'Old Standard TT', sans-serif;
-  opacity: .95;
+  font-family: "Old Standard TT", sans-serif;
+  opacity: 0.95;
   margin: 8px 0 4px; /* tighter spacing under the H1 */
 }
 
 /* -------- Accordion -------- */
-.copy-section{ margin-top: 18px; }
-.accordion{ border-top:1px solid rgba(216,167,177,.45); }
-.accordion-item{ border-bottom:1px solid rgba(216,167,177,.45); }
+.copy-section {
+  margin-top: 18px;
+}
+.accordion {
+  border-top: 1px solid rgba(216, 167, 177, 0.45);
+}
+.accordion-item {
+  border-bottom: 1px solid rgba(216, 167, 177, 0.45);
+}
 
 /* Button with arrow on the LEFT, text aligned left */
-.acc-btn{
-  width:100%;
-  padding:16px 12px;
-  display:flex; gap:10px; align-items:center; justify-content:flex-start;
-  text-align:left;
-  background:transparent; border:0; outline:0; cursor:pointer;
-  font:600 18px 'Old Standard TT', sans-serif;
-  color:var(--char);
+.acc-btn {
+  width: 100%;
+  padding: 16px 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  font: 600 18px "Old Standard TT", sans-serif;
+  color: var(--char);
 }
-.acc-arrow{
-  width:18px; height:18px; flex:0 0 18px;
-  transition: transform .25s ease;
+.acc-arrow {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  transition: transform 0.25s ease;
   /* if your arrow is dark and you want it softer:
      filter: brightness(0) saturate(100%) opacity(.7); */
 }
-.acc-btn[aria-expanded="true"] .acc-arrow{ transform: rotate(180deg); }
-
-.acc-panel{
-  padding: 0 12px 12px 40px;  /* indent to line up with text after arrow */
-  max-height: none;        /* natural height; show/hide via [hidden] */
+.acc-btn[aria-expanded="true"] .acc-arrow {
+  transform: rotate(180deg);
 }
-.acc-panel p{ margin: 10px 0; opacity: .9; }
-.acc-panel ul{ margin: 8px 0 16px 18px; }
+
+.acc-panel {
+  padding: 0 12px 12px 40px; /* indent to line up with text after arrow */
+  max-height: none; /* natural height; show/hide via [hidden] */
+}
+.acc-panel p {
+  margin: 10px 0;
+  opacity: 0.9;
+}
 .acc-panel ul {
-  margin: 8px 0 16px 0;   /* remove left margin */
-  padding-left: 0;        /* remove browser’s default indent */
+  margin: 8px 0 16px 18px;
+}
+.acc-panel ul {
+  margin: 8px 0 16px 0; /* remove left margin */
+  padding-left: 0; /* remove browser’s default indent */
   list-style-position: inside; /* makes bullet align with first text char */
 }
 /* mobile polish for accordion spacing (keeps your current mobile vibe) */
-@media (max-width:900px){
-  .copy-section{ margin-top: 8px; }
-  .acc-btn{ padding:14px 8px; font-size:17px; }
-  .acc-panel{ padding: 0 8px 12px 40px; }
+@media (max-width: 900px) {
+  .copy-section {
+    margin-top: 8px;
+  }
+  .acc-btn {
+    padding: 14px 8px;
+    font-size: 17px;
+  }
+  .acc-panel {
+    padding: 0 8px 12px 40px;
+  }
   .link {
     font-size: 17px;
     border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(214,69,122,.12);
+    box-shadow: 0 4px 10px rgba(214, 69, 122, 0.12);
   }
   .link:active {
     transform: scale(0.98);
-    box-shadow: 0 2px 6px rgba(214,69,122,.25);
+    box-shadow: 0 2px 6px rgba(214, 69, 122, 0.25);
     border-color: var(--rasp);
   }
 }
 
 /* Resources heading */
 .resources-title {
-  font-family: 'Old Standard TT', serif;
+  font-family: "Old Standard TT", serif;
   font-weight: 400;
   font-size: clamp(22px, 3vw, 32px);
   margin: 12px 0 20px;
   text-align: center; /* keeps it centered nicely */
-  letter-spacing: .3px;
+  letter-spacing: 0.3px;
 }
 
 .resources {
-  margin-top: 40px;  /* more breathing room */
+  margin-top: 40px; /* more breathing room */
 }
 
 /* -------- Footer -------- */
 .site-footer {
   padding: 30px 20px;
   background: #fff;
-  border-top: 1px solid rgba(216,167,177,.35);
-  box-shadow: 0 -4px 12px rgba(31,31,35,0.05);
+  border-top: 1px solid rgba(216, 167, 177, 0.35);
+  box-shadow: 0 -4px 12px rgba(31, 31, 35, 0.05);
   text-align: center;
   font-size: 14px;
-  color: rgba(31,31,35,.8);
+  color: rgba(31, 31, 35, 0.8);
 }
 
 .site-footer .footer-content {
@@ -280,4 +460,3 @@ input,button{font-family:inherit;font-size:16px} /* avoid iOS zoom */
 .site-footer .footer-links a:hover {
   color: var(--rasp);
 }
-
