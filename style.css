@@ -44,7 +44,7 @@ a {
   gap: 28px;
   align-items: start;
   grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
+  min-height: auto;
 }
 
 @media (max-width: 900px) {
@@ -255,24 +255,31 @@ button {
 @media (max-width: 900px) {
   :root {
     --pad: 20px;
-  } /* reduce container padding on mobile */
+  } 
 
   /* Pull the photo up by container padding + iPhone safe-area,
      and full-bleed left/right */
-  .photo {
+  /* .photo {
     margin: calc(-1 * (var(--pad) + env(safe-area-inset-top)))
       calc(-1 * var(--pad)) 0;
     border: none;
     border-radius: 0;
     box-shadow: none;
     background: none;
+  } */
+  .photo{
+    /* full-bleed left/right and pulled up by padding + safe-area */
+    margin: calc(-1 * (var(--pad) + env(safe-area-inset-top)))
+            calc(-1 * var(--pad))
+            0;
+    position: relative;
+    border:none; border-radius:0; box-shadow:none; background:none;
   }
-  .photo img {
+  /* .photo img {
     border-radius: 0;
     width: 100%;
     height: auto;
     object-fit: cover;
-    /* fade to blush (your existing style) */
     -webkit-mask-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 1) 65%,
@@ -285,10 +292,20 @@ button {
     );
     background: linear-gradient(to bottom, transparent 65%, var(--blush) 100%);
     background-clip: padding-box;
+  } */
+  .photo img{
+    display:block; width:100%; height:auto; object-fit:cover;
+    border-radius:0;
+
+    /* same soft fade into page color */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom, transparent 65%, var(--blush) 100%);
+    background-clip: padding-box;
   }
 
-  /* Put text safely below the notch and lift it into the fade a bit */
-  .intro {
+  
+  /* .intro {
     margin-top: -50px;
     padding: calc(env(safe-area-inset-top) + 6px) 6px 14px;
     background: transparent !important;
@@ -296,6 +313,13 @@ button {
     box-shadow: none !important;
     border-radius: 0 !important;
     backdrop-filter: none !important;
+  } */
+  
+  /* text sits nicely below; no forced full-screen height */
+  .hero{ grid-template-columns:1fr; row-gap:0; }
+  .intro{
+    margin-top:-50px; padding: calc(env(safe-area-inset-top) + 6px) 6px 14px;
+    background:transparent !important; border:0 !important; box-shadow:none !important; border-radius:0 !important; backdrop-filter:none !important;
   }
 
   /* Mobile polish */
