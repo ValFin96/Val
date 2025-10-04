@@ -18,10 +18,11 @@ html,
 body {
   margin: 0;
   height: 100%;
-  background: linear-gradient(180deg, var(--shell), var(--blush));
+  /* background: linear-gradient(180deg,var(--shell),var(--blush)); */
+  /* background: linear-gradient(to bottom, transparent 65%, #fbeff4 100%); */
+  background: #fbeff4;
   color: var(--char);
-  font-family: "Mulish", system-ui, -apple-system, Segoe UI, Roboto, Arial,
-    sans-serif;
+  font-family: "Old Standard TT", serif;
   padding: 0;
 }
 
@@ -42,10 +43,10 @@ a {
   display: grid;
   gap: 28px;
   align-items: start;
-  grid-template-columns: 1fr 1fr; /* photo | intro on desktop */
-  min-height: 100vh; /* makes hero full screen */
-  padding-top: env(safe-area-inset-top); /* fixes iPhone notch */
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
 }
+
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
@@ -59,12 +60,9 @@ a {
   overflow: hidden;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  background: radial-gradient(
-      120% 120% at 10% 10%,
-      rgba(255, 255, 255, 0.55) 0%,
-      rgba(255, 255, 255, 0) 60%
-    ),
-    linear-gradient(180deg, rgba(216, 167, 177, 0.15), rgba(216, 167, 177, 0));
+  background: none;
+  /* radial-gradient(120% 120% at 10% 10%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, rgba(216,167,177,.15), rgba(216,167,177,0)); */
   border: 1px solid rgba(216, 167, 177, 0.35);
 }
 .photo img {
@@ -259,9 +257,11 @@ button {
     --pad: 20px;
   } /* reduce container padding on mobile */
 
-  /* Full-bleed photo: cancel container padding on all sides at top */
+  /* Pull the photo up by container padding + iPhone safe-area,
+     and full-bleed left/right */
   .photo {
-    margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) 0;
+    margin: calc(-1 * (var(--pad) + env(safe-area-inset-top)))
+      calc(-1 * var(--pad)) 0;
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -272,8 +272,7 @@ button {
     width: 100%;
     height: auto;
     object-fit: cover;
-
-    /* Keep your exact look: fade from ~65% downwards */
+    /* fade to blush (your existing style) */
     -webkit-mask-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 1) 65%,
@@ -284,16 +283,14 @@ button {
       rgba(0, 0, 0, 1) 65%,
       rgba(0, 0, 0, 0) 100%
     );
-
-    /* Blush tint during the fade to match your previous style */
     background: linear-gradient(to bottom, transparent 65%, var(--blush) 100%);
-    background-clip: padding-box; /* harmless, avoids odd paints on some webviews */
+    background-clip: padding-box;
   }
 
-  /* Remove the intro card chrome; pull text up into the fade */
+  /* Put text safely below the notch and lift it into the fade a bit */
   .intro {
     margin-top: -50px;
-    padding: 0 6px 14px;
+    padding: calc(env(safe-area-inset-top) + 6px) 6px 14px;
     background: transparent !important;
     border: 0 !important;
     box-shadow: none !important;
@@ -301,7 +298,7 @@ button {
     backdrop-filter: none !important;
   }
 
-  /* Mobile sizing polish */
+  /* Mobile polish */
   .footer {
     padding: 18px;
     border-radius: 14px;
@@ -364,16 +361,15 @@ button {
   height: 18px;
   flex: 0 0 18px;
   transition: transform 0.25s ease;
-  /* if your arrow is dark and you want it softer:
-     filter: brightness(0) saturate(100%) opacity(.7); */
+  filter: brightness(0) saturate(100%) opacity(0.7);
 }
 .acc-btn[aria-expanded="true"] .acc-arrow {
   transform: rotate(180deg);
 }
 
 .acc-panel {
-  padding: 0 12px 12px 40px; /* indent to line up with text after arrow */
-  max-height: none; /* natural height; show/hide via [hidden] */
+  padding: 0 12px 12px 40px;
+  max-height: none;
 }
 .acc-panel p {
   margin: 10px 0;
@@ -383,9 +379,9 @@ button {
   margin: 8px 0 16px 18px;
 }
 .acc-panel ul {
-  margin: 8px 0 16px 0; /* remove left margin */
-  padding-left: 0; /* remove browser’s default indent */
-  list-style-position: inside; /* makes bullet align with first text char */
+  margin: 8px 0 16px 0;
+  padding-left: 0;
+  list-style-position: inside;
 }
 /* mobile polish for accordion spacing (keeps your current mobile vibe) */
 @media (max-width: 900px) {
@@ -417,7 +413,7 @@ button {
   font-weight: 400;
   font-size: clamp(22px, 3vw, 32px);
   margin: 12px 0 20px;
-  text-align: center; /* keeps it centered nicely */
+  text-align: center;
   letter-spacing: 0.3px;
 }
 
