@@ -13,6 +13,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 html,
 body {
@@ -20,7 +23,7 @@ body {
   height: 100%;
   /* background: linear-gradient(180deg,var(--shell),var(--blush)); */
   /* background: linear-gradient(to bottom, transparent 65%, #fbeff4 100%); */
-  background: #e9e0d6;
+  background: #ffe6ee;
   color: var(--char);
   font-family: "Old Standard TT", serif;
   padding: 0;
@@ -250,7 +253,9 @@ button {
 .error {
   color: #b00020;
 }
-
+.jump-btn {
+  display: none; /* hidden by default (desktop) */
+}
 /* ---------- MOBILE: FULL-BLEED PHOTO + BLUSH FADE + NO CARD CHROME ---------- */
 @media (max-width: 900px) {
   :root {
@@ -371,6 +376,40 @@ button {
   .button {
     padding: 13px 16px;
     border-radius: 12px;
+  }
+  .jump-btn {
+    display: inline-flex; /* text + arrow in one row */
+    align-items: center; /* vertical alignment */
+    justify-content: center; /* centers text+icon inside */
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 14px;
+    background: var(--rasp);
+    color: #fff;
+    font-weight: 700;
+    font-family: "Old Standard TT", serif;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(214, 69, 122, 0.25);
+    transition: background 0.2s ease, transform 0.15s ease;
+
+    /* Centering trick */
+    display: flex; /* treat it as block-level flex */
+    margin: 20px auto 4px; /* auto left/right centers it */
+    width: fit-content; /* shrink to content size */
+  }
+
+  .jump-btn:hover {
+    background: var(--cerise);
+    transform: translateY(-2px);
+  }
+
+  .jump-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+    flex-shrink: 0;
+    vertical-align: middle;
+    margin-top: -1px; /* tiny nudge */
   }
 }
 
