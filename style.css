@@ -255,7 +255,7 @@ button {
 @media (max-width: 900px) {
   :root {
     --pad: 20px;
-  } 
+  }
 
   /* Pull the photo up by container padding + iPhone safe-area,
      and full-bleed left/right */
@@ -267,13 +267,15 @@ button {
     box-shadow: none;
     background: none;
   } */
-  .photo{
+  .photo {
     /* full-bleed left/right and pulled up by padding + safe-area */
     margin: calc(-1 * (var(--pad) + env(safe-area-inset-top)))
-            calc(-1 * var(--pad))
-            0;
+      calc(-1 * var(--pad)) 0;
     position: relative;
-    border:none; border-radius:0; box-shadow:none; background:none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
   }
   /* .photo img {
     border-radius: 0;
@@ -293,18 +295,28 @@ button {
     background: linear-gradient(to bottom, transparent 65%, var(--blush) 100%);
     background-clip: padding-box;
   } */
-  .photo img{
-    display:block; width:100%; height:auto; object-fit:cover;
-    border-radius:0;
+  .photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0;
 
     /* same soft fade into page color */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 65%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 65%,
+      rgba(0, 0, 0, 0) 100%
+    );
     background: linear-gradient(to bottom, transparent 65%, var(--blush) 100%);
     background-clip: padding-box;
   }
 
-  
   /* .intro {
     margin-top: -50px;
     padding: calc(env(safe-area-inset-top) + 6px) 6px 14px;
@@ -314,12 +326,20 @@ button {
     border-radius: 0 !important;
     backdrop-filter: none !important;
   } */
-  
+
   /* text sits nicely below; no forced full-screen height */
-  .hero{ grid-template-columns:1fr; row-gap:0; }
-  .intro{
-    margin-top:-50px; padding: calc(env(safe-area-inset-top) + 6px) 6px 14px;
-    background:transparent !important; border:0 !important; box-shadow:none !important; border-radius:0 !important; backdrop-filter:none !important;
+  .hero {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+  .intro {
+    margin-top: -50px;
+    padding: calc(env(safe-area-inset-top) + 6px) 6px 14px;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
   }
 
   /* Mobile polish */
