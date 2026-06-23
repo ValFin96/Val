@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The 9 to 5 Exit Plan — a survival guide by @valdoesai</title>
+<title>The 9 to 5 Exit Plan: a survival guide by @valdoesai</title>
 <meta name="description" content="How I'm leaving my job in 12 to 16 months. On purpose, not on impulse, and without burning out.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,6 +72,9 @@
   .hero h1{font-size:clamp(52px,16vw,118px);margin:0}
   .hero h1 .lo{display:block;color:var(--orange)}
   .hero p{margin:22px auto 0;max-width:30ch;color:#c7cbd0}
+  .builtwith{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;
+    letter-spacing:2px;text-transform:uppercase;color:var(--yellow);border:1px solid rgba(253,207,8,.3);
+    border-radius:50px;padding:9px 16px}
   .scrolldown{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;
     font-weight:700;letter-spacing:3px;font-size:11px;color:var(--muted);text-transform:uppercase;
     display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -89,6 +92,12 @@
 
   .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:18px}
   .eyebrow .ln{height:1px;flex:1;background:var(--line)}
+
+  /* ---------- my story band ---------- */
+  .story{background:linear-gradient(180deg,rgba(230,80,43,.06),transparent)}
+  .story .q{font-weight:600;font-size:clamp(20px,5.6vw,30px);line-height:1.42;color:#fff;max-width:24ch}
+  .story .q .accent,.story .q .accent-y{font-weight:700}
+  .story .sig{margin-top:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--muted)}
 
   /* big ghost number behind a phase */
   .phase{position:relative}
@@ -150,7 +159,6 @@
   .chip b{display:block;font-size:13px;color:#fff;font-weight:700}
   .chip span{font-size:10px;color:var(--muted)}
   .chip .ic{font-size:18px;display:block;margin-bottom:2px}
-  /* place 4 chips around the circle, counter-rotate so they stay upright */
   .orbit .chip{animation:spin 34s linear infinite reverse}
   .c1{transform:rotate(0deg) translateY(-150px) rotate(0deg)}
   .c2{transform:rotate(90deg) translateY(-150px) rotate(-90deg)}
@@ -162,6 +170,22 @@
     .c3{transform:rotate(180deg) translateY(-122px) rotate(-180deg)}
     .c4{transform:rotate(270deg) translateY(-122px) rotate(-270deg)}
   }
+
+  /* ---------- ikigai venn ---------- */
+  .venn{position:relative;width:min(90vw,400px);aspect-ratio:1;margin:44px auto 0}
+  .circ{position:absolute;width:64%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.22);
+    display:flex;text-align:center;cursor:pointer;font-weight:700;font-size:12px;text-transform:uppercase;
+    letter-spacing:.5px;color:#fff;transition:box-shadow .25s, background .25s;padding:18px}
+  .circ span{text-shadow:0 1px 6px #000}
+  .love{top:0;left:50%;transform:translateX(-50%);background:rgba(230,80,43,.30);align-items:flex-start;justify-content:center}
+  .skill{top:50%;right:0;transform:translateY(-50%);background:rgba(253,207,8,.24);align-items:center;justify-content:flex-end}
+  .need{bottom:0;left:50%;transform:translateX(-50%);background:rgba(214,40,40,.30);align-items:flex-end;justify-content:center}
+  .paid{top:50%;left:0;transform:translateY(-50%);background:rgba(255,255,255,.12);align-items:center;justify-content:flex-start}
+  .circ.active{box-shadow:0 0 34px rgba(255,255,255,.3);z-index:5;border-color:rgba(255,255,255,.6)}
+  .vcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:6;
+    font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(13px,3.6vw,16px);text-align:center;
+    color:#fff;line-height:.95;pointer-events:none;text-shadow:0 0 12px #000,0 0 12px #000}
+  .vq{margin:26px auto 0;text-align:center;color:#cfd2d6;font-size:16px;min-height:50px;max-width:40ch}
 
   /* ---------- ritual steps ---------- */
   .steps{margin-top:30px;display:grid;gap:14px}
@@ -203,6 +227,7 @@
     <div class="kicker">From @valdoesai · a survival guide</div>
     <h1>The 9 to 5<span class="lo">Exit Plan</span></h1>
     <p>How I'm leaving my job in 12 to 16 months. On purpose, not on impulse, and without burning out on the way.</p>
+    <div class="builtwith">⚡ Built with AI · 1 prompt · about 1 hour</div>
   </div>
   <div class="scrolldown"><span>Start the plan</span><span class="arrow"></span></div>
 </header>
@@ -210,9 +235,18 @@
 <!-- ===================== THE RULE ===================== -->
 <section>
   <div class="wrap reveal">
-    <div class="eyebrow"><span class="kicker">The one rule</span><span class="ln"></span></div>
+    <div class="eyebrow"><span class="kicker">The only rule</span><span class="ln"></span></div>
     <h2 class="anton" style="font-size:clamp(38px,11vw,78px);max-width:13ch">Don't <span class="strike" id="strike1">rage quit</span></h2>
-    <p class="lead" style="margin-top:24px;max-width:52ch">The plan is not to wake up angry and hand in your notice. That is how people land in a worse job six months later. You stay, you stay calm, and every evening you put two hours into the thing that gets you out. Health first. Then the build. Twelve to sixteen months from now you leave with a runway, not a panic.</p>
+    <p class="lead" style="margin-top:24px;max-width:52ch">The plan is not to wake up angry and hand in your notice. That is how people land in a worse job 6 months later. You stay, you stay calm, and every evening you put 2 hours into the thing that gets you out. Health first. Then the build. 12 to 16 months from now you leave with a runway, not a panic.</p>
+  </div>
+</section>
+
+<!-- ===================== MY STORY ===================== -->
+<section class="story">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="kicker">My story</span><span class="ln"></span></div>
+    <p class="q">I work in pre-sales. High targets, high demand, the kind of role that takes all of you if you let it. So I am using that pressure on purpose: getting <span class="accent">as skilled as I can</span>, and building something of my own on the side. The goal is simple. In the next <span class="accent-y">6 to 12 months</span>, have something that earns outside the job. And the strange part is this: the moment you start building your own thing, the job <span class="accent">stops running your head</span>. You start to see how many doors there actually are.</p>
+    <div class="sig">By Val</div>
   </div>
 </section>
 
@@ -220,13 +254,13 @@
 <section>
   <div class="wrap reveal">
     <div class="eyebrow"><span class="kicker">The map</span><span class="ln"></span></div>
-    <h2 class="anton" style="font-size:clamp(34px,9.5vw,64px)">Sixteen months,<br>four stages</h2>
+    <h2 class="anton" style="font-size:clamp(34px,9.5vw,64px)">16 months,<br>4 stages</h2>
     <div class="tl" id="timeline">
       <div id="tlfill"></div>
-      <div class="stage"><span class="mk"></span><div class="mo">Months 1 – 3</div><h3>Lighten the job & experiment</h3><p>Automate the repetitive work. Start testing one AI tool a week.</p></div>
-      <div class="stage"><span class="mk"></span><div class="mo">Months 3 – 7</div><h3>Pick your lane & package it</h3><p>Find the skill you lean to. Turn your knowledge into something teachable.</p></div>
-      <div class="stage"><span class="mk"></span><div class="mo">Months 6 – 12</div><h3>Build an audience & first income</h3><p>Show up where your people are. Land the first paid work.</p></div>
-      <div class="stage"><span class="mk"></span><div class="mo">Months 12 – 16</div><h3>Hit your number & leave</h3><p>Runway saved, income replaced. The decision makes itself.</p></div>
+      <div class="stage"><span class="mk"></span><div class="mo">Months 1 to 3</div><h3>Lighten the job & experiment</h3><p>Automate the repetitive work. Start testing 1 AI tool a week.</p></div>
+      <div class="stage"><span class="mk"></span><div class="mo">Months 3 to 7</div><h3>Pick your lane & package it</h3><p>Find the skill you lean to. Turn your knowledge into something teachable.</p></div>
+      <div class="stage"><span class="mk"></span><div class="mo">Months 6 to 12</div><h3>Build an audience & first income</h3><p>Show up where your people are. Land the first paid work.</p></div>
+      <div class="stage"><span class="mk"></span><div class="mo">Months 12 to 16</div><h3>Hit your number & leave</h3><p>Runway saved, income replaced. The decision makes itself.</p></div>
     </div>
   </div>
 </section>
@@ -239,7 +273,7 @@
     <h2 class="anton">Buy back your <span class="accent">evenings</span></h2>
     <p class="lead">You cannot build at night if the job drains every drop by 6pm. So first, make the job lighter. Most companies now hand you an AI tool. Mine gives us ChatGPT, so I build a custom GPT for the tasks I repeat every single day.</p>
     <details class="check" open>
-      <summary><span class="plus"></span>Three GPTs I build at work</summary>
+      <summary><span class="plus"></span>3 GPTs I build at work</summary>
       <div class="body">
         <div class="ck"><span class="dot"></span><span><b>Email triage.</b> It reads the inbox and drafts replies from the company knowledge. Half my morning, back.</span></div>
         <div class="ck"><span class="dot"></span><span><b>Weekly reports.</b> It pulls the data from the same folder or SharePoint and assembles the draft on schedule.</span></div>
@@ -256,10 +290,10 @@
     <span class="ghost">02</span>
     <div class="eyebrow"><span class="kicker">Phase 02 · Get fluent</span><span class="ln"></span></div>
     <h2 class="anton">Get fluent, <span class="accent-y">fast</span></h2>
-    <p class="lead">"AI" is an overused word. Ignore the noise. The skill that pays is being fluent: knowing what each tool actually does, so you spot an opening before everyone else. Pick one tool a week and make something real with it.</p>
+    <p class="lead">"AI" is an overused word. Ignore the noise. The skill that pays is being fluent: knowing what each tool actually does, so you spot an opening before everyone else. Pick 1 tool a week and make something real with it.</p>
 
     <div class="orbitwrap">
-      <div class="core"><span class="anton">YOU</span><small>one tool / week</small></div>
+      <div class="core"><span class="anton">YOU</span><small>1 tool / week</small></div>
       <div class="orbit">
         <div class="chip c1"><span class="ic">🍌</span><b>Nano Banana</b><span>image generation</span></div>
         <div class="chip c2"><span class="ic">🧍</span><b>HeyGen</b><span>your avatar</span></div>
@@ -268,43 +302,64 @@
       </div>
     </div>
 
-    <p class="note" style="text-align:center;margin-top:34px">This page was built with Claude Code. The avatar tools mean you can run social before you ever go on camera.</p>
-    <div class="callout">
-      <div class="lab">Permission to spend</div>
-      <p>Do not be afraid to put a little money into tools. You are buying the map of what is possible. Message me and we will set your weekly testing plan together.</p>
+    <div class="callout y">
+      <div class="lab">The skill that compounds</div>
+      <p>This whole page was built with AI, from basically 1 prompt, in about an hour. That is the point of learning to build. Once you can do this, you can make a guide like it for any skill and any person, fast. That is a real product you can sell.</p>
     </div>
+    <p class="note">The avatar and voice tools mean you can run social long before you ever go on camera.</p>
   </div>
 </section>
 
-<!-- ===================== PHASE 3 ===================== -->
+<!-- ===================== PHASE 3 · IKIGAI ===================== -->
 <section>
   <div class="wrap reveal phase">
     <span class="ghost">03</span>
-    <div class="eyebrow"><span class="kicker">Phase 03 · Monetise</span><span class="ln"></span></div>
+    <div class="eyebrow"><span class="kicker">Phase 03 · Find your thing</span><span class="ln"></span></div>
+    <h2 class="anton">Find your <span class="accent">thing</span></h2>
+    <p class="lead">Before you build, find the overlap. The Japanese call it ikigai: the spot where 4 circles meet. What you love. What you are good at. What the world needs. What people will pay for. Whatever sits in the middle is what you build and sell.</p>
+
+    <div class="venn" id="venn">
+      <button class="circ love" data-q="What would you happily read about on a day off?"><span>What you<br>love</span></button>
+      <button class="circ skill" data-q="What do people already come to you for?"><span>What you're<br>good at</span></button>
+      <button class="circ need" data-q="What problem do you keep hearing people complain about?"><span>What the<br>world needs</span></button>
+      <button class="circ paid" data-q="What would someone hand money over to solve?"><span>What you<br>can be paid for</span></button>
+      <div class="vcenter">Your<br>thing</div>
+    </div>
+    <p class="vq" id="vq">Tap a circle to see the question it asks you.</p>
+
+    <p class="note">Pressure-test the last circle with AI. Ask it to read Reddit and the forums in your area and show you what people already pay to fix.</p>
+  </div>
+</section>
+
+<!-- ===================== PHASE 4 · MONETISE ===================== -->
+<section>
+  <div class="wrap reveal phase">
+    <span class="ghost">04</span>
+    <div class="eyebrow"><span class="kicker">Phase 04 · Monetise</span><span class="ln"></span></div>
     <h2 class="anton">Package what <span class="accent">you know</span></h2>
     <p class="lead">AI is only the tool. The thing you sell is your knowledge, packaged faster than was ever possible before. Even the jobs people call "boring" hold something teachable.</p>
     <div class="callout y">
-      <div class="lab">The accountant example</div>
-      <p>An accountant is not selling spreadsheets. They are selling: "here is how someone on a low income actually saves for their first home." That is a pain a real person feels at night. Find the pain, find the people.</p>
+      <div class="lab">Take the most "boring" job</div>
+      <p>An accountant. What they really know is how someone on a low income can save for a first home without giving up their whole life. That is a pain a real person feels at night. Name that pain in their own words, and you have found your people.</p>
     </div>
     <details class="check">
       <summary><span class="plus"></span>Before you commit</summary>
       <div class="body">
         <div class="ck"><span class="dot"></span><span><b>Mine the pain.</b> Ask AI to read Reddit and the forums in your area for the exact words people use about that problem.</span></div>
         <div class="ck"><span class="dot"></span><span><b>Pick a side.</b> Are you talking to people (B2C) or businesses (B2B)? They need different things. Settle this first.</span></div>
-        <div class="ck"><span class="dot"></span><span><b>Have a strategy.</b> Research it properly before you build the whole thing, not after.</span></div>
+        <div class="ck"><span class="dot"></span><span><b>Package it fast.</b> A guide like this one is a product. With the build skill, you can ship one in an evening.</span></div>
       </div>
     </details>
   </div>
 </section>
 
-<!-- ===================== PHASE 4 ===================== -->
+<!-- ===================== PHASE 5 · AUDIENCE ===================== -->
 <section>
   <div class="wrap reveal phase">
-    <span class="ghost">04</span>
-    <div class="eyebrow"><span class="kicker">Phase 04 · Audience</span><span class="ln"></span></div>
+    <span class="ghost">05</span>
+    <div class="eyebrow"><span class="kicker">Phase 05 · Audience</span><span class="ln"></span></div>
     <h2 class="anton">Earn an <span class="accent">audience</span></h2>
-    <p class="lead">A website costs almost nothing now. Anyone can follow a YouTube video and ship one. The real work starts after: getting it in front of people. That part is where most plans quietly stop.</p>
+    <p class="lead">A website costs almost nothing now. Anyone can follow a YouTube video and ship one. The real work starts after: getting it in front of people. That part is where most plans stall.</p>
     <div class="callout">
       <div class="lab">Start on Threads</div>
       <p>Threads is the low-pressure way in. No camera, no production. Just text: questions, opinions, your honest story. It doubles as free market research, and you find out fast whether people relate to you.</p>
@@ -320,34 +375,34 @@
   </div>
 </section>
 
-<!-- ===================== PHASE 5 ===================== -->
+<!-- ===================== PHASE 6 · ENERGY ===================== -->
 <section>
   <div class="wrap reveal phase">
-    <span class="ghost">05</span>
-    <div class="eyebrow"><span class="kicker">Phase 05 · Protect your energy</span><span class="ln"></span></div>
+    <span class="ghost">06</span>
+    <div class="eyebrow"><span class="kicker">Phase 06 · Protect your energy</span><span class="ln"></span></div>
     <h2 class="anton">Protect your <span class="accent-y">energy</span></h2>
-    <p class="lead">Do not walk out of one job straight into another. The two hours are for your health and your wealth, in that order. A healthy you builds for far longer than a burnt-out one. The evening has an order.</p>
+    <p class="lead">Do not walk out of one job straight into another. The 2 hours are for your health and your wealth, in that order. A healthy you builds for far longer than a burnt-out one. The evening has an order.</p>
     <div class="steps">
       <div class="step"><span class="n">1</span><div><b>Work ends.</b><span>Change into your gym clothes straight away, before you can talk yourself out of it.</span></div></div>
       <div class="step"><span class="n">2</span><div><b>Move first.</b><span>Gym, a walk, or mat pilates in front of the TV. Get the dopamine before anything else.</span></div></div>
       <div class="step"><span class="n">3</span><div><b>Reset.</b><span>Shower, dinner, breathe. Close the work-day chapter properly.</span></div></div>
-      <div class="step"><span class="n">4</span><div><b>One hour on the build.</b><span>Put a timer on it. When it rings, you stop. It never eats the whole night.</span></div></div>
+      <div class="step"><span class="n">4</span><div><b>1 hour on the build.</b><span>Put a timer on it. When it rings, you stop. It never eats the whole night.</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ===================== PHASE 6 ===================== -->
+<!-- ===================== PHASE 7 · EXIT ===================== -->
 <section>
   <div class="wrap reveal phase">
-    <span class="ghost">06</span>
-    <div class="eyebrow"><span class="kicker">Phase 06 · The exit</span><span class="ln"></span></div>
+    <span class="ghost">07</span>
+    <div class="eyebrow"><span class="kicker">Phase 07 · The exit</span><span class="ln"></span></div>
     <h2 class="anton">Know your <span class="accent">exit number</span></h2>
     <p class="lead">This is the part most "quit your job" advice skips. Do not leave on a feeling. Leave on a number. When the number is hit, the decision makes itself and the fear goes quiet.</p>
     <details class="check" open>
-      <summary><span class="plus"></span>The three you have to hit</summary>
+      <summary><span class="plus"></span>The 3 you have to hit</summary>
       <div class="body">
         <div class="ck"><span class="dot"></span><span><b>Runway.</b> Enough saved to cover 6 to 12 months of your real costs, not your ideal ones.</span></div>
-        <div class="ck"><span class="dot"></span><span><b>Replacement income.</b> Your side income covers a set share of your salary for three months straight, before you hand in notice.</span></div>
+        <div class="ck"><span class="dot"></span><span><b>Replacement income.</b> Your side income covers a set share of your salary for 3 months straight, before you hand in notice.</span></div>
         <div class="ck"><span class="dot"></span><span><b>Clean hands.</b> Build on your own time and your own tools. Never the company's, so nothing follows you out the door.</span></div>
       </div>
     </details>
@@ -358,7 +413,7 @@
 <section style="text-align:center">
   <div class="wrap reveal">
     <div class="bignum"><span id="counter">16</span><small>months from today to free</small></div>
-    <p style="margin:24px auto 0;max-width:34ch">Two hours a night. Health first. A number that tells you when to go.</p>
+    <p style="margin:24px auto 0;max-width:34ch">2 hours a night. Health first. A number that tells you when to go.</p>
   </div>
 </section>
 
@@ -367,7 +422,7 @@
   <div class="wrap reveal">
     <div class="eyebrow" style="justify-content:center"><span class="ln" style="max-width:60px"></span><span class="kicker">Your move</span><span class="ln" style="max-width:60px"></span></div>
     <h2 class="anton">Build your <em>version</em></h2>
-    <p style="margin:22px auto 0;max-width:40ch">This is the exact plan I'm running. If you want help mapping yours, I'm one message away.</p>
+    <p style="margin:22px auto 0;max-width:40ch">This is the exact plan I'm running. If you want help mapping yours, just message me.</p>
     <div class="btnrow">
       <a class="btn primary" href="https://instagram.com/valdoesai" target="_blank" rel="noopener">Follow @valdoesai</a>
       <a class="btn ghost" href="https://instagram.com/valdoesai" target="_blank" rel="noopener">Message me to map your plan</a>
@@ -383,13 +438,14 @@
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* scroll progress bar */
+  /* scroll progress bar + timeline fill */
   var bar = document.getElementById('progress');
+  var tl = document.getElementById('timeline');
+  var fill = document.getElementById('tlfill');
   function onScroll(){
     var h = document.documentElement;
     var p = h.scrollTop / (h.scrollHeight - h.clientHeight);
     bar.style.width = (p*100) + '%';
-    // timeline fill
     if(tl){
       var r = tl.getBoundingClientRect();
       var vh = window.innerHeight;
@@ -398,8 +454,6 @@
       fill.style.height = (prog*100) + '%';
     }
   }
-  var tl = document.getElementById('timeline');
-  var fill = document.getElementById('tlfill');
   window.addEventListener('scroll', onScroll, {passive:true});
 
   /* reveal on scroll */
@@ -416,6 +470,16 @@
     }, {threshold:.9});
     sio.observe(s1);
   }
+
+  /* ikigai venn taps */
+  var vq = document.getElementById('vq');
+  document.querySelectorAll('.circ').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.circ').forEach(function(c){ c.classList.remove('active'); });
+      b.classList.add('active');
+      if(vq) vq.textContent = b.getAttribute('data-q');
+    });
+  });
 
   /* count up 12 -> 16 */
   var c = document.getElementById('counter');
