@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The 9 to 5 Exit Plan — a survival guide by @valdoesai</title>
+<meta name="description" content="How I'm leaving my job in 12 to 16 months. On purpose, not on impulse, and without burning out.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0A0A; --bg2:#11110f;
+    --white:#ffffff; --muted:#9aa0a8; --muted2:#6b6f76;
+    --orange:#E6502B; --yellow:#FDCF08; --red:#D62828;
+    --line:#1d1d1d;
+    --maxw:760px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg); color:var(--white);
+    font-family:'Montserrat',system-ui,sans-serif;
+    line-height:1.55; overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* film grain */
+  body::after{
+    content:""; position:fixed; inset:0; z-index:60; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  h1,h2,h3,.anton{font-family:'Anton',sans-serif;text-transform:uppercase;font-weight:400;letter-spacing:.5px;line-height:.96}
+  .kicker{font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--muted);
+    font-size:clamp(11px,3vw,13px)}
+  .accent{color:var(--orange)}
+  .accent-y{color:var(--yellow)}
+  p{color:#d6d9dd;font-size:clamp(15px,4.2vw,17px)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+
+  /* brand strike */
+  .strike{position:relative;display:inline-block;color:#f2f2f2}
+  .strike::after{content:"";position:absolute;left:-4%;right:-4%;top:52%;height:.18em;background:var(--red);
+    transform:rotate(-3deg) scaleX(var(--sx,1));transform-origin:left center;transition:transform .7s ease}
+  .strike.lit::after{--sx:1}
+
+  /* ---------- scroll progress ---------- */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:70;
+    background:linear-gradient(90deg,var(--orange),var(--yellow))}
+
+  /* ---------- floating blobs ---------- */
+  .blob{position:fixed;border-radius:50%;filter:blur(70px);opacity:.20;z-index:0;pointer-events:none}
+  .blob.o{width:320px;height:320px;background:var(--orange)}
+  .blob.y{width:260px;height:260px;background:var(--yellow)}
+  .b1{top:-60px;left:-80px;animation:drift1 22s ease-in-out infinite}
+  .b2{bottom:8%;right:-100px;animation:drift2 26s ease-in-out infinite}
+  @keyframes drift1{50%{transform:translate(60px,80px)}}
+  @keyframes drift2{50%{transform:translate(-70px,-60px)}}
+
+  /* ---------- hero ---------- */
+  header.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;
+    justify-content:center;align-items:center;text-align:center;padding:0 26px;overflow:hidden}
+  #spark{position:absolute;inset:0;z-index:1}
+  .ring{position:absolute;top:50%;left:50%;width:min(82vw,560px);aspect-ratio:1;z-index:1;
+    transform:translate(-50%,-46%);border:1px dashed rgba(230,80,43,.35);border-radius:50%;
+    animation:spin 40s linear infinite}
+  .ring::before{content:"";position:absolute;inset:14%;border:1px dashed rgba(253,207,8,.18);border-radius:50%;
+    animation:spin 60s linear infinite reverse}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .hero-inner{position:relative;z-index:3;max-width:680px}
+  .hero .kicker{margin-bottom:18px}
+  .hero h1{font-size:clamp(52px,16vw,118px);margin:0}
+  .hero h1 .lo{display:block;color:var(--orange)}
+  .hero p{margin:22px auto 0;max-width:30ch;color:#c7cbd0}
+  .scrolldown{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;
+    font-weight:700;letter-spacing:3px;font-size:11px;color:var(--muted);text-transform:uppercase;
+    display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scrolldown .arrow{width:1px;height:34px;background:linear-gradient(var(--orange),transparent);animation:pulse 1.8s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+  /* ---------- sections ---------- */
+  section{position:relative;z-index:2;padding:clamp(64px,14vw,120px) 0}
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .ring,.b1,.b2,.arrow,.orbit{animation:none!important}
+  }
+
+  .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .eyebrow .ln{height:1px;flex:1;background:var(--line)}
+
+  /* big ghost number behind a phase */
+  .phase{position:relative}
+  .ghost{position:absolute;top:-.34em;right:-2px;font-family:'Anton',sans-serif;
+    font-size:clamp(150px,42vw,300px);line-height:.8;color:#fff;opacity:.045;z-index:-1;pointer-events:none}
+  .phase h2{font-size:clamp(36px,10vw,72px);max-width:14ch}
+  .phase .lead{margin-top:22px;max-width:54ch}
+
+  /* checklist (expandable) */
+  details.check{margin-top:26px;border-top:1px solid var(--line)}
+  details.check>summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;align-items:center;
+    gap:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:13px;color:#fff}
+  details.check>summary::-webkit-details-marker{display:none}
+  .plus{width:22px;height:22px;flex:none;position:relative}
+  .plus::before,.plus::after{content:"";position:absolute;background:var(--orange);transition:transform .3s}
+  .plus::before{top:50%;left:0;right:0;height:2px;transform:translateY(-50%)}
+  .plus::after{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%)}
+  details[open] .plus::after{transform:translateX(-50%) scaleY(0)}
+  .check .body{padding-bottom:8px}
+  .ck{display:flex;gap:14px;padding:13px 0;border-top:1px solid #141414}
+  .ck:first-child{border-top:0}
+  .ck .dot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--orange);margin-top:8px;box-shadow:0 0 12px rgba(230,80,43,.6)}
+  .ck b{color:#fff;font-weight:700}
+  .ck span{color:#aab0b7;font-size:15px}
+
+  /* callout box */
+  .callout{margin-top:28px;border:1px solid var(--line);border-left:3px solid var(--orange);
+    border-radius:16px;padding:24px 22px;background:linear-gradient(180deg,rgba(255,255,255,.025),transparent)}
+  .callout.y{border-left-color:var(--yellow)}
+  .callout .lab{font-weight:800;letter-spacing:2px;font-size:11px;text-transform:uppercase;color:var(--yellow);margin-bottom:10px}
+  .callout.y .lab{color:var(--orange)}
+  .callout p{font-size:16px}
+
+  /* note line */
+  .note{margin-top:22px;color:var(--muted);font-size:14.5px;font-style:italic}
+
+  /* ---------- timeline ---------- */
+  .tl{position:relative;margin-top:40px;padding-left:34px}
+  .tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  #tlfill{position:absolute;left:8px;top:6px;width:2px;height:0;background:linear-gradient(var(--orange),var(--yellow));box-shadow:0 0 14px rgba(230,80,43,.5)}
+  .stage{position:relative;padding:0 0 34px}
+  .stage:last-child{padding-bottom:0}
+  .stage .mk{position:absolute;left:-34px;top:2px;width:18px;height:18px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--orange)}
+  .stage .mo{font-weight:800;letter-spacing:1px;font-size:12px;color:var(--orange);text-transform:uppercase}
+  .stage h3{font-size:clamp(20px,5.5vw,26px);margin:4px 0 6px}
+  .stage p{font-size:15px;color:#aab0b7}
+
+  /* ---------- tool orbit ---------- */
+  .orbitwrap{margin:46px auto 0;position:relative;width:min(86vw,420px);aspect-ratio:1}
+  .orbit{position:absolute;inset:0;animation:spin 34s linear infinite}
+  .core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;text-align:center;
+    width:130px;height:130px;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    background:radial-gradient(circle,rgba(230,80,43,.22),rgba(10,10,10,.9));border:1px solid rgba(230,80,43,.4)}
+  .core .anton{font-size:30px;color:#fff}
+  .core small{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:2px}
+  .chip{position:absolute;top:50%;left:50%;width:104px;margin:-26px 0 0 -52px;
+    background:#121212;border:1px solid #242424;border-radius:12px;padding:10px 8px;text-align:center}
+  .chip b{display:block;font-size:13px;color:#fff;font-weight:700}
+  .chip span{font-size:10px;color:var(--muted)}
+  .chip .ic{font-size:18px;display:block;margin-bottom:2px}
+  /* place 4 chips around the circle, counter-rotate so they stay upright */
+  .orbit .chip{animation:spin 34s linear infinite reverse}
+  .c1{transform:rotate(0deg) translateY(-150px) rotate(0deg)}
+  .c2{transform:rotate(90deg) translateY(-150px) rotate(-90deg)}
+  .c3{transform:rotate(180deg) translateY(-150px) rotate(-180deg)}
+  .c4{transform:rotate(270deg) translateY(-150px) rotate(-270deg)}
+  @media(max-width:480px){
+    .c1{transform:rotate(0deg) translateY(-122px)}
+    .c2{transform:rotate(90deg) translateY(-122px) rotate(-90deg)}
+    .c3{transform:rotate(180deg) translateY(-122px) rotate(-180deg)}
+    .c4{transform:rotate(270deg) translateY(-122px) rotate(-270deg)}
+  }
+
+  /* ---------- ritual steps ---------- */
+  .steps{margin-top:30px;display:grid;gap:14px}
+  .step{display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:18px 18px;background:rgba(255,255,255,.015)}
+  .step .n{font-family:'Anton',sans-serif;font-size:34px;color:var(--orange);line-height:.8;min-width:42px}
+  .step b{color:#fff;font-weight:700;display:block;font-size:15px;margin-bottom:2px}
+  .step span{color:#aab0b7;font-size:14.5px}
+
+  /* count up */
+  .bignum{font-family:'Anton',sans-serif;font-size:clamp(70px,22vw,150px);color:var(--orange);line-height:.85}
+  .bignum small{font-family:'Montserrat';font-size:.14em;color:var(--muted);letter-spacing:3px;display:block;text-transform:uppercase;font-weight:700;margin-top:8px}
+
+  /* ---------- CTA ---------- */
+  .cta{text-align:center}
+  .cta h2{font-size:clamp(44px,13vw,86px);color:#fff}
+  .cta h2 em{font-style:normal;color:var(--orange)}
+  .btnrow{margin-top:30px;display:flex;flex-direction:column;gap:14px;align-items:center}
+  .btn{display:inline-block;font-weight:800;letter-spacing:1px;text-transform:uppercase;font-size:14px;
+    padding:16px 30px;border-radius:50px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+  .btn.primary{background:var(--orange);color:#0A0A0A;box-shadow:0 0 0 rgba(230,80,43,.6);animation:glow 2.6s ease-in-out infinite}
+  .btn.primary:active{transform:scale(.97)}
+  @keyframes glow{50%{box-shadow:0 0 34px rgba(230,80,43,.55)}}
+  .btn.ghost{border:1px solid #2a2a2a;color:#fff}
+  footer{padding:50px 0 70px;text-align:center}
+  footer .handle{font-family:'Anton',sans-serif;letter-spacing:5px;color:var(--muted2);font-size:15px;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="blob o b1"></div>
+<div class="blob y b2"></div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <canvas id="spark"></canvas>
+  <div class="ring"></div>
+  <div class="hero-inner">
+    <div class="kicker">From @valdoesai · a survival guide</div>
+    <h1>The 9 to 5<span class="lo">Exit Plan</span></h1>
+    <p>How I'm leaving my job in 12 to 16 months. On purpose, not on impulse, and without burning out on the way.</p>
+  </div>
+  <div class="scrolldown"><span>Start the plan</span><span class="arrow"></span></div>
+</header>
+
+<!-- ===================== THE RULE ===================== -->
+<section>
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="kicker">The one rule</span><span class="ln"></span></div>
+    <h2 class="anton" style="font-size:clamp(38px,11vw,78px);max-width:13ch">Don't <span class="strike" id="strike1">rage quit</span></h2>
+    <p class="lead" style="margin-top:24px;max-width:52ch">The plan is not to wake up angry and hand in your notice. That is how people land in a worse job six months later. You stay, you stay calm, and every evening you put two hours into the thing that gets you out. Health first. Then the build. Twelve to sixteen months from now you leave with a runway, not a panic.</p>
+  </div>
+</section>
+
+<!-- ===================== THE MAP ===================== -->
+<section>
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="kicker">The map</span><span class="ln"></span></div>
+    <h2 class="anton" style="font-size:clamp(34px,9.5vw,64px)">Sixteen months,<br>four stages</h2>
+    <div class="tl" id="timeline">
+      <div id="tlfill"></div>
+      <div class="stage"><span class="mk"></span><div class="mo">Months 1 – 3</div><h3>Lighten the job & experiment</h3><p>Automate the repetitive work. Start testing one AI tool a week.</p></div>
+      <div class="stage"><span class="mk"></span><div class="mo">Months 3 – 7</div><h3>Pick your lane & package it</h3><p>Find the skill you lean to. Turn your knowledge into something teachable.</p></div>
+      <div class="stage"><span class="mk"></span><div class="mo">Months 6 – 12</div><h3>Build an audience & first income</h3><p>Show up where your people are. Land the first paid work.</p></div>
+      <div class="stage"><span class="mk"></span><div class="mo">Months 12 – 16</div><h3>Hit your number & leave</h3><p>Runway saved, income replaced. The decision makes itself.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PHASE 1 ===================== -->
+<section>
+  <div class="wrap reveal phase">
+    <span class="ghost">01</span>
+    <div class="eyebrow"><span class="kicker">Phase 01 · Automate</span><span class="ln"></span></div>
+    <h2 class="anton">Buy back your <span class="accent">evenings</span></h2>
+    <p class="lead">You cannot build at night if the job drains every drop by 6pm. So first, make the job lighter. Most companies now hand you an AI tool. Mine gives us ChatGPT, so I build a custom GPT for the tasks I repeat every single day.</p>
+    <details class="check" open>
+      <summary><span class="plus"></span>Three GPTs I build at work</summary>
+      <div class="body">
+        <div class="ck"><span class="dot"></span><span><b>Email triage.</b> It reads the inbox and drafts replies from the company knowledge. Half my morning, back.</span></div>
+        <div class="ck"><span class="dot"></span><span><b>Weekly reports.</b> It pulls the data from the same folder or SharePoint and assembles the draft on schedule.</span></div>
+        <div class="ck"><span class="dot"></span><span><b>Knowledge templates.</b> It documents my important chats and turns them into reusable templates.</span></div>
+      </div>
+    </details>
+    <p class="note">Doing more in less time is good for them too. The point is the energy it leaves for you.</p>
+  </div>
+</section>
+
+<!-- ===================== PHASE 2 ===================== -->
+<section>
+  <div class="wrap reveal phase">
+    <span class="ghost">02</span>
+    <div class="eyebrow"><span class="kicker">Phase 02 · Get fluent</span><span class="ln"></span></div>
+    <h2 class="anton">Get fluent, <span class="accent-y">fast</span></h2>
+    <p class="lead">"AI" is an overused word. Ignore the noise. The skill that pays is being fluent: knowing what each tool actually does, so you spot an opening before everyone else. Pick one tool a week and make something real with it.</p>
+
+    <div class="orbitwrap">
+      <div class="core"><span class="anton">YOU</span><small>one tool / week</small></div>
+      <div class="orbit">
+        <div class="chip c1"><span class="ic">🍌</span><b>Nano Banana</b><span>image generation</span></div>
+        <div class="chip c2"><span class="ic">🧍</span><b>HeyGen</b><span>your avatar</span></div>
+        <div class="chip c3"><span class="ic">🎙️</span><b>ElevenLabs</b><span>voice clone</span></div>
+        <div class="chip c4"><span class="ic">💻</span><b>Claude Code</b><span>sites & apps</span></div>
+      </div>
+    </div>
+
+    <p class="note" style="text-align:center;margin-top:34px">This page was built with Claude Code. The avatar tools mean you can run social before you ever go on camera.</p>
+    <div class="callout">
+      <div class="lab">Permission to spend</div>
+      <p>Do not be afraid to put a little money into tools. You are buying the map of what is possible. Message me and we will set your weekly testing plan together.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PHASE 3 ===================== -->
+<section>
+  <div class="wrap reveal phase">
+    <span class="ghost">03</span>
+    <div class="eyebrow"><span class="kicker">Phase 03 · Monetise</span><span class="ln"></span></div>
+    <h2 class="anton">Package what <span class="accent">you know</span></h2>
+    <p class="lead">AI is only the tool. The thing you sell is your knowledge, packaged faster than was ever possible before. Even the jobs people call "boring" hold something teachable.</p>
+    <div class="callout y">
+      <div class="lab">The accountant example</div>
+      <p>An accountant is not selling spreadsheets. They are selling: "here is how someone on a low income actually saves for their first home." That is a pain a real person feels at night. Find the pain, find the people.</p>
+    </div>
+    <details class="check">
+      <summary><span class="plus"></span>Before you commit</summary>
+      <div class="body">
+        <div class="ck"><span class="dot"></span><span><b>Mine the pain.</b> Ask AI to read Reddit and the forums in your area for the exact words people use about that problem.</span></div>
+        <div class="ck"><span class="dot"></span><span><b>Pick a side.</b> Are you talking to people (B2C) or businesses (B2B)? They need different things. Settle this first.</span></div>
+        <div class="ck"><span class="dot"></span><span><b>Have a strategy.</b> Research it properly before you build the whole thing, not after.</span></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ===================== PHASE 4 ===================== -->
+<section>
+  <div class="wrap reveal phase">
+    <span class="ghost">04</span>
+    <div class="eyebrow"><span class="kicker">Phase 04 · Audience</span><span class="ln"></span></div>
+    <h2 class="anton">Earn an <span class="accent">audience</span></h2>
+    <p class="lead">A website costs almost nothing now. Anyone can follow a YouTube video and ship one. The real work starts after: getting it in front of people. That part is where most plans quietly stop.</p>
+    <div class="callout">
+      <div class="lab">Start on Threads</div>
+      <p>Threads is the low-pressure way in. No camera, no production. Just text: questions, opinions, your honest story. It doubles as free market research, and you find out fast whether people relate to you.</p>
+    </div>
+    <details class="check">
+      <summary><span class="plus"></span>How to keep it low commitment</summary>
+      <div class="body">
+        <div class="ck"><span class="dot"></span><span><b>Share the struggle,</b> not a highlight reel. That is what people relate to.</span></div>
+        <div class="ck"><span class="dot"></span><span><b>Schedule a week at once.</b> A bad or busy day never breaks the streak.</span></div>
+        <div class="ck"><span class="dot"></span><span><b>Start text-first.</b> Add video later, once the confidence is there.</span></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ===================== PHASE 5 ===================== -->
+<section>
+  <div class="wrap reveal phase">
+    <span class="ghost">05</span>
+    <div class="eyebrow"><span class="kicker">Phase 05 · Protect your energy</span><span class="ln"></span></div>
+    <h2 class="anton">Protect your <span class="accent-y">energy</span></h2>
+    <p class="lead">Do not walk out of one job straight into another. The two hours are for your health and your wealth, in that order. A healthy you builds for far longer than a burnt-out one. The evening has an order.</p>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><div><b>Work ends.</b><span>Change into your gym clothes straight away, before you can talk yourself out of it.</span></div></div>
+      <div class="step"><span class="n">2</span><div><b>Move first.</b><span>Gym, a walk, or mat pilates in front of the TV. Get the dopamine before anything else.</span></div></div>
+      <div class="step"><span class="n">3</span><div><b>Reset.</b><span>Shower, dinner, breathe. Close the work-day chapter properly.</span></div></div>
+      <div class="step"><span class="n">4</span><div><b>One hour on the build.</b><span>Put a timer on it. When it rings, you stop. It never eats the whole night.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PHASE 6 ===================== -->
+<section>
+  <div class="wrap reveal phase">
+    <span class="ghost">06</span>
+    <div class="eyebrow"><span class="kicker">Phase 06 · The exit</span><span class="ln"></span></div>
+    <h2 class="anton">Know your <span class="accent">exit number</span></h2>
+    <p class="lead">This is the part most "quit your job" advice skips. Do not leave on a feeling. Leave on a number. When the number is hit, the decision makes itself and the fear goes quiet.</p>
+    <details class="check" open>
+      <summary><span class="plus"></span>The three you have to hit</summary>
+      <div class="body">
+        <div class="ck"><span class="dot"></span><span><b>Runway.</b> Enough saved to cover 6 to 12 months of your real costs, not your ideal ones.</span></div>
+        <div class="ck"><span class="dot"></span><span><b>Replacement income.</b> Your side income covers a set share of your salary for three months straight, before you hand in notice.</span></div>
+        <div class="ck"><span class="dot"></span><span><b>Clean hands.</b> Build on your own time and your own tools. Never the company's, so nothing follows you out the door.</span></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ===================== BIG NUMBER ===================== -->
+<section style="text-align:center">
+  <div class="wrap reveal">
+    <div class="bignum"><span id="counter">16</span><small>months from today to free</small></div>
+    <p style="margin:24px auto 0;max-width:34ch">Two hours a night. Health first. A number that tells you when to go.</p>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center"><span class="ln" style="max-width:60px"></span><span class="kicker">Your move</span><span class="ln" style="max-width:60px"></span></div>
+    <h2 class="anton">Build your <em>version</em></h2>
+    <p style="margin:22px auto 0;max-width:40ch">This is the exact plan I'm running. If you want help mapping yours, I'm one message away.</p>
+    <div class="btnrow">
+      <a class="btn primary" href="https://instagram.com/valdoesai" target="_blank" rel="noopener">Follow @valdoesai</a>
+      <a class="btn ghost" href="https://instagram.com/valdoesai" target="_blank" rel="noopener">Message me to map your plan</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="handle">@valdoesai</div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* scroll progress bar */
+  var bar = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (p*100) + '%';
+    // timeline fill
+    if(tl){
+      var r = tl.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var prog = (vh*0.8 - r.top) / (r.height + vh*0.2);
+      prog = Math.max(0, Math.min(1, prog));
+      fill.style.height = (prog*100) + '%';
+    }
+  }
+  var tl = document.getElementById('timeline');
+  var fill = document.getElementById('tlfill');
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* reveal on scroll */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.16});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* brand strike animation */
+  var s1 = document.getElementById('strike1');
+  if(s1){
+    var sio = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('lit'); sio.unobserve(e.target);} });
+    }, {threshold:.9});
+    sio.observe(s1);
+  }
+
+  /* count up 12 -> 16 */
+  var c = document.getElementById('counter');
+  if(c){
+    var done=false;
+    var cio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting && !done){ done=true; var n=12;
+          var t=setInterval(function(){ n++; c.textContent=n; if(n>=16) clearInterval(t); },180); }
+      });
+    }, {threshold:.6});
+    cio.observe(c);
+  }
+
+  /* hero ember particles */
+  var cv = document.getElementById('spark');
+  if(cv && !reduce){
+    var ctx = cv.getContext('2d'), W,H,ps=[];
+    function size(){ W=cv.width=cv.offsetWidth; H=cv.height=cv.offsetHeight; }
+    size(); window.addEventListener('resize', size);
+    var COLORS=['#E6502B','#FDCF08','#E6502B'];
+    for(var i=0;i<46;i++){ ps.push({
+      x:Math.random()*W, y:Math.random()*H, r:Math.random()*2+.6,
+      vy:-(Math.random()*.4+.12), vx:(Math.random()-.5)*.25,
+      a:Math.random()*.5+.2, c:COLORS[i%3]
+    }); }
+    function loop(){
+      ctx.clearRect(0,0,W,H);
+      ps.forEach(function(p){
+        p.y+=p.vy; p.x+=p.vx;
+        if(p.y< -10){ p.y=H+10; p.x=Math.random()*W; }
+        ctx.globalAlpha=p.a; ctx.fillStyle=p.c;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7); ctx.fill();
+      });
+      ctx.globalAlpha=1; requestAnimationFrame(loop);
+    }
+    loop();
+  }
+  onScroll();
+})();
+</script>
+</body>
+</html>
