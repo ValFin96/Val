@@ -232,6 +232,9 @@
   var SINGLE = { day:true, sort:true, leave:true };
   var pages = document.querySelectorAll('.page');
   var reflectionSent = false;
+  /* one id per run, so a signup updates that run's row instead of adding a new one */
+  function newSid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,8); }
+  var sid = newSid();
 
   var WISDOM_DAY = {
     "Just a stressful, full-on day": {head:"A full-on day.", body:[
@@ -348,7 +351,7 @@
     if(reflectionSent) return;
     reflectionSent = true;
     send({
-      event:'reflection', ts:new Date().toISOString(),
+      event:'reflection', ts:new Date().toISOString(), sid:sid,
       day_tags:Array.from(sel.day),
       sort_tags:Array.from(sel.sort),
       leave_tags:Array.from(sel.leave)
@@ -363,7 +366,7 @@
     if(!validEmail(email)){ err.textContent = 'That email doesn’t look right. Mind checking it?'; return; }
     err.textContent = '';
     send({
-      event:'signup', ts:new Date().toISOString(), email:email,
+      event:'signup', ts:new Date().toISOString(), sid:sid, email:email,
       day_tags:Array.from(sel.day), sort_tags:Array.from(sel.sort), leave_tags:Array.from(sel.leave)
     });
     showThanks('You’re on the list.', 'I’ll reach out with how to build things like this. Now go shut the laptop. It’ll all still be there tomorrow, and most of it won’t matter.');
@@ -381,6 +384,7 @@
   function resetAll(){
     sel={day:new Set(),sort:new Set(),leave:new Set()};
     reflectionSent=false;
+    sid=newSid();
     document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('selected');});
     var e=document.getElementById('email'); if(e) e.value='';
     document.getElementById('email-err').textContent='';
