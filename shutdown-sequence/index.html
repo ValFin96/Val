@@ -121,7 +121,7 @@
     <section class="page" data-page="3">
       <div class="marker"><span class="bar"></span> Sort</div>
       <h2 class="prompt">Be honest. Any of it actually yours?</h2>
-      <p class="helper">Yours means you'd do it differently next time. Most of it isn't. Tap what's true.</p>
+      <p class="helper">Yours means you'd do it differently next time. Most of it isn't. Pick the closest one.</p>
       <div class="chips" id="sort-chips">
         <span class="chip" onclick="toggleChip(this,'sort')">Honestly, none of it</span>
         <span class="chip" onclick="toggleChip(this,'sort')">Maybe one small thing</span>
@@ -206,7 +206,7 @@
         <h2 id="thanks-line">You're on the list.</h2>
         <div class="body-text"><p id="thanks-sub">Now go shut the laptop. It'll all still be there tomorrow, and most of it won't matter.</p></div>
         <div class="signoff">
-          <span class="hint">Screenshot the last page if it helped.</span>
+          <span class="hint">It'll all still be there tomorrow.</span>
           <span class="handle">@valdoesai</span>
         </div>
         <div class="nav"><button class="btn-ghost" onclick="resetAll()">Start over</button><span></span></div>
@@ -229,6 +229,7 @@
   var CAPTURE_URL = "";
 
   var sel = { day:new Set(), sort:new Set(), leave:new Set() };
+  var SINGLE = { sort:true };
   var pages = document.querySelectorAll('.page');
   var reflectionSent = false;
 
@@ -278,6 +279,13 @@
 
   function toggleChip(el, group){
     var label = el.textContent.trim();
+    if(SINGLE[group]){
+      if(sel[group].has(label)){ sel[group].clear(); el.classList.remove('selected'); return; }
+      sel[group].clear();
+      el.parentNode.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('selected'); });
+      sel[group].add(label); el.classList.add('selected');
+      return;
+    }
     if(sel[group].has(label)){ sel[group].delete(label); el.classList.remove('selected'); }
     else { sel[group].add(label); el.classList.add('selected'); }
   }
