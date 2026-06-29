@@ -151,7 +151,7 @@
     <section class="page" data-page="5">
       <div class="marker"><span class="bar"></span> Leave it</div>
       <h2 class="prompt">What are you leaving at the desk tonight?</h2>
-      <p class="helper">Pick the heaviest one to put down. You can grab it back at 9am if you really want to.</p>
+      <p class="helper">Pick the heaviest one to put down. You can grab it back tomorrow if you really want to.</p>
       <div class="chips" id="leave-chips">
         <span class="chip" onclick="toggleChip(this,'leave')">The replay of that conversation</span>
         <span class="chip" onclick="toggleChip(this,'leave')">Other people's urgency</span>
@@ -171,7 +171,7 @@
       <h2 class="prompt">How to actually leave it at work</h2>
       <div class="body-text" style="margin-top:8px;">
         <p>Your brain keeps poking at unfinished things until you give it a plan. Decide tomorrow's first move in one line, in your head, and it mostly stops bringing it up tonight.</p>
-        <p>That feeling that today was a disaster is a thought, not a verdict. You're allowed to notice it without taking orders from it.</p>
+        <p>That feeling that today was a disaster is just a thought, and tired you is the one telling it. You're allowed to notice it without taking orders from it.</p>
         <p>Then give the day a hard edge. Shut the laptop, change your clothes, walk around the block. The body needs a signal that work is over, especially when there's no commute to do it for you.</p>
         <p class="personal" id="payoff-personal"></p>
       </div>
@@ -187,8 +187,8 @@
         <div class="eyebrow">One more thing</div>
         <h2 class="prompt">Your job is just a job.</h2>
         <div class="body-text" style="margin-top:6px;">
-          <p>Today felt heavy because you care. But it's a job. It pays you, it isn't meant to own how you feel at 9pm.</p>
-          <p>The way out isn't caring less. It's having something of your own: a skill you build, and a thing you can sell. That's what turns this worn-out feeling into something that actually goes somewhere, instead of just a paycheck you're scared to lose.</p>
+          <p>Today felt heavy because you care. But it's a job. It pays you, it doesn't get to own your evening too.</p>
+          <p>Caring less never works. What does work is having something of your own: a skill you build, and a thing you can sell. That's how this worn-out feeling turns into something that goes somewhere, instead of a paycheck you're scared to lose.</p>
           <p>I made this little tool in an afternoon, with AI. That's the real point. You can build things like this too, and I can show you how.</p>
         </div>
         <div class="field-label">Email</div>
@@ -223,9 +223,9 @@
      Empty = demo mode (logs to console, nothing sent).
 
      Two events are sent:
-       'reflection' — fired when they reach the shutdown page. Tags only, NO email.
-                      This is your research data even from people who never sign up.
-       'signup'     — fired when they submit an email. Tags + email. */
+       'reflection': fired when they reach the shutdown page. Tags only, NO email.
+                     This is your research data even from people who never sign up.
+       'signup': fired when they submit an email. Tags + email. */
   var CAPTURE_URL = "";
 
   var sel = { day:new Set(), sort:new Set(), leave:new Set() };
@@ -235,16 +235,16 @@
 
   var WISDOM_DAY = {
     "Just a stressful, full-on day": {head:"A full-on day.", body:[
-      "It felt like a lot because it was a lot. A full day and a bad day aren't the same thing, though.",
+      "It felt like a lot because it was a lot. The busy ones blur together and pass.",
       "The volume is already over. None of it is asking to be carried past tonight."]},
     "Too many meetings": {head:"Too many meetings.", body:[
       "You sat through every one, and they're over now. They're in the past.",
-      "The tiring part isn't the meetings. It's replaying them all evening. They already happened. They don't need you anymore tonight."]},
+      "What's draining you is replaying them all evening, long after they stopped needing you. Let them stay where they ended."]},
     "A difficult conversation": {head:"That conversation.", body:[
       "It's done. You can't say it again, better, now.",
       "Your brain will offer rewrites for hours. You don't have to accept a single one."]},
     "A client or stakeholder thing": {head:"The client thing.", body:[
-      "It felt huge because it was loud, not because it's yours to hold forever.",
+      "It felt huge because it was loud. Loud fades by morning.",
       "Most of it sorts itself out without you losing your evening to it."]},
     "I feel like I'm underperforming": {head:"Underperforming.", body:[
       "One hard day isn't a performance review. Tired you is the worst judge of your work.",
@@ -256,7 +256,7 @@
       "It stings because part of you is checking whether it's true.",
       "You're allowed to check, decide it isn't, and put it down."]},
     "Just tired of all of it": {head:"Tired of all of it.", body:[
-      "That tiredness is information, not a flaw. It's the gap between the work you do and work that would feel like yours.",
+      "That tiredness is telling you something real. It's the gap between the work you do and the work that would feel like yours.",
       "Worth listening to. Just not tonight."]}
   };
   var WISDOM_DAY_FALLBACK = {head:"Whatever today was.", body:[
@@ -308,8 +308,8 @@
     if(owned){
       head = "Alright, that part's yours.";
       body = [
-        "Good. That's the honest bit, and honest is rare at 9pm.",
-        "Pick the one fix for tomorrow and let the rest go. Owning one thing isn't the same as carrying the whole day."];
+        "Good. That's the honest bit, and honesty after a long day is rare.",
+        "Pick the one fix for tomorrow, then let the rest go. The rest was never yours to drag home."];
     } else {
       head = "Then it wasn't yours to hold.";
       body = [
