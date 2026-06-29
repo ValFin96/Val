@@ -89,7 +89,7 @@
     <section class="page" data-page="1">
       <div class="marker"><span class="bar"></span> The day</div>
       <h2 class="prompt">What made today heavy?</h2>
-      <p class="helper">Tap whatever fits. More than one is allowed, that's usually how it goes.</p>
+      <p class="helper">Pick the one that hit hardest today.</p>
       <div class="chips" id="day-chips">
         <span class="chip" onclick="toggleChip(this,'day')">Just a stressful, full-on day</span>
         <span class="chip" onclick="toggleChip(this,'day')">Too many meetings</span>
@@ -151,7 +151,7 @@
     <section class="page" data-page="5">
       <div class="marker"><span class="bar"></span> Leave it</div>
       <h2 class="prompt">What are you leaving at the desk tonight?</h2>
-      <p class="helper">Tap what you're putting down. You can pick it back up at 9am if you really want to.</p>
+      <p class="helper">Pick the heaviest one to put down. You can grab it back at 9am if you really want to.</p>
       <div class="chips" id="leave-chips">
         <span class="chip" onclick="toggleChip(this,'leave')">The replay of that conversation</span>
         <span class="chip" onclick="toggleChip(this,'leave')">Other people's urgency</span>
@@ -229,7 +229,7 @@
   var CAPTURE_URL = "";
 
   var sel = { day:new Set(), sort:new Set(), leave:new Set() };
-  var SINGLE = { sort:true };
+  var SINGLE = { day:true, sort:true, leave:true };
   var pages = document.querySelectorAll('.page');
   var reflectionSent = false;
 
