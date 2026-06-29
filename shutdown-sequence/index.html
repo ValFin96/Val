@@ -218,9 +218,9 @@
 
 <script>
   /* ====== CAPTURE SETTINGS ======
-     Paste your n8n webhook URL between the quotes (Production URL of a Webhook node).
-     n8n then writes each payload to Airtable (or a Sheet if it goes big).
-     Empty = demo mode (logs to console, nothing sent).
+     Paste your Google Apps Script Web App URL between the quotes (ends in /exec).
+     It appends each submission as a row in your Google Sheet. Empty = demo mode
+     (logs to console, nothing sent).
 
      Two events are sent:
        'reflection': fired when they reach the shutdown page. Tags only, NO email.
@@ -340,7 +340,9 @@
 
   function send(payload){
     if(!CAPTURE_URL){ console.log('[capture demo]', payload); return; }
-    try{ fetch(CAPTURE_URL,{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){}); }catch(e){}
+    /* text/plain keeps it a "simple" request so the browser skips the CORS
+       preflight that Apps Script can't answer. Fire and forget. */
+    try{ fetch(CAPTURE_URL,{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)}).catch(function(){}); }catch(e){}
   }
   function sendReflection(){
     if(reflectionSent) return;
