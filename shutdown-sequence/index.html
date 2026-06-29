@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Shutdown Sequence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --room:#15121f;--room-glow:#2a2238;--paper:#ece3d4;--ink:#2b2335;
+    --ink-soft:#6c6275;--ink-faint:#9a9099;--ember:#c2703a;--ember-deep:#a8552a;--line:#cbbfa9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:'Fraunces',Georgia,serif;background:var(--room);color:var(--ink);min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:20px 14px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .room{position:fixed;inset:0;z-index:0;background:radial-gradient(120% 90% at 50% 18%,rgba(194,112,58,0.20),transparent 55%),radial-gradient(100% 80% at 50% 30%,var(--room-glow),transparent 60%),var(--room)}
+  .book{position:relative;z-index:1;width:100%;max-width:460px;min-height:600px;background:linear-gradient(180deg,#f1e9dc,var(--paper) 22%);background-color:var(--paper);border-radius:6px 14px 14px 6px;box-shadow:-6px 0 0 0 #d9cdb6,-12px 0 0 0 #cabda3,0 30px 60px -20px rgba(0,0,0,0.6),0 8px 20px rgba(0,0,0,0.35);padding:34px 28px 26px;overflow:hidden}
+  .book::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0.5;background:repeating-linear-gradient(0deg,rgba(120,100,70,0.025) 0 2px,transparent 2px 4px)}
+  .pages{position:relative;min-height:540px}
+  .page{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;transform:translateX(22px);pointer-events:none;transition:opacity .5s ease,transform .5s ease}
+  .page.is-active{opacity:1;transform:none;pointer-events:auto;position:relative}
+  .page.is-left{transform:translateX(-22px)}
+
+  .eyebrow{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ember-deep);font-weight:600}
+  .marker{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.16em;color:var(--ink-faint);font-weight:500;display:flex;align-items:center;gap:8px}
+  .marker .bar{height:1px;width:26px;background:var(--ember);opacity:.7}
+
+  h1.cover-title{font-family:'Fraunces',serif;font-weight:500;font-size:42px;line-height:1.04;letter-spacing:-0.01em;margin:14px 0 0}
+  .cover-sub{font-size:18px;line-height:1.45;color:var(--ink-soft);font-style:italic;margin-top:16px;max-width:34ch}
+  .cover-meta{font-family:'Inter',sans-serif;font-size:12.5px;line-height:1.65;color:var(--ink-faint);margin-top:auto;padding-top:24px;max-width:38ch}
+
+  .prompt{font-family:'Fraunces',serif;font-weight:500;font-size:26px;line-height:1.18;letter-spacing:-0.01em;margin-top:14px}
+  .helper{font-size:16px;line-height:1.5;color:var(--ink-soft);font-style:italic;margin-top:11px;max-width:36ch}
+
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+  .chip{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--ink);background:rgba(43,35,53,0.04);border:1.5px solid var(--line);border-radius:999px;padding:9px 15px;cursor:pointer;line-height:1.2;transition:background .15s,border-color .15s,color .15s}
+  .chip:hover{border-color:var(--ember)}
+  .chip.selected{background:var(--ember);border-color:var(--ember);color:#fff8f0}
+
+  .field-label{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:18px 0 6px}
+  input.line{width:100%;border:none;outline:none;background:transparent;font-family:'Fraunces',serif;font-size:17px;line-height:1.55;color:var(--ink);padding:6px 0 8px;border-bottom:1.5px solid var(--line)}
+  input.line::placeholder{color:var(--ink-faint);font-style:italic;opacity:.8}
+  input.line:focus{border-bottom-color:var(--ember)}
+
+  .body-text p{font-family:'Fraunces',serif;font-size:17.5px;line-height:1.58;color:var(--ink);margin-top:14px}
+  .body-text p.personal{color:var(--ember-deep);font-style:italic}
+
+  .nav{margin-top:auto;padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .btn{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;border:none;cursor:pointer;border-radius:999px;padding:13px 26px;transition:transform .15s,background .2s}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ember);color:#fff8f0}
+  .btn-primary:hover{background:var(--ember-deep)}
+  .btn-ghost{background:transparent;color:var(--ink-soft);font-family:'Inter',sans-serif;font-weight:500;font-size:14px;padding:13px 4px;cursor:pointer;border:none}
+  .btn-ghost:hover{color:var(--ink)}
+  .btn-wide{width:100%;justify-content:center;text-align:center}
+
+  .signup-fine{font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-faint);line-height:1.5;margin-top:12px}
+  .err-inline{font-family:'Inter',sans-serif;font-size:13px;color:#a8403a;margin-top:8px;min-height:16px}
+  .thanks h2{font-family:'Fraunces',serif;font-weight:500;font-size:28px;line-height:1.15;margin-top:14px}
+  .signoff{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+  .signoff .hint{font-size:14.5px;font-style:italic;color:var(--ink-soft);line-height:1.45;max-width:24ch}
+  .signoff .handle{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--ember-deep);letter-spacing:.02em;white-space:nowrap}
+
+  @media (max-width:420px){.book{padding:30px 22px 22px}h1.cover-title{font-size:36px}.prompt{font-size:23px}}
+  @media (prefers-reduced-motion:reduce){.page{transition:none}}
+</style>
+</head>
+<body>
+<div class="room"></div>
+
+<main class="book">
+  <div class="pages" id="pages">
+
+    <!-- 0 COVER -->
+    <section class="page is-active" data-page="0">
+      <div class="eyebrow">@valdoesai</div>
+      <h1 class="cover-title">The Shutdown<br>Sequence</h1>
+      <p class="cover-sub">A few taps to put the workday down, so it doesn't follow you home.</p>
+      <div class="cover-meta">
+        About a minute. All tapping, no typing.<br><br>
+        I keep track of what's wearing people down so I can build better things for it. No reflection of yours is shared.
+      </div>
+      <div class="nav"><span></span><button class="btn btn-primary" onclick="go(1)">Start</button></div>
+    </section>
+
+    <!-- 1 Q1 THE DAY -->
+    <section class="page" data-page="1">
+      <div class="marker"><span class="bar"></span> The day</div>
+      <h2 class="prompt">What made today heavy?</h2>
+      <p class="helper">Tap whatever fits. More than one is allowed, that's usually how it goes.</p>
+      <div class="chips" id="day-chips">
+        <span class="chip" onclick="toggleChip(this,'day')">Just a stressful, full-on day</span>
+        <span class="chip" onclick="toggleChip(this,'day')">Too many meetings</span>
+        <span class="chip" onclick="toggleChip(this,'day')">A difficult conversation</span>
+        <span class="chip" onclick="toggleChip(this,'day')">A client or stakeholder thing</span>
+        <span class="chip" onclick="toggleChip(this,'day')">I feel like I'm underperforming</span>
+        <span class="chip" onclick="toggleChip(this,'day')">Got talked over or overlooked</span>
+        <span class="chip" onclick="toggleChip(this,'day')">Feedback that wasn't fair</span>
+        <span class="chip" onclick="toggleChip(this,'day')">Just tired of all of it</span>
+      </div>
+      <div class="nav">
+        <button class="btn-ghost" onclick="go(0)">Back</button>
+        <button class="btn btn-primary" onclick="go(2)">Next</button>
+      </div>
+    </section>
+
+    <!-- 2 WISDOM (reacts to Q1) -->
+    <section class="page" data-page="2">
+      <div class="marker"><span class="bar"></span> A thought</div>
+      <h2 class="prompt" id="w1-head">&nbsp;</h2>
+      <div class="body-text" id="w1-body" style="margin-top:6px;"></div>
+      <div class="nav">
+        <button class="btn-ghost" onclick="go(1)">Back</button>
+        <button class="btn btn-primary" onclick="go(3)">Next</button>
+      </div>
+    </section>
+
+    <!-- 3 Q2 SORT (multiple choice) -->
+    <section class="page" data-page="3">
+      <div class="marker"><span class="bar"></span> Sort</div>
+      <h2 class="prompt">Be honest. Any of it actually yours?</h2>
+      <p class="helper">Yours means you'd do it differently next time. Most of it isn't. Tap what's true.</p>
+      <div class="chips" id="sort-chips">
+        <span class="chip" onclick="toggleChip(this,'sort')">Honestly, none of it</span>
+        <span class="chip" onclick="toggleChip(this,'sort')">Maybe one small thing</span>
+        <span class="chip" onclick="toggleChip(this,'sort')">One call I'd redo</span>
+        <span class="chip" onclick="toggleChip(this,'sort')">I snapped or went quiet</span>
+        <span class="chip" onclick="toggleChip(this,'sort')">I let something slide</span>
+        <span class="chip" onclick="toggleChip(this,'sort')">Still can't tell</span>
+      </div>
+      <div class="nav">
+        <button class="btn-ghost" onclick="go(2)">Back</button>
+        <button class="btn btn-primary" onclick="go(4)">Next</button>
+      </div>
+    </section>
+
+    <!-- 4 WISDOM (reacts to Q2) -->
+    <section class="page" data-page="4">
+      <div class="marker"><span class="bar"></span> A thought</div>
+      <h2 class="prompt" id="w2-head">&nbsp;</h2>
+      <div class="body-text" id="w2-body" style="margin-top:6px;"></div>
+      <div class="nav">
+        <button class="btn-ghost" onclick="go(3)">Back</button>
+        <button class="btn btn-primary" onclick="go(5)">Next</button>
+      </div>
+    </section>
+
+    <!-- 5 Q3 LEAVE -->
+    <section class="page" data-page="5">
+      <div class="marker"><span class="bar"></span> Leave it</div>
+      <h2 class="prompt">What are you leaving at the desk tonight?</h2>
+      <p class="helper">Tap what you're putting down. You can pick it back up at 9am if you really want to.</p>
+      <div class="chips" id="leave-chips">
+        <span class="chip" onclick="toggleChip(this,'leave')">The replay of that conversation</span>
+        <span class="chip" onclick="toggleChip(this,'leave')">Other people's urgency</span>
+        <span class="chip" onclick="toggleChip(this,'leave')">The guilt</span>
+        <span class="chip" onclick="toggleChip(this,'leave')">The need to fix it tonight</span>
+        <span class="chip" onclick="toggleChip(this,'leave')">Honestly, all of it</span>
+      </div>
+      <div class="nav">
+        <button class="btn-ghost" onclick="go(4)">Back</button>
+        <button class="btn btn-primary" onclick="go(6)">Next</button>
+      </div>
+    </section>
+
+    <!-- 6 THE SHUTDOWN (payoff) -->
+    <section class="page" data-page="6">
+      <div class="marker"><span class="bar"></span> The shutdown</div>
+      <h2 class="prompt">How to actually leave it at work</h2>
+      <div class="body-text" style="margin-top:8px;">
+        <p>Your brain keeps poking at unfinished things until you give it a plan. Decide tomorrow's first move in one line, in your head, and it mostly stops bringing it up tonight.</p>
+        <p>That feeling that today was a disaster is a thought, not a verdict. You're allowed to notice it without taking orders from it.</p>
+        <p>Then give the day a hard edge. Shut the laptop, change your clothes, walk around the block. The body needs a signal that work is over, especially when there's no commute to do it for you.</p>
+        <p class="personal" id="payoff-personal"></p>
+      </div>
+      <div class="nav">
+        <button class="btn-ghost" onclick="go(5)">Back</button>
+        <button class="btn btn-primary" onclick="go(7)">One more thing</button>
+      </div>
+    </section>
+
+    <!-- 7 TAKEAWAY + PITCH + EMAIL -->
+    <section class="page" data-page="7">
+      <div id="pitch-view">
+        <div class="eyebrow">One more thing</div>
+        <h2 class="prompt">Your job is just a job.</h2>
+        <div class="body-text" style="margin-top:6px;">
+          <p>Today felt heavy because you care. But it's a job. It pays you, it isn't meant to own how you feel at 9pm.</p>
+          <p>The way out isn't caring less. It's having something of your own: a skill you build, and a thing you can sell. That's what turns this worn-out feeling into something that actually goes somewhere, instead of just a paycheck you're scared to lose.</p>
+          <p>I made this little tool in an afternoon, with AI. That's the real point. You can build things like this too, and I can show you how.</p>
+        </div>
+        <div class="field-label">Email</div>
+        <input class="line" id="email" type="email" inputmode="email" placeholder="you@wherever.com" />
+        <div class="err-inline" id="email-err"></div>
+        <div class="signup-fine">I'll reach out with how. I'll only email when there's something real. Leave whenever.</div>
+        <div class="nav">
+          <button class="btn-ghost" onclick="skipPitch()">Maybe later</button>
+          <button class="btn btn-primary" onclick="signup()">Show me how</button>
+        </div>
+      </div>
+
+      <div id="thanks-view" class="thanks" style="display:none;">
+        <div class="eyebrow">@valdoesai</div>
+        <h2 id="thanks-line">You're on the list.</h2>
+        <div class="body-text"><p id="thanks-sub">Now go shut the laptop. It'll all still be there tomorrow, and most of it won't matter.</p></div>
+        <div class="signoff">
+          <span class="hint">Screenshot the last page if it helped.</span>
+          <span class="handle">@valdoesai</span>
+        </div>
+        <div class="nav"><button class="btn-ghost" onclick="resetAll()">Start over</button><span></span></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  /* ====== CAPTURE SETTINGS ======
+     Paste your n8n webhook URL between the quotes (Production URL of a Webhook node).
+     n8n then writes each payload to Airtable (or a Sheet if it goes big).
+     Empty = demo mode (logs to console, nothing sent).
+
+     Two events are sent:
+       'reflection' — fired when they reach the shutdown page. Tags only, NO email.
+                      This is your research data even from people who never sign up.
+       'signup'     — fired when they submit an email. Tags + email. */
+  var CAPTURE_URL = "";
+
+  var sel = { day:new Set(), sort:new Set(), leave:new Set() };
+  var pages = document.querySelectorAll('.page');
+  var reflectionSent = false;
+
+  var WISDOM_DAY = {
+    "Just a stressful, full-on day": {head:"A full-on day.", body:[
+      "It felt like a lot because it was a lot. A full day and a bad day aren't the same thing, though.",
+      "The volume is already over. None of it is asking to be carried past tonight."]},
+    "Too many meetings": {head:"Too many meetings.", body:[
+      "You sat through every one, and they're over now. They're in the past.",
+      "The tiring part isn't the meetings. It's replaying them all evening. They already happened. They don't need you anymore tonight."]},
+    "A difficult conversation": {head:"That conversation.", body:[
+      "It's done. You can't say it again, better, now.",
+      "Your brain will offer rewrites for hours. You don't have to accept a single one."]},
+    "A client or stakeholder thing": {head:"The client thing.", body:[
+      "It felt huge because it was loud, not because it's yours to hold forever.",
+      "Most of it sorts itself out without you losing your evening to it."]},
+    "I feel like I'm underperforming": {head:"Underperforming.", body:[
+      "One hard day isn't a performance review. Tired you is the worst judge of your work.",
+      "Wait until you've slept before you decide to believe it."]},
+    "Got talked over or overlooked": {head:"Talked over.", body:[
+      "Being unseen for a day doesn't make you smaller. A loud room says more about the room.",
+      "Your worth didn't drop because someone didn't look up."]},
+    "Feedback that wasn't fair": {head:"Unfair feedback.", body:[
+      "It stings because part of you is checking whether it's true.",
+      "You're allowed to check, decide it isn't, and put it down."]},
+    "Just tired of all of it": {head:"Tired of all of it.", body:[
+      "That tiredness is information, not a flaw. It's the gap between the work you do and work that would feel like yours.",
+      "Worth listening to. Just not tonight."]}
+  };
+  var WISDOM_DAY_FALLBACK = {head:"Whatever today was.", body:[
+    "It got to you, and that's allowed. It still doesn't get to ride home with you.",
+    "It'll keep until morning. Most of it won't even be there."]};
+
+  function go(n){
+    pages.forEach(function(p){
+      var idx = parseInt(p.dataset.page,10);
+      p.classList.remove('is-active','is-left');
+      if(idx === n) p.classList.add('is-active');
+      else if(idx < n) p.classList.add('is-left');
+    });
+    if(n === 2) renderWisdomDay();
+    if(n === 4) renderWisdomSort();
+    if(n === 6){ renderPayoff(); sendReflection(); }
+    var book = document.querySelector('.book'); if(book) book.scrollTop = 0;
+    window.scrollTo(0,0);
+  }
+
+  function toggleChip(el, group){
+    var label = el.textContent.trim();
+    if(sel[group].has(label)){ sel[group].delete(label); el.classList.remove('selected'); }
+    else { sel[group].add(label); el.classList.add('selected'); }
+  }
+  function val(id){ var e=document.getElementById(id); return e?e.value.trim():''; }
+
+  function renderWisdomDay(){
+    var first = Array.from(sel.day)[0];
+    var w = (first && WISDOM_DAY[first]) ? WISDOM_DAY[first] : WISDOM_DAY_FALLBACK;
+    document.getElementById('w1-head').textContent = w.head;
+    var body = document.getElementById('w1-body');
+    body.innerHTML = '';
+    w.body.forEach(function(t){ var p=document.createElement('p'); p.textContent=t; body.appendChild(p); });
+  }
+
+  function renderWisdomSort(){
+    var owned = Array.from(sel.sort).some(function(t){
+      return ["Maybe one small thing","One call I'd redo","I snapped or went quiet","I let something slide"].indexOf(t) !== -1;
+    });
+    var head, body;
+    if(owned){
+      head = "Alright, that part's yours.";
+      body = [
+        "Good. That's the honest bit, and honest is rare at 9pm.",
+        "Pick the one fix for tomorrow and let the rest go. Owning one thing isn't the same as carrying the whole day."];
+    } else {
+      head = "Then it wasn't yours to hold.";
+      body = [
+        "Most of what makes a day heavy was never yours to fix. You just happened to be standing there.",
+        "That's the tiring kind of weight. None of it needs a place in your evening."];
+    }
+    document.getElementById('w2-head').textContent = head;
+    var el = document.getElementById('w2-body');
+    el.innerHTML = '';
+    body.forEach(function(t){ var p=document.createElement('p'); p.textContent=t; el.appendChild(p); });
+  }
+
+  function renderPayoff(){
+    var leave = Array.from(sel.leave);
+    var line = '';
+    if(leave.length){
+      var first = leave[0].replace(/^The /,'the ').replace(/^Honestly, all of it$/,'all of it');
+      line = 'You said you’re leaving ' + first + '. Leave it. It’ll be there tomorrow if it actually matters, and most of it won’t be.';
+    } else {
+      line = 'Whatever it was, it doesn’t get to ride home with you. It’ll keep till morning.';
+    }
+    var owned = Array.from(sel.sort).some(function(t){
+      return ["Maybe one small thing","One call I'd redo","I snapped or went quiet","I let something slide"].indexOf(t) !== -1;
+    });
+    if(owned){ line += ' You flagged one thing as yours. Note the fix for tomorrow, then it’s allowed to wait too.'; }
+    document.getElementById('payoff-personal').textContent = line;
+  }
+
+  function send(payload){
+    if(!CAPTURE_URL){ console.log('[capture demo]', payload); return; }
+    try{ fetch(CAPTURE_URL,{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){}); }catch(e){}
+  }
+  function sendReflection(){
+    if(reflectionSent) return;
+    reflectionSent = true;
+    send({
+      event:'reflection', ts:new Date().toISOString(),
+      day_tags:Array.from(sel.day),
+      sort_tags:Array.from(sel.sort),
+      leave_tags:Array.from(sel.leave)
+    });
+  }
+
+  function validEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+
+  function signup(){
+    var email = val('email');
+    var err = document.getElementById('email-err');
+    if(!validEmail(email)){ err.textContent = 'That email doesn’t look right. Mind checking it?'; return; }
+    err.textContent = '';
+    send({
+      event:'signup', ts:new Date().toISOString(), email:email,
+      day_tags:Array.from(sel.day), sort_tags:Array.from(sel.sort), leave_tags:Array.from(sel.leave)
+    });
+    showThanks('You’re on the list.', 'I’ll reach out with how to build things like this. Now go shut the laptop. It’ll all still be there tomorrow, and most of it won’t matter.');
+  }
+  function skipPitch(){
+    showThanks('Fair enough.', 'Now go shut the laptop. It’ll all still be there tomorrow, and most of it won’t matter.');
+  }
+  function showThanks(line, sub){
+    document.getElementById('pitch-view').style.display='none';
+    document.getElementById('thanks-line').textContent = line;
+    document.getElementById('thanks-sub').textContent = sub;
+    document.getElementById('thanks-view').style.display='block';
+  }
+
+  function resetAll(){
+    sel={day:new Set(),sort:new Set(),leave:new Set()};
+    reflectionSent=false;
+    document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('selected');});
+    var e=document.getElementById('email'); if(e) e.value='';
+    document.getElementById('email-err').textContent='';
+    document.getElementById('thanks-view').style.display='none';
+    document.getElementById('pitch-view').style.display='block';
+    go(0);
+  }
+</script>
+</body>
+</html>
