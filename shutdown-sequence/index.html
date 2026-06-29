@@ -92,8 +92,8 @@
       <h1 class="cover-title">The Shutdown<br>Sequence</h1>
       <p class="cover-sub">A few taps to put the workday down, so it doesn't follow you home.</p>
       <div class="cover-meta">
-        About a minute. All tapping, no typing.<br><br>
-        I keep track of what's wearing people down so I can build better things for it. No reflection of yours is shared.
+        About a minute, all tapping, no typing.<br><br>
+        I'm Val. I come from an analytics background, and I genuinely want to help people get through the corporate burnout I know far too well. So I keep track of what's wearing people down, and I build better things for it. Nothing personal about you is captured, unless you decide to share it yourself.
       </div>
       <div class="nav"><span></span><button class="btn btn-primary" onclick="go(1)">Start</button></div>
     </section>
@@ -101,8 +101,8 @@
     <!-- 1 Q1 THE DAY -->
     <section class="page" data-page="1">
       <div class="marker"><span class="bar"></span> The day</div>
-      <h2 class="prompt">What made today heavy?</h2>
-      <p class="helper">Pick the one that hit hardest today.</p>
+      <h2 class="prompt">What made your workday heavy today?</h2>
+      <p class="helper">Pick the one that's most true to your day to day.</p>
       <div class="chips" id="day-chips">
         <span class="chip" onclick="toggleChip(this,'day')">Just a stressful, full-on day</span>
         <span class="chip" onclick="toggleChip(this,'day')">Too many meetings</span>
@@ -134,7 +134,7 @@
     <section class="page" data-page="3">
       <div class="marker"><span class="bar"></span> Sort</div>
       <h2 class="prompt">Be honest. Any of it actually yours?</h2>
-      <p class="helper">Yours means you'd actually do it differently next time. Most days, barely any of it is. Pick whatever's closest.</p>
+      <p class="helper">We tend to take on guilt for so much that was never in our control. So be honest with yourself, but think hard before you answer: what here was actually yours? It's okay to own it if it was. Just don't carry what wasn't.</p>
       <div class="chips" id="sort-chips">
         <span class="chip" onclick="toggleChip(this,'sort')">Honestly, none of it</span>
         <span class="chip" onclick="toggleChip(this,'sort')">Maybe one small thing</span>
@@ -163,8 +163,8 @@
     <!-- 5 Q3 LEAVE -->
     <section class="page" data-page="5">
       <div class="marker"><span class="bar"></span> Leave it</div>
-      <h2 class="prompt">What are you leaving at the desk tonight?</h2>
-      <p class="helper">Pick the heaviest one to put down. You can grab it back tomorrow if you really want to.</p>
+      <h2 class="prompt">So what are you leaving at the desk tonight?</h2>
+      <p class="helper">Pick the heaviest thing you're carrying, and choose to leave it right here. It'll still be waiting tomorrow if it really matters, I promise.</p>
       <div class="chips" id="leave-chips">
         <span class="chip" onclick="toggleChip(this,'leave')">The replay of that conversation</span>
         <span class="chip" onclick="toggleChip(this,'leave')">Other people's urgency</span>
@@ -183,9 +183,9 @@
       <div class="marker"><span class="bar"></span> The shutdown</div>
       <h2 class="prompt">How to actually leave it at work</h2>
       <div class="body-text" style="margin-top:8px;">
-        <p>Your brain keeps poking at unfinished things until you give it a plan. Decide tomorrow's first move in one line, in your head, and it mostly stops bringing it up tonight.</p>
-        <p>That feeling that today was a disaster is just a thought, and tired you is the one telling it. You're allowed to notice it without taking orders from it.</p>
-        <p>Then give the day a hard edge. Shut the laptop, change your clothes, walk around the block. The body needs a signal that work is over, especially when there's no commute to do it for you.</p>
+        <p>So the thing that actually works for me is to close the workday in my head, not just on the screen. Tell yourself, out loud if you need to: it's done and dusted. It doesn't matter tonight. Tomorrow is a new day.</p>
+        <p>Your mind will keep poking at the unfinished things until it trusts there's a plan. So promise it this: first thing in the morning, you'll come back to all of it. You'll pick these problems up again then. But for tonight, they're not yours.</p>
+        <p>So just wind down and do something for you. Eat something good, talk to the people you love, get outside for ten minutes. And if you've got a little left in the tank, the kindest thing you can do for future you is start thinking about your own exit plan, building a skill that's actually yours. That's what slowly takes the fear out of all of this.</p>
         <p class="personal" id="payoff-personal"></p>
       </div>
       <div class="nav">
@@ -200,14 +200,15 @@
         <div class="eyebrow">One more thing</div>
         <h2 class="prompt">Your job is just a job.</h2>
         <div class="body-text" style="margin-top:6px;">
-          <p>Today felt heavy because you care. But it's a job. It pays you, it doesn't get to own your evening too.</p>
-          <p>Caring less never works. What does work is having something of your own: a skill you build, and a thing you can sell. That's how this worn-out feeling turns into something that goes somewhere, instead of a paycheck you're scared to lose.</p>
-          <p>I made this little tool in an afternoon, with AI. That's the real point. You can build things like this too, and I can show you how.</p>
+          <p>So here's what I really want you to take from tonight. This is a job. It pays you, but it doesn't get to own how you feel every single evening.</p>
+          <p>This little tool you just used? This is exactly the kind of thing you could be building for other people, to help them through nights like this one. And honestly, there's no way you'll convince me you don't have something worth sharing with the world.</p>
+          <p>The two skills that actually change things are building and selling. Building is basically handled by AI now, this whole thing was built fully by Claude Code, with no technical background, and that's something anyone can be taught. It really isn't rocket science. Selling is just learning to build an audience and talk about what you make, and it's far less scary than it looks.</p>
+          <p>So that's the way out of the burnout, slowly. Something that's actually yours.</p>
         </div>
         <div class="field-label">Email</div>
         <input class="line" id="email" type="email" inputmode="email" placeholder="you@wherever.com" />
         <div class="err-inline" id="email-err"></div>
-        <div class="signup-fine">I'll reach out with how. I'll only email when there's something real. Leave whenever.</div>
+        <div class="signup-fine">If any of this speaks to you, leave your email and I'll reach out with how to actually start. I'll only ever send useful things, no spam, and you can leave whenever.</div>
         <div class="nav">
           <button class="btn-ghost" onclick="skipPitch()">Maybe later</button>
           <button class="btn btn-primary" onclick="signup()">Show me how</button>
@@ -217,7 +218,7 @@
       <div id="thanks-view" class="thanks" style="display:none;">
         <div class="eyebrow">@valdoesai</div>
         <h2 id="thanks-line">You're on the list.</h2>
-        <div class="body-text"><p id="thanks-sub">Now go shut the laptop. It'll all still be there tomorrow, and most of it won't matter.</p></div>
+        <div class="body-text"><p id="thanks-sub">For now, close the day in your head. It's done and dusted, and tomorrow is a brand new one.</p></div>
         <div class="signoff">
           <span class="hint">It'll all still be there tomorrow.</span>
           <span class="handle">@valdoesai</span>
@@ -251,33 +252,33 @@
 
   var WISDOM_DAY = {
     "Just a stressful, full-on day": {head:"A full-on day.", body:[
-      "It felt like a lot because it was a lot. The busy ones blur together and pass.",
-      "The volume is already over. None of it is asking to be carried past tonight."]},
+      "So today was just a lot. All of it at once, no real gap to breathe. I work in presales, high target, high demand, so I know that exact feeling of reaching the evening completely wrung out.",
+      "But here's the thing, you did it. You actually got through all of it. Even if tomorrow looks just as full, tonight you're allowed to stop. Eat something nice, talk to someone you love, let the day be over."]},
     "Too many meetings": {head:"Too many meetings.", body:[
-      "You sat through every one, and they're over now. They're in the past.",
-      "What's draining you is replaying them all evening, long after they stopped needing you. Let them stay where they ended."]},
+      "So you spent the whole day in back to back calls, and now it's evening and your head is somehow still in the room. I get it, in presales some days are just meetings stacked on meetings.",
+      "But they're done now. Every single one already happened, and they don't need you replaying them all night. Let them stay where they ended, and give yourself the evening back."]},
     "A difficult conversation": {head:"That conversation.", body:[
-      "It's done. You can't say it again, better, now.",
-      "Your brain will offer rewrites for hours. You don't have to accept a single one."]},
+      "So there was a conversation today that's still sitting heavy with you. The kind you keep turning over, wishing you'd said it differently.",
+      "For me those are the ones that follow me home the most. But it already happened, and you can't say it again tonight, no matter how many times you rehearse it. You're allowed to set it down and come back with a clearer head tomorrow."]},
     "A client or stakeholder thing": {head:"The client thing.", body:[
-      "It felt huge because it was loud. Loud fades by morning.",
-      "Most of it sorts itself out without you losing your evening to it."]},
+      "So something with a client or a stakeholder got under your skin today. When it's someone you answer to, it feels so much bigger and louder than it usually turns out to be.",
+      "But most of these things sort themselves out on their own, and they rarely deserve your whole evening. You carried it all day. Tonight you get to put it down."]},
     "I feel like I'm underperforming": {head:"Underperforming.", body:[
-      "One hard day isn't a performance review. Tired you is the worst judge of your work.",
-      "Wait until you've slept before you decide to believe it."]},
+      "So you're sitting with that horrible feeling that you're not doing enough, or not good enough. I've spent so many evenings right there, convinced I was falling behind everyone around me.",
+      "But one hard day is not the measure of you, and tired you at the end of it is honestly the worst judge of your work. Sleep first. You can look again tomorrow when you're not running on empty."]},
     "Got talked over or overlooked": {head:"Talked over.", body:[
-      "Being unseen for a day doesn't make you smaller. A loud room says more about the room.",
-      "Your worth didn't drop because someone didn't look up."]},
+      "So you showed up, you had things to say, and somehow you got talked over, or just missed. That stings in a really particular way, and it's okay that it does.",
+      "But being unheard for one day doesn't make you any smaller. A loud room says more about the room than about you. Your worth didn't drop because someone didn't look up."]},
     "Feedback that wasn't fair": {head:"Unfair feedback.", body:[
-      "It stings because part of you is checking whether it's true.",
-      "You're allowed to check, decide it isn't, and put it down."]},
+      "So you got feedback today that just didn't land right, that felt unfair, or like it missed who you actually are. It stings because some part of you is sitting there checking whether it's true.",
+      "For me, that checking is the exhausting bit. So check it, honestly, and once you've decided it wasn't fair, you're allowed to put it down and stop carrying it for them."]},
     "Just tired of all of it": {head:"Tired of all of it.", body:[
-      "That tiredness is telling you something real. It's the gap between the work you do and the work that would feel like yours.",
-      "Worth listening to. Just not tonight."]}
+      "So it's not one big thing, it's all of it. The whole shape of it, day after day. I've felt that exact tiredness, the kind that isn't really about today at all.",
+      "That feeling is telling you something real. It's the gap between the work you're doing and the work that would actually feel like yours. It's worth listening to, just not tonight. Tonight, you rest."]}
   };
   var WISDOM_DAY_FALLBACK = {head:"Whatever today was.", body:[
-    "It got to you, and that's allowed. It still doesn't get to ride home with you.",
-    "It'll keep until morning. Most of it won't even be there."]};
+    "So whatever it was today, it got to you, and that's completely allowed. We carry so much more home from work than we ever admit to.",
+    "But it doesn't get to ride home with you tonight. It'll keep till morning, and honestly, most of it won't even be there when you look again."]};
 
   function go(n){
     pages.forEach(function(p){
@@ -324,13 +325,13 @@
     if(owned){
       head = "Alright, that part's yours.";
       body = [
-        "Good. That's the honest bit, and honesty after a long day is rare.",
-        "Pick the one fix for tomorrow, then let the rest go. The rest was never yours to drag home."];
+        "So there's one thing you'd genuinely do differently, and you're brave enough to actually name it. That kind of honesty, at the end of a long day, is rare and it matters.",
+        "So own that one thing, decide how you'll handle it tomorrow, and then let all the rest go. The rest was never yours to drag home with you tonight."];
     } else {
       head = "Then it wasn't yours to hold.";
       body = [
-        "Most of what makes a day heavy was never yours to fix. You just happened to be standing there.",
-        "That's the tiring kind of weight. None of it needs a place in your evening."];
+        "So when you really look at it, most of what made today heavy was never actually yours to fix. You just happened to be there when it landed.",
+        "For me, that's the hardest one to accept, because we're so quick to take the blame for things that were never in our hands. But this weight isn't yours, and it doesn't get a place in your evening."];
     }
     document.getElementById('w2-head').textContent = head;
     var el = document.getElementById('w2-body');
@@ -343,14 +344,14 @@
     var line = '';
     if(leave.length){
       var first = leave[0].replace(/^The /,'the ').replace(/^Honestly, all of it$/,'all of it');
-      line = 'You said you’re leaving ' + first + '. Leave it. It’ll be there tomorrow if it actually matters, and most of it won’t be.';
+      line = 'So you said you’re leaving ' + first + ' tonight. Then leave it, properly. It’ll be right there tomorrow if it really matters, and most of the time, it won’t be.';
     } else {
-      line = 'Whatever it was, it doesn’t get to ride home with you. It’ll keep till morning.';
+      line = 'So whatever it was, it doesn’t get to come home with you tonight. It’ll keep till morning, I promise.';
     }
     var owned = Array.from(sel.sort).some(function(t){
       return ["Maybe one small thing","One call I'd redo","I snapped or went quiet","I let something slide"].indexOf(t) !== -1;
     });
-    if(owned){ line += ' You flagged one thing as yours. Note the fix for tomorrow, then it’s allowed to wait too.'; }
+    if(owned){ line += ' And that one thing you owned? Note how you’ll handle it tomorrow, then let even that wait. You’ve earned the evening.'; }
     document.getElementById('payoff-personal').textContent = line;
   }
 
@@ -382,10 +383,10 @@
       event:'signup', ts:new Date().toISOString(), sid:sid, email:email,
       day_tags:Array.from(sel.day), sort_tags:Array.from(sel.sort), leave_tags:Array.from(sel.leave)
     });
-    showThanks('You’re on the list.', 'I’ll reach out with how to build things like this. Now go shut the laptop. It’ll all still be there tomorrow, and most of it won’t matter.');
+    showThanks('You’re on the list.', 'I’ll reach out with how to actually start building things like this. For now, close the day in your head. It’s done and dusted, and tomorrow is a brand new one.');
   }
   function skipPitch(){
-    showThanks('Fair enough.', 'Now go shut the laptop. It’ll all still be there tomorrow, and most of it won’t matter.');
+    showThanks('No worries at all.', 'For now, just close the day in your head. It’s done and dusted, it doesn’t matter tonight, and tomorrow is a brand new one. Go do something kind for yourself.');
   }
   function showThanks(line, sub){
     document.getElementById('pitch-view').style.display='none';
