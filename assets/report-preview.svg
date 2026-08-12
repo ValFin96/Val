@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1192" height="832" viewBox="204 15 1192 832" role="img" aria-labelledby="title desc">
+  <title id="title">3D Marketing Clarity Audit, 7-page A4 report preview</title>
+  <desc id="desc">7 identically sized A4 report pages arranged in 4 columns above 3 centred columns, using a charcoal, white, grey and red editorial system.</desc>
+  <defs>
+    <style>
+      .page{fill:#f8f7f3}.ink{fill:#171b20}.rule{stroke:#b8bbc0;stroke-width:.7}.fine{stroke:#d3d5d8;stroke-width:.55}.darkline{stroke:#30343a;stroke-width:1}.redline{stroke:#e1272f;stroke-width:1.6}.head{font:700 5.2px Inter,system-ui,-apple-system,'Segoe UI',sans-serif;letter-spacing:.65px;fill:#171b20}.title{font:700 10.5px Inter,system-ui,-apple-system,'Segoe UI',sans-serif;letter-spacing:.4px;fill:#171b20}.kicker{font:700 5.2px Inter,system-ui,-apple-system,'Segoe UI',sans-serif;letter-spacing:.4px;fill:#353a40}.body{font:400 5.3px Inter,system-ui,-apple-system,'Segoe UI',sans-serif;fill:#3c4147}.micro{font:400 4.1px Inter,system-ui,-apple-system,'Segoe UI',sans-serif;fill:#747980}.label{font:700 4.4px Inter,system-ui,-apple-system,'Segoe UI',sans-serif;letter-spacing:.2px;fill:#30353b}.num{font:700 5px Inter,system-ui,-apple-system,'Segoe UI',sans-serif;fill:#fff}.folio{font:700 6px Inter,system-ui,-apple-system,'Segoe UI',sans-serif;fill:#171b20}.none{fill:none}.panel{fill:#f1f0ec;stroke:#c8cace;stroke-width:.55}.darkpanel{fill:#171b20}.grid{stroke:#d7d9dc;stroke-width:.45}.dot{fill:#6d7278}.ring{fill:none;stroke:#c5c8cb;stroke-width:7}.ringred{fill:none;stroke:#e1272f;stroke-width:7}.bar{fill:#9a9ea3}.barred{fill:#e1272f}.axis{stroke:#545960;stroke-width:.65}.smalltitle{font:700 6.3px Inter,system-ui,-apple-system,'Segoe UI',sans-serif;fill:#171b20}.pagekey{font:700 4px Inter,system-ui,-apple-system,'Segoe UI',sans-serif;fill:#a2a6aa}
+      /* .red and .white sit last on purpose: equal specificity means the later rule wins, and
+         both were being overridden by .micro and .label on the labels meant to read red. */
+      .red{fill:#e1272f}.white{fill:#fff}
+    </style>
+  </defs>
+
+  <!-- PAGE 1: exact A4 component 270 x 382 -->
+  <g transform="translate(224 35)">
+    <rect class="page" width="270" height="382"/>
+    <text class="head" x="16" y="17">3D MARKETING CLARITY AUDIT</text><rect class="red" x="246" y="13" width="8" height="1.5"/>
+    <line class="rule" x1="16" y1="25" x2="254" y2="25"/>
+    <text class="title" x="16" y="44">1. EXECUTIVE SUMMARY</text>
+    <line class="rule" x1="16" y1="54" x2="126" y2="54"/><line class="rule" x1="139" y1="54" x2="254" y2="54"/>
+    <text class="kicker" x="16" y="68">OVERVIEW</text>
+    <text class="body" x="16" y="82"><tspan x="16" dy="0">The selected journey attracts high-intent</tspan><tspan x="16" dy="8">prospects, but the message weakens after</tspan><tspan x="16" dy="8">the paid click. Evidence suggests the next</tspan><tspan x="16" dy="8">investment should wait until the path is</tspan><tspan x="16" dy="8">made coherent and measurable.</tspan></text>
+    <text class="kicker" x="139" y="68">AT A GLANCE</text>
+    <g class="body"><text x="145" y="85">Assets reviewed</text><text x="245" y="85" text-anchor="end">28</text><text x="145" y="105">Customer signals</text><text x="245" y="105" text-anchor="end">12</text><text x="145" y="125">Journey stages</text><text x="245" y="125" text-anchor="end">05</text><text x="145" y="145">Evidence items</text><text x="245" y="145" text-anchor="end">73</text></g>
+    <g class="fine"><line x1="139" y1="92" x2="254" y2="92"/><line x1="139" y1="112" x2="254" y2="112"/><line x1="139" y1="132" x2="254" y2="132"/><line x1="139" y1="152" x2="254" y2="152"/></g>
+    <text class="kicker" x="16" y="178">3 PRIORITIES</text>
+    <circle class="red" cx="22" cy="195" r="6"/><text class="num" x="22" y="197" text-anchor="middle">01</text><text class="body" x="34" y="193"><tspan x="34">Continue the paid-search promise</tspan><tspan x="34" dy="7">on a dedicated landing page.</tspan></text>
+    <circle class="red" cx="22" cy="225" r="6"/><text class="num" x="22" y="227" text-anchor="middle">02</text><text class="body" x="34" y="223"><tspan x="34">Place proof beside the decision</tspan><tspan x="34" dy="7">and answer the primary objection.</tspan></text>
+    <circle class="red" cx="22" cy="255" r="6"/><text class="num" x="22" y="257" text-anchor="middle">03</text><text class="body" x="34" y="253"><tspan x="34">Validate the repaired journey before</tspan><tspan x="34" dy="7">increasing acquisition spend.</tspan></text>
+    <rect class="panel" x="139" y="178" width="115" height="91"/><circle class="none darkline" cx="155" cy="199" r="8"/><path class="none darkline" d="M151 199l3 3 6-7"/><text class="kicker" x="170" y="196">DECISION</text><text class="body" x="170" y="210"><tspan x="170">FIX PREREQUISITES FIRST</tspan><tspan x="170" dy="9">Keep spend controlled.</tspan><tspan x="170" dy="9">Test the repaired path.</tspan><tspan x="170" dy="9">Scale only with evidence.</tspan></text>
+    <line class="rule" x1="16" y1="354" x2="254" y2="354"/><text class="folio" x="16" y="370">1</text><text class="micro" x="28" y="370">Demonstration report &#183; Not a client result</text><text class="pagekey" x="254" y="370" text-anchor="end">A4 210 &#215; 297</text>
+  </g>
+
+  <!-- PAGE 2 -->
+  <g transform="translate(518 35)">
+    <rect class="page" width="270" height="382"/>
+    <text class="head" x="16" y="17">3D MARKETING CLARITY AUDIT</text><rect class="red" x="246" y="13" width="8" height="1.5"/><line class="rule" x1="16" y1="25" x2="254" y2="25"/>
+    <text class="title" x="16" y="44">2. CUSTOMER JOURNEY</text>
+    <g transform="translate(28 72)"><line class="darkline" x1="0" y1="0" x2="205" y2="0"/><g class="page"><circle cx="0" cy="0" r="10"/><circle cx="41" cy="0" r="10"/><circle cx="82" cy="0" r="10"/><circle cx="123" cy="0" r="10"/><circle cx="164" cy="0" r="10"/><circle cx="205" cy="0" r="10"/></g><g class="none darkline"><circle cx="0" cy="0" r="10"/><circle cx="41" cy="0" r="10"/><circle cx="82" cy="0" r="10"/><circle cx="164" cy="0" r="10"/><circle cx="205" cy="0" r="10"/></g><circle class="red" cx="123" cy="0" r="10"/><g class="label"><text x="0" y="2" text-anchor="middle">01</text><text x="41" y="2" text-anchor="middle">02</text><text x="82" y="2" text-anchor="middle">03</text><text class="white" x="123" y="2" text-anchor="middle">04</text><text x="164" y="2" text-anchor="middle">05</text><text x="205" y="2" text-anchor="middle">06</text></g><g class="micro"><text x="0" y="22" text-anchor="middle">SEARCH</text><text x="41" y="22" text-anchor="middle">AD</text><text x="82" y="22" text-anchor="middle">ARRIVAL</text><text class="red" x="123" y="22" text-anchor="middle">HOMEPAGE</text><text x="164" y="22" text-anchor="middle">PROOF</text><text x="205" y="22" text-anchor="middle">ACTION</text></g></g>
+    <line class="redline" x1="151" y1="94" x2="151" y2="124" stroke-dasharray="3 2"/><text class="label red" x="151" y="135" text-anchor="middle">BROKEN HANDOFF</text>
+    <g transform="translate(16 150)"><text class="kicker" x="0" y="0">CUSTOMER QUESTION</text><text class="body" x="0" y="14"><tspan x="0">"Can this solve my problem?"</tspan><tspan x="0" dy="8">"Why should I trust it?"</tspan></text><text class="kicker" x="90" y="0">CURRENT RESPONSE</text><text class="body" x="90" y="14"><tspan x="90">General business introduction.</tspan><tspan x="90" dy="8">Proof appears after the decision.</tspan></text><text class="kicker" x="190" y="0">RISK</text><text class="body" x="190" y="14"><tspan x="190">Intent cools.</tspan><tspan x="190" dy="8">Visitor exits.</tspan></text></g>
+    <line class="fine" x1="16" y1="200" x2="254" y2="200"/><text class="kicker" x="16" y="217">JOURNEY HEALTH</text>
+    <g transform="translate(28 282)"><line class="axis" x1="0" y1="0" x2="215" y2="0"/><line class="axis" x1="0" y1="0" x2="0" y2="-45"/><polyline class="none darkline" points="0,-34 35,-39 70,-32 105,-42 140,-29 175,-35 215,-31"/><polyline class="none redline" points="0,-26 35,-28 70,-23 105,-11 140,-17 175,-13 215,-10"/><g class="dot"><circle cx="0" cy="-34" r="1.6"/><circle cx="35" cy="-39" r="1.6"/><circle cx="70" cy="-32" r="1.6"/><circle cx="105" cy="-42" r="1.6"/></g></g>
+    <text class="micro" x="28" y="303">Expectation created by ad</text><rect class="ink" x="16" y="299" width="7" height="1.6"/><text class="micro" x="151" y="303">Confidence after click</text><rect class="red" x="139" y="299" width="7" height="1.6"/>
+    <line class="rule" x1="16" y1="354" x2="254" y2="354"/><text class="folio" x="16" y="370">2</text><text class="micro" x="28" y="370">Observed in journey &#183; Hypothesis to validate</text><text class="pagekey" x="254" y="370" text-anchor="end">A4 210 &#215; 297</text>
+  </g>
+
+  <!-- PAGE 3 -->
+  <g transform="translate(812 35)">
+    <rect class="page" width="270" height="382"/>
+    <text class="head" x="16" y="17">3D MARKETING CLARITY AUDIT</text><rect class="red" x="246" y="13" width="8" height="1.5"/><line class="rule" x1="16" y1="25" x2="254" y2="25"/>
+    <text class="title" x="16" y="44">3. EVIDENCE REVIEW</text>
+    <text class="kicker" x="16" y="66">EVIDENCE MIX</text><circle class="ring" cx="65" cy="116" r="31"/><path class="ringred" d="M65 85 A31 31 0 0 1 94 105"/><text class="smalltitle" x="65" y="117" text-anchor="middle">73</text><text class="micro" x="65" y="126" text-anchor="middle">ITEMS</text>
+    <g class="body"><rect class="red" x="111" y="82" width="5" height="5"/><text x="121" y="87">Customer-evidenced</text><rect class="ink" x="111" y="99" width="5" height="5"/><text x="121" y="104">Observed in journey</text><rect class="bar" x="111" y="116" width="5" height="5"/><text x="121" y="121">Data-supported</text><rect fill="#d2d4d6" x="111" y="133" width="5" height="5"/><text x="121" y="138">Hypothesis to validate</text></g>
+    <line class="rule" x1="16" y1="164" x2="254" y2="164"/><text class="kicker" x="16" y="181">EVIDENCE BY JOURNEY STAGE</text>
+    <g transform="translate(28 270)"><line class="axis" x1="0" y1="0" x2="210" y2="0"/><line class="axis" x1="0" y1="0" x2="0" y2="-68"/><g class="bar"><rect x="18" y="-42" width="13" height="42"/><rect x="56" y="-58" width="13" height="58"/><rect x="94" y="-48" width="13" height="48"/><rect x="132" y="-29" width="13" height="29"/><rect x="170" y="-18" width="13" height="18"/></g><g class="barred"><rect x="18" y="-42" width="13" height="15"/><rect x="56" y="-58" width="13" height="21"/><rect x="94" y="-48" width="13" height="17"/><rect x="132" y="-29" width="13" height="9"/><rect x="170" y="-18" width="13" height="6"/></g><g class="micro"><text x="24" y="12" text-anchor="middle">SEARCH</text><text x="62" y="12" text-anchor="middle">AD</text><text x="100" y="12" text-anchor="middle">PAGE</text><text x="138" y="12" text-anchor="middle">PROOF</text><text x="176" y="12" text-anchor="middle">ACTION</text></g></g>
+    <rect class="panel" x="16" y="306" width="238" height="35"/><text class="kicker" x="25" y="319">ANALYSIS</text><text class="body" x="25" y="331">Evidence is strongest before the click and weakest at the decision point.</text>
+    <line class="rule" x1="16" y1="354" x2="254" y2="354"/><text class="folio" x="16" y="370">3</text><text class="micro" x="28" y="370">Source quality and confidence are labelled throughout</text><text class="pagekey" x="254" y="370" text-anchor="end">A4 210 &#215; 297</text>
+  </g>
+
+  <!-- PAGE 4 -->
+  <g transform="translate(1106 35)">
+    <rect class="page" width="270" height="382"/>
+    <text class="head" x="16" y="17">3D MARKETING CLARITY AUDIT</text><rect class="red" x="246" y="13" width="8" height="1.5"/><line class="rule" x1="16" y1="25" x2="254" y2="25"/>
+    <text class="title" x="16" y="44">4. PRIORITY GAP 01</text>
+    <text class="kicker" x="16" y="66">FINDING</text><text class="body" x="16" y="80"><tspan x="16">The ad promise is not continued</tspan><tspan x="16" dy="8">on the page that receives the click.</tspan></text>
+    <text class="kicker" x="16" y="116">COMMERCIAL RISK</text><text class="body" x="16" y="130"><tspan x="16">More spend increases exposure to</tspan><tspan x="16" dy="8">the same unresolved handoff.</tspan></text>
+    <g transform="translate(123 78)"><rect class="none rule" width="131" height="131"/><line class="grid" x1="65.5" y1="0" x2="65.5" y2="131"/><line class="grid" x1="0" y1="65.5" x2="131" y2="65.5"/><text class="micro" x="0" y="-7">HIGH IMPACT</text><text class="micro" x="131" y="143" text-anchor="end">STRONG EVIDENCE</text><circle class="red" cx="34" cy="29" r="9"/><text class="num" x="34" y="31" text-anchor="middle">01</text><circle class="none darkline" cx="102" cy="42" r="7"/><text class="label" x="102" y="44" text-anchor="middle">02</text><circle class="none darkline" cx="98" cy="103" r="7"/><text class="label" x="98" y="105" text-anchor="middle">03</text><g class="dot"><circle cx="23" cy="54" r="1.5"/><circle cx="46" cy="91" r="1.5"/><circle cx="83" cy="16" r="1.5"/></g></g>
+    <line class="rule" x1="16" y1="238" x2="254" y2="238"/><text class="kicker" x="16" y="256">RECOMMENDATION</text>
+    <text class="body" x="16" y="272"><tspan x="16">Build one dedicated landing page around the search intent.</tspan><tspan x="16" dy="9">Continue the same problem, promise and language from the ad.</tspan><tspan x="16" dy="9">Place relevant proof and objection handling before the action.</tspan></text>
+    <g transform="translate(16 310)"><text class="label" x="0" y="0">IMPACT</text><rect class="barred" x="42" y="-5" width="78" height="5"/><text class="label" x="132" y="0">EVIDENCE</text><rect class="bar" x="184" y="-5" width="54" height="5"/></g>
+    <line class="rule" x1="16" y1="354" x2="254" y2="354"/><text class="folio" x="16" y="370">4</text><text class="micro" x="28" y="370">Owner: website and paid media &#183; Fix now</text><text class="pagekey" x="254" y="370" text-anchor="end">A4 210 &#215; 297</text>
+  </g>
+
+  <!-- PAGE 5 -->
+  <g transform="translate(371 445)">
+    <rect class="page" width="270" height="382"/>
+    <text class="head" x="16" y="17">3D MARKETING CLARITY AUDIT</text><rect class="red" x="246" y="13" width="8" height="1.5"/><line class="rule" x1="16" y1="25" x2="254" y2="25"/>
+    <text class="title" x="16" y="44">5. PRIORITY GAP 02</text>
+    <text class="kicker" x="16" y="66">MESSAGE CONTINUITY</text><text class="body" x="16" y="80"><tspan x="16">The destination page introduces a broader</tspan><tspan x="16" dy="8">story than the high-intent ad promises.</tspan></text>
+    <text class="kicker" x="118" y="66">BEFORE</text><rect class="panel" x="118" y="74" width="136" height="48"/><text class="body" x="128" y="90"><tspan x="128">Innovative solutions for every</tspan><tspan x="128" dy="8">stage of your business journey.</tspan></text><text class="red" style="font:400 4.1px Inter,system-ui,sans-serif" x="128" y="113">BROAD &#183; GENERIC &#183; LOW CONTINUITY</text>
+    <text class="kicker" x="118" y="142">AFTER</text><rect class="panel" x="118" y="150" width="136" height="48"/><text class="body" x="128" y="166"><tspan x="128">Solve the problem you searched</tspan><tspan x="128" dy="8">for, with proof before you act.</tspan></text><text class="red" style="font:400 4.1px Inter,system-ui,sans-serif" x="128" y="189">SPECIFIC &#183; RELEVANT &#183; EVIDENCED</text>
+    <line class="rule" x1="16" y1="222" x2="254" y2="222"/><text class="kicker" x="16" y="240">MESSAGE CLARITY SCORE</text>
+    <g transform="translate(28 320)"><line class="axis" x1="0" y1="0" x2="115" y2="0"/><line class="axis" x1="0" y1="0" x2="0" y2="-55"/><rect class="bar" x="22" y="-28" width="25" height="28"/><rect class="barred" x="72" y="-51" width="25" height="51"/><text class="smalltitle" x="34" y="-34" text-anchor="middle">42</text><text class="smalltitle" x="84" y="-57" text-anchor="middle">78</text><text class="micro" x="34" y="12" text-anchor="middle">BEFORE</text><text class="micro" x="84" y="12" text-anchor="middle">AFTER</text></g>
+    <text class="body" x="164" y="266"><tspan x="164">Test whether message continuity</tspan><tspan x="164" dy="9">improves progression to the</tspan><tspan x="164" dy="9">primary action.</tspan></text>
+    <line class="rule" x1="16" y1="354" x2="254" y2="354"/><text class="folio" x="16" y="370">5</text><text class="micro" x="28" y="370">Customer-evidenced &#183; Test next</text><text class="pagekey" x="254" y="370" text-anchor="end">A4 210 &#215; 297</text>
+  </g>
+
+  <!-- PAGE 6 -->
+  <g transform="translate(665 445)">
+    <rect class="page" width="270" height="382"/>
+    <text class="head" x="16" y="17">3D MARKETING CLARITY AUDIT</text><rect class="red" x="246" y="13" width="8" height="1.5"/><line class="rule" x1="16" y1="25" x2="254" y2="25"/>
+    <text class="title" x="16" y="44">6. PRIORITY GAP 03</text>
+    <text class="kicker" x="16" y="66">OBJECTION COVERAGE</text><text class="body" x="16" y="80"><tspan x="16">Key objections are acknowledged late</tspan><tspan x="16" dy="8">or answered across disconnected pages.</tspan></text>
+    <g transform="translate(16 112)"><rect class="none rule" width="238" height="125"/><line class="fine" x1="0" y1="24" x2="238" y2="24"/><line class="fine" x1="0" y1="49" x2="238" y2="49"/><line class="fine" x1="0" y1="74" x2="238" y2="74"/><line class="fine" x1="0" y1="99" x2="238" y2="99"/><line class="fine" x1="62" y1="0" x2="62" y2="125"/><line class="fine" x1="154" y1="0" x2="154" y2="125"/><text class="label" x="7" y="15">STAGE</text><text class="label" x="70" y="15">CUSTOMER QUESTION</text><text class="label" x="162" y="15">CURRENT RESPONSE</text><g class="body"><text x="7" y="40">Awareness</text><text x="70" y="40">Is this for my problem?</text><text x="162" y="40">Not explicit</text><text x="7" y="65">Consideration</text><text x="70" y="65">Why should I trust it?</text><text x="162" y="65">Proof appears late</text><text x="7" y="90">Evaluation</text><text x="70" y="90">Will this work for me?</text><text x="162" y="90">Generic examples</text><text x="7" y="115">Decision</text><text x="70" y="115">What happens next?</text><text x="162" y="115">Vague CTA</text></g></g>
+    <text class="kicker" x="16" y="261">OBSERVATIONS</text>
+    <circle class="red" cx="21" cy="278" r="5"/><text class="num" x="21" y="280" text-anchor="middle">01</text><text class="body" x="31" y="280">Value is explained after product detail.</text>
+    <circle class="red" cx="21" cy="299" r="5"/><text class="num" x="21" y="301" text-anchor="middle">02</text><text class="body" x="31" y="301">Proof is separated from the decision.</text>
+    <circle class="red" cx="21" cy="320" r="5"/><text class="num" x="21" y="322" text-anchor="middle">03</text><text class="body" x="31" y="322">The next action does not reduce risk.</text>
+    <line class="rule" x1="16" y1="354" x2="254" y2="354"/><text class="folio" x="16" y="370">6</text><text class="micro" x="28" y="370">Observed in journey &#183; Owner: website</text><text class="pagekey" x="254" y="370" text-anchor="end">A4 210 &#215; 297</text>
+  </g>
+
+  <!-- PAGE 7 -->
+  <g transform="translate(959 445)">
+    <rect class="page" width="270" height="382"/>
+    <text class="head" x="16" y="17">3D MARKETING CLARITY AUDIT</text><rect class="red" x="246" y="13" width="8" height="1.5"/><line class="rule" x1="16" y1="25" x2="254" y2="25"/>
+    <text class="title" x="16" y="44">7. 30-DAY DECISION PLAN</text>
+    <g transform="translate(16 76)"><text class="kicker" x="0" y="0">WORKSTREAM</text><text class="micro" x="99" y="0">WEEK 1</text><text class="micro" x="137" y="0">WEEK 2</text><text class="micro" x="175" y="0">WEEK 3</text><text class="micro" x="213" y="0">WEEK 4</text><g class="fine"><line x1="92" y1="9" x2="238" y2="9"/><line x1="92" y1="54" x2="238" y2="54"/><line x1="92" y1="99" x2="238" y2="99"/><line x1="92" y1="144" x2="238" y2="144"/><line x1="130" y1="9" x2="130" y2="144"/><line x1="168" y1="9" x2="168" y2="144"/><line x1="206" y1="9" x2="206" y2="144"/></g><text class="label" x="0" y="30">FIX NOW</text><text class="body" x="0" y="41">Align promise and proof</text><text class="label" x="0" y="75">TEST NEXT</text><text class="body" x="0" y="86">Validate repaired path</text><text class="label" x="0" y="120">CONSIDER LATER</text><text class="body" x="0" y="131">New channels and tools</text><line class="redline" x1="99" y1="32" x2="157" y2="32"/><circle class="red" cx="99" cy="32" r="2.4"/><circle class="red" cx="157" cy="32" r="2.4"/><line class="redline" x1="130" y1="77" x2="205" y2="77"/><circle class="red" cx="130" cy="77" r="2.4"/><circle class="red" cx="205" cy="77" r="2.4"/><line class="darkline" x1="168" y1="122" x2="235" y2="122"/><circle class="ink" cx="168" cy="122" r="2.4"/></g>
+    <line class="rule" x1="16" y1="238" x2="254" y2="238"/><text class="kicker" x="16" y="256">KEY ACTIONS</text>
+    <g class="body"><text x="16" y="273">01  Write the dedicated landing-page brief</text><text x="16" y="289">02  Align the ad promise, proof and action</text><text x="16" y="305">03  Run controlled traffic through the new path</text><text x="16" y="321">04  Review progression before scaling spend</text></g>
+    <rect class="darkpanel" x="16" y="330" width="238" height="20"/><text class="head white" x="25" y="343">INVESTMENT DIRECTION: WAIT &#183; FIX &#183; TEST &#183; THEN DECIDE</text>
+    <line class="rule" x1="16" y1="354" x2="254" y2="354"/><text class="folio" x="16" y="370">7</text><text class="micro" x="28" y="370">30-day plan &#183; Owners and measures included</text><text class="pagekey" x="254" y="370" text-anchor="end">A4 210 &#215; 297</text>
+  </g>
+</svg>

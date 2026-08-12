@@ -1,269 +1,350 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Val | Find out what your marketing actually needs</title>
-<meta name="description" content="I spend a week inside your business and come out with a map: what your marketing is costing you, what a system could take over, and what to fix first." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Val | The 3D Marketing Clarity Audit</title>
+<meta name="description" content="Fix the customer journey before you fund more marketing. The 3D Marketing Clarity Audit maps one priority customer path, diagnoses where it loses clarity, trust or momentum, and gives you a 30-day action plan. AUD $2,000, delivered within 14 business days." />
 <link rel="icon" href="assets/favicon.png" />
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://valdoesmarketing.com/" />
-<meta property="og:title" content="Find out what your marketing actually needs. In 1 week." />
-<meta property="og:description" content="I spend a week inside your business and come out with a map: what your marketing is costing you, what a system could take over, and what to fix first." />
+<meta property="og:title" content="The 3D Marketing Clarity Audit" />
+<meta property="og:description" content="Fix the customer journey before you fund more marketing. One priority customer path, mapped and diagnosed, with a 30-day action plan. AUD $2,000, delivered within 14 business days." />
 <meta property="og:image" content="https://valdoesmarketing.com/assets/og.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Find out what your marketing actually needs. In 1 week." />
-<meta name="twitter:description" content="A week inside your business, and a map of what to fix first." />
+<meta name="twitter:title" content="The 3D Marketing Clarity Audit" />
+<meta name="twitter:description" content="Map the path. Diagnose the gaps. Fix the journey. Then decide what deserves more investment." />
 <meta name="twitter:image" content="https://valdoesmarketing.com/assets/og.png" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
 <style>
-  :root{
-    --navy:#050B1A; --navy-2:#0B1628; --navy-3:#122341; --line:rgba(245,239,230,.11);
-    --cream:#F5EFE6; --cream-2:#C8CBD4; --muted:#8791A3; --faint:#5C6579;
-    --gold:#CDA349; --gold-deep:#8B6F4E;
-    --ink:#0B1120;
-    --wrap:1120px; --narrow:680px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  [id]{scroll-margin-top:74px}
-  body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--navy);
-       color:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+:root{
+  --putty:#c4c3b6; --ink:#000000; --bone:#e7e5e4; --chalk:#ebebeb;
+  --vellum:#dfdcd5; --graphite:#595855; --ash:#808080; --paper:#ffffff;
+  --mut-light:#4b4a44; --mut-dark:#8f8d84; --hair-dark:rgba(255,255,255,.18);
+  --wrap:1120px; --narrow:680px;
+  --serif:'Playfair Display',Georgia,serif;
+  --grot:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+[id]{scroll-margin-top:56px}
+body{background:var(--putty);color:var(--ink);font:400 15.5px/1.6 var(--grot)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.narrow{max-width:var(--narrow)}
+/* clip, not hidden: hidden would force overflow-y to auto and trap the scroll-reveal
+   transforms. Keeps the full-bleed journey art from scrolling phones sideways. */
+section{padding:72px 0;overflow-x:clip}
+.lift{background:var(--ink);color:var(--paper)}
+.lift h2,.lift h3{color:var(--paper)}
+.lift p{color:#c9c7bc}
+.light{background:var(--bone)}
+h1,h2{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(32px,4.6vw,58px);margin:10px 0 20px}
+h3{font-size:16px;font-weight:600;line-height:1.35;margin:0 0 6px;font-family:var(--grot)}
+p{color:#33322e}
+.lead{font-size:clamp(15.5px,1.9vw,17.5px);max-width:620px}
+.lift .lead{color:#c9c7bc}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--mut-light)}
+.lift .eyebrow{color:var(--mut-dark)}
+.caption{font-size:14px;color:var(--mut-light);margin-top:22px}
+.lift .caption{color:var(--mut-dark)}
+.src{margin-top:14px;font-size:12.5px;color:var(--mut-light);line-height:1.5}
+.lift .src{color:var(--mut-dark)}
+.fineprint{font-size:13px;color:var(--mut-light);margin-top:18px}
+.lift .fineprint{color:var(--mut-dark)}
+.it{font-style:italic;font-family:var(--serif)}
+.rule{width:44px;height:2px;background:var(--ink)}
+.subline{font-size:15px;color:var(--mut-light);margin:-8px 0 18px;max-width:620px}
+.lift .subline{color:var(--mut-dark)}
 
-  /* ---------------- MOBILE FIRST ---------------- */
-  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
-  .narrow{max-width:var(--narrow)}
-  section{padding:66px 0}
-  .lift{background:var(--navy-2)}
-  .light{background:var(--cream);color:var(--ink)}
-  .light p{color:#4A5364} .light .eyebrow{color:var(--gold-deep)}
-  .light .src{color:#7C8494} .light strong{color:var(--ink)}
+.btn{display:inline-block;font-family:var(--grot);font-weight:500;font-size:13px;padding:12px 26px;text-decoration:none;border:none;cursor:pointer;background:var(--ink);color:var(--paper);clip-path:polygon(11px 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,11px 100%,0 50%);transition:opacity .15s}
+.btn:hover{opacity:.75}
+.lift .btn{background:var(--paper);color:var(--ink)}
+.tlink{font-family:var(--grot);font-size:13.5px;font-weight:500;color:inherit;text-decoration:none;border-radius:2px;border-bottom:1px solid transparent;padding-bottom:1px}
+.tlink:hover{border-bottom-color:currentColor}
+.btn-row{display:flex;flex-wrap:wrap;gap:22px;margin-top:26px;align-items:center}
 
-  h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-0.018em;
-           line-height:1.03}
-  h1{font-size:39px}
-  h2{font-size:30px;line-height:1.06}
-  h3{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;line-height:1.35;
-     letter-spacing:-0.01em}
-  p{font-size:16.5px;color:var(--muted)}
-  .lead{font-size:18px;color:var(--cream-2);line-height:1.5}
-  .light .lead{color:var(--ink)}
-  strong{font-weight:600;color:var(--cream)}
-  .gold{color:var(--gold)} .light .gold{color:var(--gold-deep)}
-  .it{font-style:italic}
-  .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
-           font-weight:600;margin-bottom:14px}
-  .src{margin-top:14px;font-size:12.5px;color:var(--faint);line-height:1.5}
+header{position:sticky;top:0;z-index:50;background:var(--bone);border-bottom:1px solid var(--vellum)}
+.head-row{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+.mark{font-family:var(--grot);font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:.2px}
+.mark .tw{font-style:italic;font-family:var(--serif);font-weight:500}
+.caret{display:inline-block;width:8px;height:15px;background:var(--ink);vertical-align:-2px;margin-left:2px;opacity:0}
+.typing .caret{opacity:1;animation:blink 1.05s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
 
-  /* ---------------- header + typewriter wordmark ---------------- */
-  header{padding:15px 0;position:sticky;top:0;z-index:40;background:rgba(5,11,26,.72);
-         backdrop-filter:saturate(170%) blur(16px);-webkit-backdrop-filter:saturate(170%) blur(16px);
-         border-bottom:1px solid var(--line)}
-  .head-row{display:flex;align-items:center;justify-content:space-between;gap:14px}
-  .mark{font-family:'Instrument Serif',serif;font-size:21px;color:var(--cream);
-        text-decoration:none;letter-spacing:-0.01em;white-space:nowrap}
-  .mark .tw{font-style:italic;color:var(--gold)}
-  .mark .caret{display:inline-block;width:1px;height:.86em;background:var(--gold);
-               margin-left:1px;vertical-align:-1px;opacity:0}
-  .typing .caret{opacity:1;animation:blink 1.05s steps(1) infinite}
-  @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.hero{background:var(--bone);min-height:96svh;display:flex;flex-direction:column;justify-content:space-between;padding:0;overflow:hidden;position:relative}
+.hero-dither{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 56% 50% at 50% 34%,rgba(231,229,228,.9) 0%,rgba(231,229,228,.48) 52%,rgba(231,229,228,0) 72%)}
+/* Phone scrim sits lower and lighter than it used to: the hooded head now clears the headline,
+   so the wash only has to protect the text block, not bleach the whole figure. */
+@media (max-width:720px){.hero::after{background:radial-gradient(ellipse 118% 58% at 50% 44%,rgba(231,229,228,.75) 0%,rgba(231,229,228,.53) 56%,rgba(231,229,228,0) 86%)}}
+.hero .wrap,.hero .giant{position:relative;z-index:1}
+.hero .wrap>*{text-shadow:0 0 5px var(--bone),0 0 12px rgba(231,229,228,.85),0 0 20px rgba(231,229,228,.6)}
+.hero .btn{text-shadow:none}
+.hero .wrap{text-align:center;display:flex;flex-direction:column;align-items:center;padding-top:11svh;padding-bottom:24px}
+.hero-h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.9vw,47px);line-height:1.07;letter-spacing:-.012em;max-width:19ch}
+.hero .lead{margin-top:18px}
+.hero .btn-row{margin-top:28px;gap:16px;flex-direction:column}
+.hero .tlink{color:var(--mut-light)}
+.undernote{margin-top:18px;font-size:13px;line-height:1.55;color:var(--mut-light);max-width:560px}
+.loss{margin-top:22px;padding-top:20px;border-top:1px solid rgba(0,0,0,.2);font-size:14.5px;line-height:1.55;color:#33322e;max-width:620px}
+.lift .loss{border-top-color:var(--hair-dark);color:#c9c7bc}
+.giant{font-family:var(--serif);font-weight:500;font-size:clamp(52px,19vw,330px);line-height:.8;letter-spacing:-.03em;color:var(--ink);white-space:nowrap;text-align:center;margin:40px 0 -10px;margin-left:50%;transform:translateX(-50%);user-select:none;pointer-events:none;width:max-content;padding-bottom:.36em}
+/* line-height:.8 lets the glyphs hang below their own line box, so the hero's bottom edge was
+   slicing the wordmark. On a phone that ate a third of the letterform. The padding lifts the
+   text off the edge; desktop keeps its deliberate bleed. */
+@media(min-width:640px){.giant{padding-bottom:0}}
 
-  /* ---------------- buttons ---------------- */
-  .btn{display:inline-block;font-weight:500;font-size:15px;border-radius:100px;padding:13px 25px;
-       text-decoration:none;line-height:1.2;border:1px solid transparent;
-       transition:background .2s,color .2s,border-color .2s,transform .15s}
-  .btn:active{transform:scale(.97)}
-  .btn-primary{background:var(--cream);color:var(--ink)}
-  .btn-primary:hover{background:var(--gold);color:var(--ink)}
-  .btn-ghost{border-color:var(--line);color:var(--cream)}
-  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-  .light .btn-primary{background:var(--ink);color:var(--cream)}
-  .light .btn-primary:hover{background:var(--gold-deep)}
-  .light .btn-ghost{border-color:#CFC7BA;color:var(--ink)}
-  .light .btn-ghost:hover{border-color:var(--ink)}
-  .btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.symptoms{display:grid;gap:10px;margin-top:26px}
+.sym{display:flex;gap:13px;align-items:flex-start;border:1px solid var(--hair-dark);border-radius:9px;padding:15px 17px}
+.tick{flex:0 0 auto;width:17px;height:17px;margin-top:3px;border-radius:50%;border:1.5px solid var(--paper);position:relative}
+.tick::after{content:"";position:absolute;left:4px;top:3.5px;width:6px;height:3.5px;border-left:1.5px solid var(--paper);border-bottom:1.5px solid var(--paper);transform:rotate(-45deg)}
+.sym .t{color:#c9c7bc;font-size:15px}
 
-  /* ---------------- hero ---------------- */
-  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;
-        text-align:center;overflow:hidden;padding:96px 0 72px;
-        background:radial-gradient(100% 62% at 50% 30%, rgba(24,43,73,.70) 0%, rgba(5,11,26,0) 68%),
-                   var(--navy)}
-  .hero h1{max-width:17ch;margin:0 auto}
-  .hero .lead{margin:18px auto 0;max-width:48ch}
-  .hero .btn-row{justify-content:center;margin-top:30px}
-  .hero .rule{width:44px;height:1px;background:var(--gold);margin:0 auto 26px;opacity:.85}
+.journey-intro{background:var(--putty);padding:72px 0 34px}
+.journey{background:var(--putty);padding:0 0 72px}
+.j-stage{padding:0 20px}
+.auditbox{position:relative;background:var(--ink);color:var(--paper);max-width:820px;margin:0 auto;padding:40px 34px 52px;clip-path:polygon(16px 0,calc(100% - 16px) 0,100% 16px,100% calc(100% - 16px),calc(100% - 16px) 100%,16px 100%,0 calc(100% - 16px),0 16px)}
+.cnr{position:absolute;width:30px;height:30px;pointer-events:none}
+.cnr svg{width:100%;height:100%;stroke:var(--hair-dark);stroke-width:1;fill:none}
+.cnr.tl{top:8px;left:8px}
+.cnr.tr{top:8px;right:8px;transform:scaleX(-1)}
+.cnr.bl{bottom:8px;left:8px;transform:scaleY(-1)}
+.cnr.br{bottom:8px;right:8px;transform:scale(-1)}
+.ab-tag{position:absolute;left:26px;bottom:16px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut-dark)}
+.ab-head .eyebrow{color:var(--mut-dark)}
+.ab-head h2{font-size:clamp(24px,3.2vw,34px);color:var(--paper)}
+.ab-head p{color:#c9c7bc;font-size:14.5px;margin-top:8px;max-width:520px}
+.auditbox .btn{background:var(--paper);color:var(--ink)}
+.scenes{display:grid;gap:46px;margin-top:30px}
+.scene{margin:0}
+/* Words live in the figcaption, not the SVG: HTML text scales with the viewport, SVG text
+   scales with the viewBox and went down to 5px on a phone. The cap keeps the stage labels
+   from ballooning inside the wide desktop panel. */
+.scene svg{display:block;width:100%;max-width:390px;height:auto;margin:0 auto}
+.scene figcaption{margin-top:14px;font-size:14.5px;color:#c9c7bc;max-width:540px}
+.scene figcaption .cap{display:block;font-family:var(--serif);font-size:21px;color:var(--paper);margin-bottom:5px;letter-spacing:-.005em}
+.scene .rec{display:block;margin-top:10px;font-size:12.5px;color:var(--mut-dark)}
+.scene .btn{display:block;width:fit-content;margin-top:16px}
+.sv-line{stroke:var(--paper);stroke-width:1.4;fill:none}
+.sv-hair{stroke:var(--hair-dark);stroke-width:1.2;fill:none}
+.sv-trace{stroke:var(--paper);stroke-width:2;fill:none}
+.sv-dot{fill:var(--paper)}
+.sv-band{fill:rgba(255,255,255,.07)}
+.sv-dash{stroke:var(--ash);stroke-width:1.2;stroke-dasharray:3 5;fill:none}
+.sv-dim{opacity:.3}
+.sv-stage{fill:var(--mut-dark);font-family:var(--grot);font-size:12px;letter-spacing:.13em}
+.sv-stage.lit{fill:var(--paper)}
+.pulse{stroke:var(--paper);fill:none;stroke-width:1.4}
+.j-art{display:block;width:100%;max-height:62svh;object-fit:cover;object-position:50% 16%;margin-bottom:40px}
+.j-hint{display:none}
+.js .journey{height:480svh;padding:0}
+.js .j-stage{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:0 20px}
+.js .j-art{position:absolute;left:50%;top:0;transform:translate(-50%,0);width:max(100vw,60svh);max-height:none;height:auto;margin:0;will-change:transform}
+.js .journey .auditbox{position:relative;width:min(620px,100%);max-height:92svh;overflow-y:auto;padding:30px 30px 62px}
+.js .journey .ab-head p:not(.eyebrow){display:none}
+.js .journey .scenes{margin-top:18px}
+.js .journey .scene{grid-area:1/1;opacity:0;transition:opacity .5s;pointer-events:none}
+.js .journey .scene.on{opacity:1;pointer-events:auto}
+.js .journey .scene.on .pulse{animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{stroke-opacity:1;r:13}70%{stroke-opacity:0;r:24}100%{stroke-opacity:0;r:24}}
+.js .j-hint{display:flex;align-items:center;gap:12px;margin-top:20px}
+.j-hint span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut-dark)}
+.j-bar{flex:1;height:1px;background:var(--hair-dark);position:relative}
+.j-bar i{position:absolute;left:0;top:-0.5px;height:2px;width:0;background:var(--paper)}
 
-  /* ---------------- symptoms checklist ---------------- */
-  .symptoms{margin-top:30px;display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-            border-radius:4px;overflow:hidden}
-  .sym{background:var(--navy);padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
-  .lift .sym{background:var(--navy-2)}
-  .sym .tick{flex:none;width:17px;height:17px;border:1px solid var(--gold);border-radius:3px;
-             margin-top:3px;position:relative}
-  .sym .tick::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;
-                    border:solid var(--gold);border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
-  .sym span.t{font-size:16px;color:var(--cream-2);line-height:1.45}
+.outlist{list-style:none;display:grid;gap:10px;margin-top:26px}
+.outlist li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:#33322e}
+/* 1 list marker for the whole page: the same dash .plist uses. The fit columns used to pair a
+   radio dot against a dash, which read as 2 unrelated lists sitting side by side. */
+.li-yes::before,.li-no::before{content:"";flex:0 0 auto;width:13px;height:1.5px;margin-top:11px;background:var(--ash)}
+.lift .li-yes::before,.lift .li-no::before{background:var(--mut-dark)}
 
-  /* ---------------- chart ---------------- */
-  .chart{margin-top:32px;display:grid;gap:14px}
-  .bar-row{display:grid;gap:7px}
-  .bar-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-  .bar-label{font-size:14.5px;font-weight:500;color:var(--cream)}
-  .bar-val{font-size:13px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
-  .track{height:12px;border-radius:100px;background:rgba(245,239,230,.07);overflow:hidden}
-  .fill{height:100%;border-radius:100px;background:var(--cream);opacity:.26;transform-origin:left}
-  .bar-row.mine .bar-label,.bar-row.mine .bar-val{color:var(--gold);font-weight:600}
-  .bar-row.mine .fill{background:var(--gold);opacity:1}
-  .bar-row.you .fill{opacity:.13}
-  .scale{display:flex;justify-content:space-between;font-size:11.5px;color:var(--faint);
-         margin-top:4px;font-variant-numeric:tabular-nums}
-  .caption{margin-top:26px;font-family:'Instrument Serif',serif;font-size:23px;line-height:1.24;
-           max-width:24ch;color:var(--cream)}
 
-  .js .fill{transform:scaleX(0)}
-  .js .in .fill{transform:scaleX(1);transition:transform 1.05s cubic-bezier(.22,.8,.24,1)}
-  .js .bar-row:nth-child(2) .fill{transition-delay:.08s}
-  .js .bar-row:nth-child(3) .fill{transition-delay:.16s}
-  .js .bar-row:nth-child(4) .fill{transition-delay:.24s}
-  .js .bar-row:nth-child(5) .fill{transition-delay:.32s}
-  .js .rev{opacity:0;transform:translateY(14px)}
-  .js .rev.in{opacity:1;transform:none;transition:opacity .7s,transform .7s cubic-bezier(.22,.8,.24,1)}
+.fgrid{display:grid;gap:18px;margin-top:34px}
+.fcard{position:relative;border:1px solid var(--hair-dark);padding:150px 24px 26px;min-height:360px;display:flex;flex-direction:column;justify-content:flex-end}
+.fcard .fdeco{position:absolute;left:0;right:0;top:0;height:120px;width:100%}
+.fcard .fdeco path{stroke:var(--hair-dark);fill:none;vector-effect:non-scaling-stroke}
+.fcard .cap{font-family:var(--serif);font-weight:400;font-size:27px;color:var(--paper);letter-spacing:-.005em;margin-bottom:10px}
+.fcard p{font-size:14px;color:#c9c7bc}
 
-  /* ---------------- process flow ---------------- */
-  .flow{margin-top:34px;display:grid;gap:0}
-  .step{position:relative;background:var(--navy-2);border:1px solid var(--line);border-radius:6px;
-        padding:22px 20px}
-  .light .step{background:#FBF8F2;border-color:#DED6C8}
-  .step + .step{margin-top:38px}
-  .step::before{content:"";position:absolute;left:50%;top:-31px;width:1px;height:24px;
-                background:var(--line)}
-  .light .step::before{background:#DED6C8}
-  .step::after{content:"";position:absolute;left:50%;top:-11px;width:7px;height:7px;
-               border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);
-               transform:translateX(-50%) rotate(45deg)}
-  .step:first-child::before,.step:first-child::after{display:none}
-  .step .no{font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--gold);
-            display:block;margin-bottom:7px;letter-spacing:.04em}
-  .step h3{color:var(--cream);margin-bottom:6px}
-  .light .step h3{color:var(--ink)}
-  .step p{font-size:15.5px;margin:0}
-  .step .when{margin-top:10px;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;
-              color:var(--faint);font-weight:600}
+/* 7 A4 pages side by side is a landscape composition. Below ~600px the pages would be 45px
+   wide, so the figure scrolls inside itself rather than shrinking past legibility. min-width
+   never binds on desktop. */
+.repro{margin:48px 0 10px;overflow-x:auto}
+.repro img{display:block;width:100%;min-width:580px;height:auto}
 
-  /* ---------------- roles ---------------- */
-  .roles{margin-top:30px;display:grid;gap:1px;background:var(--line);
-         border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .role{background:var(--navy);padding:20px 0;display:grid;gap:5px}
-  .lift .role{background:var(--navy-2)}
-  .role .job{font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;color:var(--gold)}
-  .role p{font-size:15px;margin:0}
-  .role .cost{margin-top:7px;font-size:13.5px;color:var(--faint);font-variant-numeric:tabular-nums}
-  .role .cost b{color:var(--cream);font-weight:600}
-  .rollup{margin-top:26px;font-family:'Instrument Serif',serif;font-size:25px;line-height:1.22;
-          max-width:26ch;color:var(--cream)}
+.circ{width:190px;height:190px;border-radius:50%;object-fit:cover;display:block;margin:18px auto 16px}
 
-  /* ---------------- offer ---------------- */
-  .offer-card{margin-top:30px;background:#FBF8F2;border:1px solid var(--gold-deep);border-radius:8px;
-              padding:28px 22px}
-  .offer-card .money{font-family:'Instrument Serif',serif;font-size:40px;color:var(--gold-deep);
-                     letter-spacing:-0.02em;line-height:1}
-  .offer-card .money small{font-size:15px;color:#8B8577;font-family:'Inter',sans-serif;
-                           letter-spacing:0}
-  .offer-card .sub{margin-top:8px;font-size:15px;color:#6E7686}
-  .inc{list-style:none;margin-top:22px;display:grid;gap:12px}
-  .inc li{position:relative;padding-left:20px;font-size:15.5px;color:#4A5364;line-height:1.5}
-  .inc li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:1.5px;
-                  background:var(--gold-deep)}
-  .inc li strong{color:var(--ink)}
-  .split{margin-top:24px;padding-top:22px;border-top:1px solid #E3DBCD;display:grid;gap:4px}
-  .split .money{font-size:30px}
-  .fineprint{margin-top:20px;font-size:14px;color:#6B7383;max-width:64ch;line-height:1.55}
 
-  /* ---------------- proof ---------------- */
-  .steps3{margin-top:28px;display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-          border-radius:4px;overflow:hidden}
-  .s3{background:var(--navy);padding:24px 20px}
-  .s3 .n{font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:var(--gold);
-         line-height:1;display:block;margin-bottom:9px}
-  .s3 h3{color:var(--cream)} .s3 p{font-size:15.5px;margin-top:7px}
-  .pull{margin-top:26px;font-family:'Instrument Serif',serif;font-size:23px;line-height:1.26;
-        max-width:30ch;color:var(--cream)}
+.cols2{display:grid;gap:30px;margin-top:28px}
+.cols2 h3{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.h3-pos{color:var(--ink)}
+.h3-neg{color:var(--mut-light)}
+.cols2 ul{list-style:none;margin-top:14px;display:grid;gap:10px}
+.cols2 li{display:flex;gap:11px;align-items:flex-start;font-size:15px;color:#33322e}
 
-  /* ---------------- story ---------------- */
-  .story-grid{display:grid;gap:26px}
-  .story p{margin-top:16px;font-size:17px;line-height:1.6}
-  .story-img{display:flex;justify-content:center}
-  .story-img img{display:block;width:auto;max-width:78%;height:auto;border-radius:3px;
-                 filter:drop-shadow(0 20px 44px rgba(0,0,0,.16))}
+.numlist{list-style:none;margin-top:26px;display:grid;gap:22px}
+.numlist li{display:flex;gap:16px;align-items:flex-start}
+.numlist .no{font-family:var(--serif);font-style:italic;font-size:23px;color:var(--mut-dark);line-height:1.2;min-width:26px}
+.numlist p{font-size:15px}
+.numlist .who{display:block;margin-top:7px;font-size:12.5px;color:var(--mut-light)}
+.lift .numlist .who{color:var(--mut-dark)}
 
-  /* ---------------- refuse / faq ---------------- */
-  .refuse{margin-top:26px;list-style:none}
-  .refuse li{padding:20px 0;border-bottom:1px solid var(--line)}
-  .refuse li:first-child{border-top:1px solid var(--line)}
-  .refuse h3{margin-bottom:5px;color:var(--cream)}
-  .faq{margin-top:26px}
-  .faq details{border-bottom:1px solid var(--line);padding:18px 0}
-  .faq summary{font-family:'Instrument Serif',serif;font-size:20px;cursor:pointer;list-style:none;
-               display:flex;justify-content:space-between;gap:14px;align-items:baseline;
-               color:var(--cream);line-height:1.2}
-  .faq summary::-webkit-details-marker{display:none}
-  .faq summary::after{content:"+";color:var(--gold);font-size:21px;flex:none;
-                      font-family:'Inter',sans-serif}
-  .faq details[open] summary::after{content:"\2013"}
-  .faq p{margin-top:10px;max-width:58ch;font-size:15.5px}
 
-  /* ---------------- final + footer ---------------- */
-  .final{text-align:center}
-  .final h2{max-width:16ch;margin:0 auto}
-  .final .lead{margin:16px auto 0;max-width:44ch}
-  .final .btn-row{justify-content:center}
-  footer{padding:28px 0;border-top:1px solid var(--line);font-size:13.5px;color:var(--faint)}
-  .foot-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
-  footer a{color:var(--muted);text-decoration:none}
-  footer a:hover{color:var(--gold)}
 
-  /* ---------------- larger screens ---------------- */
-  @media(min-width:640px){
-    section{padding:90px 0}
-    h1{font-size:52px} h2{font-size:37px} p{font-size:17px} .lead{font-size:19px}
-    .wrap{padding:0 30px}
-    .steps3{grid-template-columns:repeat(3,1fr)}
-    .symptoms{grid-template-columns:1fr 1fr}
-  }
-  @media(min-width:900px){
-    section{padding:112px 0}
-    h1{font-size:60px} h2{font-size:43px}
-    .role{grid-template-columns:210px 1fr;gap:26px;align-items:start;padding:22px 0}
-    .story-grid{grid-template-columns:.72fr 1.28fr;gap:50px;align-items:center}
-    .story-img img{max-width:100%}
-    .caption{font-size:29px} .rollup{font-size:31px} .pull{font-size:27px}
-    .offer-card{padding:40px 38px}
-    /* flow becomes a left-hand rail with connectors */
-    .flow{gap:0}
-    .step{padding:26px 30px}
-    .step + .step{margin-top:34px}
-    .step::before{top:-27px;height:20px}
-    .step::after{top:-9px}
-  }
-  @media(min-width:900px) and (max-height:820px){
-    h1{font-size:46px}
-    .hero{padding:84px 0 60px}
-    .hero .lead{font-size:17px;margin-top:14px}
-  }
-  @media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *{transition:none!important;animation:none!important}
-    .js .fill{transform:scaleX(1)!important}
-    .js .rev{opacity:1!important;transform:none!important}
-    .mark .caret{display:none}
-  }
+
+
+/* Short declarative lines that read as a stack, not a bulleted list. */
+.beats{list-style:none;margin:22px 0 26px;display:grid}
+.beats li{padding:11px 0;border-top:1px solid var(--hair-dark);font-size:15.5px;color:#c9c7bc}
+.beats li:last-child{border-bottom:1px solid var(--hair-dark)}
+
+.plist{list-style:none;margin:12px 0 16px;display:grid;gap:8px}
+.plist li{position:relative;padding-left:18px;font-size:14.5px;color:#c9c7bc}
+.plist li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:1.5px;background:var(--mut-dark)}
+.lift .plist li{color:#c9c7bc}
+section:not(.lift) .plist li{color:#33322e}
+section:not(.lift) .plist li::before{background:var(--ash)}
+
+.paths{list-style:none;margin:24px 0 26px;display:grid;gap:10px}
+.paths li{border:1px solid rgba(0,0,0,.18);border-left:2px solid var(--ink);border-radius:7px;padding:13px 16px;font-size:14.5px;color:#33322e}
+.paths i{font-style:normal;color:var(--ash);padding:0 4px}
+
+.method{display:grid;gap:56px;margin-top:44px}
+.mblock{display:grid;gap:22px;align-items:start}
+.mart .circ{margin:0}
+.mbody .cap{font-family:var(--serif);font-weight:400;font-size:27px;color:var(--paper);letter-spacing:-.005em;margin-bottom:10px}
+.mbody p{font-size:14.5px;margin-bottom:12px}
+.mbody p:last-child{margin-bottom:0}
+
+.spec{display:grid;gap:0;margin-top:28px}
+.spec>div{padding:16px 0;border-top:1px solid rgba(0,0,0,.16)}
+.spec>div:last-child{border-bottom:1px solid rgba(0,0,0,.16)}
+.spec dt{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--mut-light);margin-bottom:5px}
+.spec dd{font-size:15px;color:#33322e}
+
+.phases{display:grid;gap:18px;margin-top:34px}
+.phase{border:1px solid var(--vellum);border-top:2px solid var(--ink);border-radius:0 0 7px 7px;padding:22px 20px 24px;background:rgba(255,255,255,.35)}
+.pday{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--mut-light)}
+.phase h3{font-family:var(--serif);font-weight:400;font-size:22px;letter-spacing:-.005em;margin:7px 0 9px}
+.phase p{font-size:14.5px}
+
+.pull{font-family:var(--serif);font-weight:400;font-size:clamp(23px,3.1vw,36px);line-height:1.16;letter-spacing:-.008em;color:var(--ink);border-left:2px solid var(--ink);padding-left:22px;margin-top:44px;max-width:820px}
+
+.numlist>li>div{flex:1}
+.numlist strong{font-weight:600;color:var(--ink)}
+.lift .numlist strong{color:var(--paper)}
+
+.sv-node{fill:none;stroke:var(--hair-dark);stroke-width:1.4}
+.sv-bar{fill:rgba(255,255,255,.28)}
+.sv-barlit{fill:var(--paper)}
+
+.panelsec{background:url('assets/painting-panel.jpg') center/cover no-repeat;padding:120px 0}
+.offer-card{background:var(--ink);color:var(--paper);padding:34px 30px;margin:0 auto;max-width:560px;clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 18px,100% calc(100% - 18px),calc(100% - 18px) 100%,18px 100%,0 calc(100% - 18px),0 18px)}
+.offer-card p{color:#c9c7bc}
+.offer-card .eyebrow{color:var(--mut-dark)}
+.offer-card h2{color:var(--paper);font-size:clamp(28px,3.6vw,40px)}
+.inc{list-style:none;margin:18px 0 6px;display:grid;gap:10px}
+.inc li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#c9c7bc}
+.inc li::before{content:"";flex:0 0 auto;width:13px;height:1.5px;margin-top:11px;background:var(--mut-dark)}
+.split{border-top:1px solid var(--hair-dark);margin-top:22px;padding-top:18px;font-size:13.5px;color:var(--mut-dark)}
+.offer-card .btn{background:var(--paper);color:var(--ink)}
+.offer-card .tlink{color:#c9c7bc}
+
+
+.final{background:var(--chalk);text-align:center}
+.final h2{font-size:clamp(34px,5.4vw,68px);text-transform:uppercase;letter-spacing:.005em}
+.final h2 .it{text-transform:lowercase;font-weight:400}
+.final .lead{margin:14px auto 0}
+.final .btn-row{justify-content:center}
+.final .undernote{margin-left:auto;margin-right:auto}
+.hero-terms{margin-top:24px;font-size:13px;color:var(--mut-light);letter-spacing:.02em}
+footer{background:var(--chalk);border-top:1px solid var(--vellum);padding:24px 0}
+.foot-row{display:flex;justify-content:space-between;font-size:13px;color:var(--mut-light)}
+footer a{color:var(--mut-light);text-decoration:none}
+footer a:hover{color:var(--ink)}
+
+.js .rev{opacity:0;transform:translateY(12px)}
+.js .rev.in{opacity:1;transform:none;transition:opacity .6s,transform .6s cubic-bezier(.22,.8,.24,1)}
+
+/* Touch: grow the small inline links to a ~44px hit area. Padding on an inline element
+   extends the hit box without moving a single line of layout. */
+@media(pointer:coarse){
+  .tlink,.foot-row a,.mark,.src a{padding-block:13px}
+}
+
+/* Phone, pinned panel only. The box is capped at 92svh and the scene content ran 832px into a
+   776px box, so the tail of every caption was cut and .ab-tag, being absolutely positioned in a
+   scrolling container, landed on top of the SCROLL bar. Everything below buys that 56px back. */
+@media(max-width:639px){
+  .js .journey .auditbox{padding:24px 22px 24px}
+  .js .journey .ab-tag{position:static;display:block;margin-top:12px;left:auto;bottom:auto}
+  .js .journey .ab-head h2{font-size:22px;margin:6px 0 12px}
+  .js .journey .scenes{margin-top:12px}
+  /* the diagram tracks viewport height, so a short phone shrinks it instead of clipping */
+  .js .journey .scene svg{max-width:min(246px,29svh)}
+  .js .journey .scene figcaption{font-size:14px}
+  .js .journey .scene figcaption .cap{font-size:19px;margin-bottom:3px}
+  .js .journey .scene .btn{margin-top:13px}
+  .js .j-hint{margin-top:14px}
+}
+
+/* Short phones. Under ~780px tall the panel title is the first thing to go: the section already
+   carries the same heading in the band above, so the panel loses nothing a reader has not read. */
+@media(max-width:639px) and (max-height:780px){
+  .js .journey .ab-head h2{display:none}
+  .js .journey .ab-head .eyebrow{margin-bottom:2px}
+}
+@media(max-width:639px) and (max-height:700px){
+  .js .journey .auditbox{padding:18px 18px 18px}
+  .js .journey .scene figcaption{font-size:13.5px;line-height:1.5}
+  .js .journey .scene figcaption .cap{font-size:18px}
+  .js .journey .scene{gap:14px}
+  .js .journey .scene svg{max-width:min(246px,25svh)}
+  .js .journey .ab-tag{margin-top:8px}
+  .js .j-hint{margin-top:10px}
+}
+
+@media(min-width:640px){
+  .wrap{padding:0 30px}
+  section{padding:96px 0}
+  .journey-intro{padding:96px 0 40px}
+  .journey{padding:0 0 96px}
+  .symptoms{grid-template-columns:1fr 1fr}
+  .cols2{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .mblock{grid-template-columns:200px 1fr;gap:36px}
+  .phases{grid-template-columns:1fr 1fr 1fr}
+  .paths{grid-template-columns:1fr 1fr}
+  .spec{grid-template-columns:1fr 1fr;column-gap:40px}
+  /* Pinned panel only: diagram beside the caption. Stacked, scene 2 and 3 run past 92svh on a
+     720px-tall laptop and the box has to scroll inside itself. */
+  .js .journey .scene{display:flex;gap:24px;align-items:center}
+  .js .journey .scene svg{flex:0 0 232px;max-width:232px;margin:0}
+  /* the narrower box renders the same viewBox smaller, so the stage labels need the units back */
+  .js .journey .scene .sv-stage{font-size:16px;letter-spacing:.08em}
+  .js .journey .scene figcaption{margin-top:0}
+}
+@media(min-width:900px){
+  section{padding:128px 0}
+  .journey-intro{padding:128px 0 48px}
+  .journey{padding:0 0 128px}
+  .circ{width:210px;height:210px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .js .rev{opacity:1!important;transform:none!important}
+  .mark .caret{display:none}
+}
 </style>
 </head>
 <body>
@@ -271,289 +352,515 @@
 <header>
   <div class="wrap head-row">
     <a href="#top" class="mark" id="mark">valdoes<span class="tw" id="tw">marketing</span><span class="caret"></span></a>
-    <a href="https://calendly.com/valeriya_finogeeva/automate-your-marketing" class="btn btn-ghost">Book a call</a>
+    <a href="https://calendly.com/valeriya_finogeeva/automate-your-marketing" class="tlink">Book a clarity call</a>
   </div>
 </header>
 
-<!-- ===== HERO ============================================================== -->
 <section class="hero" id="top">
+  <canvas class="hero-dither" id="hero-dither" aria-hidden="true"></canvas>
   <div class="wrap">
-    <div class="rule"></div>
-    <h1>Find out what your marketing actually needs. In 1 week.</h1>
-    <p class="lead">I spend a week inside your business, talking to you and whoever else touches
-      marketing. You come out with a map: where your time and money are actually going, what a
-      system could take over, and what to fix first. You keep it either way.</p>
+    <p class="eyebrow">The 3D Marketing Clarity Audit</p>
+    <h1 class="hero-h1">Fix the customer journey <span class="it">before</span> you fund more
+      marketing.</h1>
+    <p class="lead">Your website, content, email, ads and freelancers may all be active. But
+      activity does not mean your marketing is working together to move customers towards a
+      sale.</p>
+    <p class="lead" style="margin-top:14px">The 3D Marketing Clarity Audit maps one priority customer
+      path across your marketing, diagnoses where that path is losing clarity, trust or momentum,
+      and gives you a practical 30-day action plan for what to fix next.</p>
     <div class="btn-row">
-      <a href="https://calendly.com/valeriya_finogeeva/automate-your-marketing" class="btn btn-primary">Book a call</a>
-      <a href="#how" class="btn btn-ghost">How it works</a>
+      <a href="https://calendly.com/valeriya_finogeeva/automate-your-marketing" class="btn">Book a 30-minute clarity call</a>
+      <a href="#finding" class="tlink">Or see what a finding looks like</a>
     </div>
+    <p class="undernote">We will use the call to understand your business, current marketing setup
+      and the customer path that matters most right now.</p>
   </div>
+  <div class="giant" aria-hidden="true">the 3D audit</div>
 </section>
 
-<!-- ===== SYMPTOMS ========================================================== -->
-<section>
-  <div class="wrap narrow">
-    <p class="eyebrow">Sound familiar</p>
-    <h2>You're doing 5 jobs, and marketing is the one that slips.</h2>
-    <div class="symptoms">
-      <div class="sym rev"><span class="tick"></span><span class="t">There isn't time to run all of it, so most of it doesn't get run.</span></div>
-      <div class="sym rev"><span class="tick"></span><span class="t">Email, social, paid, leads, content. All of it is somehow yours.</span></div>
-      <div class="sym rev"><span class="tick"></span><span class="t">You're falling behind and you can feel it, but you can't get to it.</span></div>
-      <div class="sym rev"><span class="tick"></span><span class="t">Nothing talks to anything else. Not the tools, not the data.</span></div>
-      <div class="sym rev"><span class="tick"></span><span class="t">You rarely look at the numbers, and when you do you're not sure what they're telling you.</span></div>
-      <div class="sym rev"><span class="tick"></span><span class="t">Hiring a marketing team isn't on the table, and an agency wants 10 grand a month.</span></div>
-    </div>
-    <p class="caption rev">The hard part isn't fixing it. It's knowing which bit to fix first.</p>
-  </div>
-</section>
-
-<!-- ===== COST LADDER ======================================================= -->
-<section class="lift" id="gap">
-  <div class="wrap narrow">
-    <p class="eyebrow">What it costs to get a proper answer</p>
-    <h2>Everything else starts at 10 grand a month.</h2>
-    <div class="chart" id="chart">
-      <div class="bar-row you">
-        <div class="bar-top"><span class="bar-label">Working it out yourself</span>
-          <span class="bar-val">$0, and months of guessing</span></div>
-        <div class="track"><div class="fill" style="width:1.5%"></div></div>
-      </div>
-      <div class="bar-row mine">
-        <div class="bar-top"><span class="bar-label">The discovery week</span>
-          <span class="bar-val">$1,500, once</span></div>
-        <div class="track"><div class="fill" style="width:5%"></div></div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-top"><span class="bar-label">A marketing consultant</span>
-          <span class="bar-val">~$6,000 for a week of their time</span></div>
-        <div class="track"><div class="fill" style="width:20%"></div></div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-top"><span class="bar-label">A fractional CMO</span>
-          <span class="bar-val">$3,000 to $15,000, 1 month minimum</span></div>
-        <div class="track"><div class="fill" style="width:50%"></div></div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-top"><span class="bar-label">An agency</span>
-          <span class="bar-val">~$30,000, 3 months minimum</span></div>
-        <div class="track"><div class="fill" style="width:100%"></div></div>
-      </div>
-      <div class="scale"><span>$0</span><span>$15,000</span><span>$30,000</span></div>
-    </div>
-    <p class="caption rev">So most people never get the answer, and keep spending anyway.</p>
-    <p style="margin-top:22px">71% of small businesses do all their own marketing. Nearly half
-      spend money on it with no real idea whether it worked. Not because they don't care. Because
-      finding out has always cost more than the problem.</p>
-    <p class="src">Simply Business solopreneur report; survey of 1,000 small business owners;
-      SaaSConsult fractional CMO pricing, 2026.</p>
-  </div>
-</section>
-
-<!-- ===== HOW IT WORKS ====================================================== -->
-<section id="how">
-  <div class="wrap narrow">
-    <p class="eyebrow">How it works</p>
-    <h2>3 steps, and you can stop after any of them.</h2>
-    <div class="flow">
-      <div class="step rev">
-        <span class="no">01</span>
-        <h3>We talk for 30 minutes</h3>
-        <p>You tell me how marketing currently works, or doesn't. I tell you honestly whether this
-          is worth doing. If it isn't, I'll say so and point you somewhere better.</p>
-        <p class="when">30 minutes, free</p>
-      </div>
-      <div class="step rev">
-        <span class="no">02</span>
-        <h3>I spend a week inside your business</h3>
-        <p>I talk to you, and to anyone else who touches marketing. I go through your tools, your
-          lists, your numbers, what's connected and what isn't, what you've tried and what
-          happened. I ask the questions nobody's asked you yet.</p>
-        <p class="when">1 week</p>
-      </div>
-      <div class="step rev">
-        <span class="no">03</span>
-        <h3>You get the map</h3>
-        <p>Written up, in plain English, walked through with you on a call. What's costing you,
-          what to fix first, and what it would take. Then you decide what to do with it. Build it
-          yourself, hand it to someone else, or ask me to build it.</p>
-        <p class="when">Yours to keep</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== THE OFFER ========================================================= -->
-<section class="light" id="offer">
-  <div class="wrap narrow">
-    <p class="eyebrow">The offer</p>
-    <h2>The discovery week.</h2>
-    <div class="offer-card rev">
-      <div class="money">$1,500 <small>one time</small></div>
-      <p class="sub">No retainer, no lock-in, nothing to cancel.</p>
-      <ul class="inc">
-        <li><strong>A week of my time inside your business</strong>, with you and whoever else
-          touches marketing</li>
-        <li><strong>A written map of how marketing actually runs right now</strong>, including the
-          bits nobody has written down</li>
-        <li><strong>Where your time and money are going</strong>, with a number against each one</li>
-        <li><strong>What a system could take over</strong>, ranked by what it's worth rather than
-          what's easiest</li>
-        <li><strong>What each fix would cost and what it should return</strong>, so you can decide
-          with actual figures</li>
-        <li><strong>A 45-minute walkthrough</strong>, so you understand it rather than just own it</li>
-      </ul>
-      <div class="split">
-        <p class="sub" style="margin-top:0"><strong style="color:var(--ink)">Then it's your
-          call.</strong> Plenty of what I find you can do yourself, and I'll tell you which bits.
-          If you want me to build the rest, we scope that separately. There's no obligation and I
-          won't chase you.</p>
-      </div>
-    </div>
-    <p class="fineprint">If you already know exactly what you want built, skip all this. Tell me on
-      the call and we'll scope the build directly.</p>
-  </div>
-</section>
-
-<!-- ===== WHAT COMES OUT ==================================================== -->
-<section>
-  <div class="wrap narrow">
-    <p class="eyebrow">What usually comes out of it</p>
-    <h2>Every business is different. The gaps rarely are.</h2>
-    <div class="symptoms">
-      <div class="sym rev"><span class="tick"></span><span class="t">Tools that don't talk to each other, so the same thing gets done 3 times by hand.</span></div>
-      <div class="sym rev"><span class="tick"></span><span class="t">A customer list nobody has emailed, sitting on the cheapest revenue you'll ever get.</span></div>
-      <div class="sym rev"><span class="tick"></span><span class="t">Content that could write itself from what you already know, in your own voice.</span></div>
-      <div class="sym rev"><span class="tick"></span><span class="t">Enquiries arriving somewhere nobody watches.</span></div>
-      <div class="sym rev"><span class="tick"></span><span class="t">No tracking, so every decision is a guess with confidence.</span></div>
-      <div class="sym rev"><span class="tick"></span><span class="t">Money going out on things that stopped working a year ago.</span></div>
-    </div>
-    <p class="pull rev">I've been in marketing 10 years. Most of what I find isn't exotic. It's
-      just <span class="gold it">nobody's job</span> to look.</p>
-  </div>
-</section>
-
-<!-- ===== PROOF ============================================================= -->
 <section class="lift">
   <div class="wrap narrow">
-    <p class="eyebrow">My first client</p>
-    <h2>I didn't ask her what she wanted built. I asked what she was trying to do.</h2>
-    <p class="lead" style="margin-top:18px">She sells a course. She'd put things together in
-      pieces, so nothing followed anything and there was no order to it. She wanted to launch, she
-      didn't want to hire a team, and she didn't have the money for one anyway. So I started with
-      what she was actually trying to achieve, and why, and worked backwards from that.</p>
-    <div class="steps3">
-      <div class="s3 rev"><span class="n">1</span>
-        <h3>I learned how she talks</h3>
-        <p>Read everything she'd ever published, pulled out her real phrasing, and built the whole
-          thing in her own language.</p></div>
-      <div class="s3 rev"><span class="n">2</span>
-        <h3>I built around her, not a template</h3>
-        <p>Her offers, her buyer, her objections, in the order her buyer actually decides in.
-          Another business would have needed something completely different.</p></div>
-      <div class="s3 rev"><span class="n">3</span>
-        <h3>I checked it before launch</h3>
-        <p>Top to bottom: broken links, dead buttons, prices showing differently on different
-          devices. All fixed before anyone saw it.</p></div>
+    <p class="eyebrow">What is actually wrong</p>
+    <h2>You do not need another list of marketing ideas.</h2>
+    <p class="subline">You need to know what is actually getting in the way.</p>
+    <p class="lead">Maybe you are:</p>
+    <div class="symptoms">
+      <div class="sym rev"><span class="tick"></span><span class="t">sending traffic to your website without knowing why people are not taking the next step;</span></div>
+      <div class="sym rev"><span class="tick"></span><span class="t">posting consistently without seeing how your content moves people towards an offer;</span></div>
+      <div class="sym rev"><span class="tick"></span><span class="t">using email, social media and paid advertising, but each channel feels disconnected;</span></div>
+      <div class="sym rev"><span class="tick"></span><span class="t">hearing different recommendations from your agency, freelancer or team;</span></div>
+      <div class="sym rev"><span class="tick"></span><span class="t">unsure whether the real problem is your message, website, proof, offer or traffic; or</span></div>
+      <div class="sym rev"><span class="tick"></span><span class="t">preparing to invest more without knowing what deserves fixing first.</span></div>
     </div>
-  </div>
-</section>
-
-<!-- ===== WHY ME ============================================================ -->
-<section class="light story">
-  <div class="wrap story-grid">
-    <div class="story-img rev">
-      <img src="assets/val-story.jpg" width="799" height="1200" alt="Val" loading="lazy" />
-    </div>
-    <div>
-      <p class="eyebrow">Why me</p>
-      <h2>I've done it the hard way, on my own, with no budget.</h2>
-      <p>I've been in marketing 10 years, and I've run my own business. So I know exactly how it
-        feels when all of it lands on you.</p>
-      <p>Especially when you're not technical. Especially when AI is still this new thing you keep
-        meaning to sit down and figure out. Especially when there's no budget to hire the people
-        who would take it off your hands, and no spare capacity to learn it all yourself.</p>
-      <p>Asking the right questions is the part I'm actually good at. I do it every week, for
-        companies much bigger than yours, and it's the part almost nobody bothers with before they
-        start selling you something.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHAT I DON'T DO =================================================== -->
-<section class="lift">
-  <div class="wrap narrow">
-    <p class="eyebrow">Before you ask</p>
-    <h2>Things I won't do for you.</h2>
-    <ul class="refuse">
-      <li class="rev">
-        <h3>I won't tell you to build something you don't need.</h3>
-        <p>If the week says your problem isn't something a system fixes, that's what the map will
-          say. I'd rather lose the build than sell you something that sits unused.</p>
-      </li>
-      <li class="rev">
-        <h3>I don't automate your admin.</h3>
-        <p>Invoices, scheduling, tidying your inbox. Plenty of people do that. It has never made
-          anyone any money and it isn't what I'm good at.</p>
-      </li>
-      <li class="rev">
-        <h3>I don't run your ads.</h3>
-        <p>I'll look at whether they're working and tell you honestly. Managing the spend should
-          be someone else's job, and I'll tell you who.</p>
-      </li>
+    <p class="lead" style="margin-top:34px">Each part of your marketing can look reasonable on its
+      own. The problem often appears in the connection between them.</p>
+    <ul class="beats">
+      <li class="rev">A social post makes one promise.</li>
+      <li class="rev">The website continues a different conversation.</li>
+      <li class="rev">The customer still has unanswered questions.</li>
+      <li class="rev">Important proof appears too late.</li>
+      <li class="rev">The next step is unclear.</li>
     </ul>
+    <p class="lead">So when results are disappointing, the answer often becomes more content, more
+      traffic, a new website or another specialist.</p>
+    <p class="loss">But adding more activity will not fix a customer path that is already losing
+      momentum.</p>
   </div>
 </section>
 
-<!-- ===== FAQ =============================================================== -->
 <section>
   <div class="wrap narrow">
-    <p class="eyebrow">Questions</p>
-    <h2>Straight answers.</h2>
-    <div class="faq">
-      <details>
-        <summary>What do I actually walk away with?</summary>
-        <p>A written document and a 45-minute call where I walk you through it. It covers how your
-          marketing runs today, where the time and money go, what to fix first, and what each fix
-          is worth. It's yours. Take it to anyone.</p>
-      </details>
-      <details>
-        <summary>Why would I pay for this instead of a free consultation?</summary>
-        <p>Because a free consultation is a sales call, and you can tell. I'm not going to spend a
-          week of real work hoping you buy something afterwards, and you shouldn't want me to. You
-          pay, you get the answer, and you owe me nothing after that.</p>
-      </details>
-      <details>
-        <summary>Do I need to be technical?</summary>
-        <p>No. If you can tell me how someone becomes your customer, that's enough.</p>
-      </details>
-      <details>
-        <summary>How much of my week does it take?</summary>
-        <p>Around 3 hours of your time, spread across the week. The rest I do on my own.</p>
-      </details>
-      <details>
-        <summary>What size business is this for?</summary>
-        <p>You've got real revenue and either a small team or nobody, and marketing keeps landing
-          on someone who already has 4 other jobs. If you have a marketing team and they're good,
-          you don't need me.</p>
-      </details>
-      <details>
-        <summary>What if I want you to build it afterwards?</summary>
-        <p>Then we scope it separately, off the back of the map. Plenty of clients won't need me
-          for that, and I'll tell you when that's the case.</p>
-      </details>
+    <p class="eyebrow">The focus</p>
+    <h2>See what your customer is experiencing from first touch to conversion.</h2>
+    <p class="lead">The audit focuses on one priority customer path connected to one core offer and one
+      conversion goal. For example:</p>
+    <ul class="paths">
+      <li class="rev">Instagram content <i>&rarr;</i> website <i>&rarr;</i> service page <i>&rarr;</i> enquiry</li>
+      <li class="rev">Paid ad <i>&rarr;</i> landing page <i>&rarr;</i> product page <i>&rarr;</i> purchase</li>
+      <li class="rev">Google search <i>&rarr;</i> website <i>&rarr;</i> proof <i>&rarr;</i> consultation booking</li>
+      <li class="rev">Content <i>&rarr;</i> email <i>&rarr;</i> offer page <i>&rarr;</i> purchase</li>
+    </ul>
+    <p class="lead">The exact path depends on how your business currently attracts and converts
+      customers.</p>
+    <p class="lead" style="margin-top:14px">The purpose is not to audit every marketing channel you
+      own. It is to understand whether the touchpoints that matter are working together to help the
+      customer progress.</p>
+  </div>
+</section>
+
+<section class="lift" id="how">
+  <div class="wrap">
+    <div class="narrow" style="margin:0">
+      <p class="eyebrow">The method</p>
+      <h2>The 3D Method.</h2>
+    </div>
+    <div class="method">
+
+      <div class="mblock rev">
+        <div class="mart"><img class="circ" src="assets/icon-decode.jpg" width="640" height="640" alt="A classical marble bust in a painted garden" loading="lazy" /></div>
+        <div class="mbody">
+          <div class="cap">Decode</div>
+          <p>First, I build a working picture of the customer and the decision they are trying to
+            make. I review the evidence you already have to understand:</p>
+          <ul class="plist">
+            <li>who this path is designed for;</li>
+            <li>what the customer is trying to achieve;</li>
+            <li>what problem or priority brings them into the journey;</li>
+            <li>what they need to understand about your offer;</li>
+            <li>what they need to believe before they trust you;</li>
+            <li>the questions or objections that may slow them down; and</li>
+            <li>the action you ultimately want them to take.</li>
+          </ul>
+          <p>This may include customer reviews, FAQs, sales insights, existing feedback, marketing
+            materials and available business data.</p>
+          <p>Where something is supported by evidence, I will say so. Where something is still an
+            assumption, I will make that visible too.</p>
+        </div>
+      </div>
+
+      <div class="mblock rev">
+        <div class="mart"><img class="circ" src="assets/icon-diagnose.jpg" width="640" height="640" alt="A painted stone footbridge over a stream" loading="lazy" /></div>
+        <div class="mbody">
+          <div class="cap">Diagnose</div>
+          <p>Next, I map the selected customer path across your marketing and look for the places
+            where momentum may be weakening. Depending on your business, I may review your website,
+            landing pages, social content, email, paid advertising, product or service pages,
+            enquiry or booking flows, and checkout or conversion steps.</p>
+          <p>I look for issues such as:</p>
+          <ul class="plist">
+            <li>inconsistent messages between touchpoints;</li>
+            <li>unclear positioning or value propositions;</li>
+            <li>missing or poorly placed proof;</li>
+            <li>unanswered customer questions;</li>
+            <li>weak calls to action;</li>
+            <li>confusing handoffs between channels;</li>
+            <li>unnecessary conversion friction;</li>
+            <li>content that attracts attention without progressing intent;</li>
+            <li>gaps between discovery and conversion; and</li>
+            <li>obvious departures from relevant conversion and marketing best practices.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mblock rev">
+        <div class="mart"><img class="circ" src="assets/icon-direct.jpg" width="640" height="640" alt="A painted wooden signpost with 3 arms" loading="lazy" /></div>
+        <div class="mbody">
+          <div class="cap">Direct</div>
+          <p>Finally, I turn the diagnosis into a practical 30-day action plan.</p>
+          <p>You will know what needs attention, what should happen first, who should own it and
+            how to measure whether the change helped.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ===== FINAL ============================================================= -->
-<section class="final lift">
+<section>
+  <div class="wrap narrow">
+    <p class="eyebrow">The action plan</p>
+    <h2>Your 30-Day Customer Journey Action Plan.</h2>
+    <p class="lead">This is where the diagnosis becomes something your team can use. For each
+      recommended action, you will see:</p>
+    <dl class="spec">
+      <div class="rev"><dt>What needs to change</dt><dd>The specific page, message, handoff, proof
+        element, campaign step or conversion issue that needs attention.</dd></div>
+      <div class="rev"><dt>Why it matters</dt><dd>What the issue may be doing to the customer
+        experience and why it deserves attention.</dd></div>
+      <div class="rev"><dt>What to do</dt><dd>A practical recommendation your team, freelancer or
+        agency can implement.</dd></div>
+      <div class="rev"><dt>What happens first</dt><dd>Recommendations are sequenced so you do not
+        spend time fixing something that depends on another issue being addressed first.</dd></div>
+      <div class="rev"><dt>Who should own it</dt><dd>For example, the founder, copywriter,
+        designer, developer, media buyer, email specialist or agency.</dd></div>
+      <div class="rev"><dt>Level of effort</dt><dd>You will see whether the recommendation is
+        likely to be a quick adjustment, a moderate task or a larger piece of work.</dd></div>
+      <div class="rev"><dt>Evidence behind the recommendation</dt><dd>I distinguish between
+        findings supported by customer evidence, business data, direct observation, established
+        best practice or a hypothesis that still needs validation.</dd></div>
+      <div class="rev"><dt>How to measure progress</dt><dd>Each relevant action includes a success
+        measure so you know what to watch after the change is made.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="light">
   <div class="wrap">
-    <h2>Let's find out if it's worth doing.</h2>
-    <p class="lead">30 minutes. Tell me how marketing currently works in your business. You'll
-      know quickly whether there's anything here worth paying for.</p>
-    <div class="btn-row">
-      <a href="https://calendly.com/valeriya_finogeeva/automate-your-marketing" class="btn btn-primary">Book a call</a>
+    <div class="narrow" style="margin:0">
+      <p class="eyebrow">The sequence</p>
+      <h2>A clear plan for the next 30 days.</h2>
+      <p class="lead">Your recommendations are organised into a practical sequence.</p>
     </div>
+    <div class="phases">
+      <div class="phase rev">
+        <span class="pday">Days 1 to 10</span>
+        <h3>Fix the foundations</h3>
+        <p>Address the issues most likely to weaken everything that follows. This could include
+          unclear messaging, broken page hierarchy, missing proof, weak calls to action or an
+          important disconnect between channels.</p>
+      </div>
+      <div class="phase rev">
+        <span class="pday">Days 11 to 20</span>
+        <h3>Strengthen the customer path</h3>
+        <p>Improve the key messages, handoffs and decision points customers encounter as they move
+          towards conversion.</p>
+      </div>
+      <div class="phase rev">
+        <span class="pday">Days 21 to 30</span>
+        <h3>Test and measure</h3>
+        <p>Implement focused tests, monitor relevant behaviour and decide what deserves further
+          investment.</p>
+      </div>
+    </div>
+    <p class="pull rev">This is what we are fixing this month. This is why. This is who owns it.
+      And this is how we will know whether it helped.</p>
+    <p class="caption">The goal is for your team to be able to say that out loud.</p>
+  </div>
+</section>
+
+<section class="lift">
+  <div class="wrap">
+    <div class="narrow" style="margin:0">
+      <p class="eyebrow">What you receive</p>
+      <h2>4 things your team can act on.</h2>
+    </div>
+    <div class="fgrid">
+      <div class="fcard rev">
+        <svg class="fdeco" viewBox="0 0 100 40" preserveAspectRatio="none"><path d="M0 0 L50 36 L100 0 M0 40 L50 4 L100 40"/></svg>
+        <div class="cap">Customer Path Map</div>
+        <p>A visual map showing how the selected customer currently moves through your marketing
+          towards the conversion goal. Where they enter, what message they encounter, what they are
+          expected to understand, what they are asked to do, where they go next, and where the path
+          becomes unclear, inconsistent or unnecessarily difficult.</p>
+      </div>
+      <div class="fcard rev">
+        <svg class="fdeco" viewBox="0 0 100 40" preserveAspectRatio="none"><path d="M0 0 L50 36 L100 0 M0 40 L50 4 L100 40"/></svg>
+        <div class="cap">Marketing Diagnosis</div>
+        <p>A focused assessment of the most important issues affecting the selected path. The
+          diagnosis connects what I observe with why it matters and what should happen next.</p>
+      </div>
+      <div class="fcard rev">
+        <svg class="fdeco" viewBox="0 0 100 40" preserveAspectRatio="none"><path d="M0 0 L50 36 L100 0 M0 40 L50 4 L100 40"/></svg>
+        <div class="cap">30-Day Action Plan</div>
+        <p>A practical implementation plan showing what to fix, why it matters, what happens first,
+          who should own it, expected effort, what can wait, and how progress should be
+          measured.</p>
+      </div>
+      <div class="fcard rev">
+        <svg class="fdeco" viewBox="0 0 100 40" preserveAspectRatio="none"><path d="M0 0 L50 36 L100 0 M0 40 L50 4 L100 40"/></svg>
+        <div class="cap">Visual Decision Brief</div>
+        <p>Everything is delivered in a concise 6 to 10-page PDF report designed to be used, not
+          filed away. You can hand it to your team, agency, freelancer, copywriter, designer or
+          developer so they know what needs to happen next.</p>
+      </div>
+    </div>
+    <figure class="repro rev">
+      <img src="assets/report-preview.svg" width="1192" height="832" loading="lazy"
+        alt="A preview of the report: 7 A4 pages covering the executive summary and decision, the customer journey with its broken handoff marked, the evidence review, 3 priority gaps, and the 30 day action plan." />
+    </figure>
+    <p class="caption rev" style="text-align:center">Designed to be used, not filed away.</p>
+    <p class="fineprint" style="text-align:center">Demonstration report. Every number on these
+      pages is illustrative, not a client result.</p>
+  </div>
+</section>
+
+<section class="journey-intro" id="finding">
+  <div class="wrap narrow">
+    <p class="eyebrow">Illustrative example</p>
+    <h2>What one finding might look like.</h2>
+    <p class="lead">Your Instagram ads position your product around saving customers time. The
+      landing page then opens with a broad list of features. The strongest customer review
+      supporting the time-saving benefit appears much further down the page. The main button says
+      "Learn more".</p>
+    <p class="lead" style="margin-top:14px">None of those elements looks disastrous by itself.
+      Together, they create a weaker path.</p>
+  </div>
+</section>
+
+<section class="journey" id="check">
+  <div class="j-stage">
+    <img class="j-art" src="assets/painting-scroll.jpg" width="1280" height="2293" alt="" aria-hidden="true" loading="lazy" />
+    <div class="auditbox" id="auditplay">
+      <span class="cnr tl"><svg viewBox="0 0 30 30"><path d="M1 12 L1 1 L12 1 M1 1 L11 11"/></svg></span>
+      <span class="cnr tr"><svg viewBox="0 0 30 30"><path d="M1 12 L1 1 L12 1 M1 1 L11 11"/></svg></span>
+      <span class="cnr bl"><svg viewBox="0 0 30 30"><path d="M1 12 L1 1 L12 1 M1 1 L11 11"/></svg></span>
+      <span class="cnr br"><svg viewBox="0 0 30 30"><path d="M1 12 L1 1 L12 1 M1 1 L11 11"/></svg></span>
+      <div class="ab-head">
+        <p class="eyebrow">Illustrative example</p>
+        <h2>One finding, walked end to end.</h2>
+        <p>The same finding, walked from the ad that earns the click to the 30 days that follow.</p>
+      </div>
+      <div class="scenes">
+
+        <figure class="scene on">
+          <svg viewBox="0 0 320 300" aria-hidden="true">
+            <path class="sv-hair" d="M210 53 V99 M210 121 V167 M210 189 V235"/>
+            <g class="sv-node"><circle cx="210" cy="42" r="11"/><circle cx="210" cy="110" r="11"/><circle cx="210" cy="178" r="11"/><circle cx="210" cy="246" r="11"/></g>
+            <text class="sv-stage lit" x="0" y="46">THE AD</text>
+            <text class="sv-stage" x="0" y="114">LANDING PAGE</text>
+            <text class="sv-stage" x="0" y="182">THE PROOF</text>
+            <text class="sv-stage" x="0" y="250">THE ACTION</text>
+            <circle class="sv-dot" cx="210" cy="42" r="6"/>
+            <circle class="pulse" cx="210" cy="42" r="13"/>
+          </svg>
+          <figcaption><span class="cap">1 &middot; The promise</span>Your Instagram ads position
+            your product around saving customers time. That is the promise the click is paying
+            for.</figcaption>
+        </figure>
+
+        <figure class="scene">
+          <svg viewBox="0 0 320 300" aria-hidden="true">
+            <path class="sv-hair" d="M210 121 V167 M210 189 V235"/>
+            <path class="sv-trace" d="M210 53 V68"/><path class="sv-trace" d="M210 84 V99"/>
+            <path class="sv-line" d="M198 70 L222 82"/>
+            <g class="sv-node"><circle cx="210" cy="42" r="11"/><circle cx="210" cy="110" r="11"/><circle cx="210" cy="178" r="11"/><circle cx="210" cy="246" r="11"/></g>
+            <text class="sv-stage" x="0" y="46">THE AD</text>
+            <text class="sv-stage lit" x="0" y="114">LANDING PAGE</text>
+            <text class="sv-stage" x="0" y="182">THE PROOF</text>
+            <text class="sv-stage" x="0" y="250">THE ACTION</text>
+            <circle class="sv-dot" cx="210" cy="42" r="5"/>
+            <circle class="sv-dot" cx="210" cy="110" r="6"/>
+            <circle class="pulse" cx="210" cy="110" r="13"/>
+          </svg>
+          <figcaption><span class="cap">2 &middot; The break</span>The landing page opens with a
+            broad list of features. The promise that earns the click is not being continued
+            clearly, so the customer is asked to work out whether they are still in the right
+            place.</figcaption>
+        </figure>
+
+        <figure class="scene">
+          <svg viewBox="0 0 320 300" aria-hidden="true">
+            <path class="sv-trace" d="M210 53 V68"/><path class="sv-trace" d="M210 84 V99"/>
+            <path class="sv-line" d="M198 70 L222 82"/>
+            <path class="sv-dash" d="M219 118 L269 189 M270 211 L221 239"/>
+            <g class="sv-node"><circle cx="210" cy="42" r="11"/><circle cx="210" cy="110" r="11"/><circle cx="210" cy="246" r="11"/></g>
+            <g class="sv-node"><circle cx="278" cy="200" r="11"/></g>
+            <text class="sv-stage" x="0" y="46">THE AD</text>
+            <text class="sv-stage" x="0" y="114">LANDING PAGE</text>
+            <text class="sv-stage lit" x="0" y="204">THE PROOF, LATE</text>
+            <text class="sv-stage" x="0" y="250">THE ACTION</text>
+            <circle class="sv-dot" cx="210" cy="42" r="5"/>
+            <circle class="sv-dot" cx="210" cy="110" r="5"/>
+            <circle class="sv-dot" cx="278" cy="200" r="6"/>
+            <circle class="pulse" cx="278" cy="200" r="13"/>
+          </svg>
+          <figcaption><span class="cap">3 &middot; The diagnosis</span>The strongest customer review
+            supporting the time-saving benefit appears much further down the page, and the main
+            button says "Learn more". The proof that could reduce doubt arrives after the point
+            where doubt decides.</figcaption>
+        </figure>
+
+        <figure class="scene">
+          <svg viewBox="0 0 320 300" aria-hidden="true">
+            <g class="sv-plan">
+              <text class="sv-stage lit" x="0" y="46">DAYS 1 TO 10</text>
+              <rect class="sv-barlit" x="0" y="58" width="196" height="7"/>
+              <text class="sv-stage" x="0" y="130">DAYS 11 TO 20</text>
+              <rect class="sv-bar" x="0" y="142" width="148" height="7"/>
+              <text class="sv-stage" x="0" y="214">DAYS 21 TO 30</text>
+              <rect class="sv-bar" x="0" y="226" width="100" height="7"/>
+            </g>
+            <path class="sv-hair" d="M0 268 H320"/>
+            <text class="sv-stage" x="0" y="290">ONE OWNER AND ONE MEASURE EACH</text>
+          </svg>
+          <figcaption><span class="cap">4 &middot; The action plan</span>Days 1 to 10: align the
+            first screen of the landing page with the promise driving the traffic. Days 11 to 20:
+            move the strongest relevant proof closer to the primary decision point and make the
+            next action more specific. Days 21 to 30: measure progression towards the conversion
+            goal before deciding whether more traffic deserves funding.
+            <a href="https://calendly.com/valeriya_finogeeva/automate-your-marketing" class="btn">Book a 30-minute clarity call</a>
+          </figcaption>
+        </figure>
+
+      </div>
+      <div class="j-hint"><span>Scroll</span><div class="j-bar"><i id="jbar"></i></div></div>
+      <span class="ab-tag">Decode &middot; Diagnose &middot; Direct</span>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap narrow">
+    <p class="eyebrow">The level of direction</p>
+    <h2>Here is the break. Here is why it matters. Here is what to do about it.</h2>
+    <p class="lead">That is the level of direction the audit is designed to provide. Not simply
+      "improve your website".</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <p class="eyebrow">The process</p>
+    <h2>How it works.</h2>
+    <ol class="numlist">
+      <li class="rev"><span class="no">1</span><div>
+        <p><strong>Book a 30-minute clarity call.</strong> We discuss:</p>
+        <ul class="plist">
+          <li>your business and core offer;</li>
+          <li>the customer path you are most concerned about;</li>
+          <li>your website and current marketing activity;</li>
+          <li>your primary conversion goal;</li>
+          <li>where you feel things may be breaking down;</li>
+          <li>what you are considering investing in next; and</li>
+          <li>what customer and performance evidence is currently available.</li>
+        </ul>
+        <p>The purpose of this conversation is to understand your situation and determine whether
+          the audit is the right fit.</p>
+      </div></li>
+      <li class="rev"><span class="no">2</span><div>
+        <p><strong>Submit the relevant evidence.</strong> If we decide to proceed, you complete a
+          structured intake and provide the materials relevant to the path being audited. These may
+          include website links, selected social content, email sequences, advertisements and
+          landing pages, customer reviews and feedback, FAQs or sales insights, and relevant
+          analytics, funnel or CRM screenshots.</p>
+        <p>You do not need to give me unrestricted access to every marketing platform you use. I
+          will identify the evidence that is useful for the customer path we are diagnosing.</p>
+      </div></li>
+      <li class="rev"><span class="no">3</span><div>
+        <p><strong>I map and diagnose the path.</strong> I review the evidence, map the current
+          journey and assess how well the selected touchpoints work together. If something
+          important is unclear, I will contact you rather than fill the gap with assumptions.</p>
+      </div></li>
+      <li class="rev"><span class="no">4</span><div>
+        <p><strong>Receive your diagnosis and action plan.</strong> Within 14 business days of
+          receiving the required materials, you receive your Customer Path Map, Marketing Diagnosis
+          and 30-Day Action Plan inside your visual decision brief.</p>
+        <p>We then have a 30-minute findings call to walk through the diagnosis, recommendations
+          and order of implementation.</p>
+      </div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="lift">
+  <div class="wrap narrow">
+    <p class="eyebrow">The independence</p>
+    <h2>Why look across the whole path?</h2>
+    <ul class="beats">
+      <li class="rev">A paid media specialist naturally looks at advertising.</li>
+      <li class="rev">A website specialist looks at the website.</li>
+      <li class="rev">An email specialist looks at email.</li>
+      <li class="rev">A content specialist looks at content.</li>
+    </ul>
+    <p class="lead">Your customer does not experience those channels separately. They experience one
+      business.</p>
+    <p class="lead" style="margin-top:14px">The 3D Marketing Clarity Audit looks at how those
+      activities connect, where the customer experience becomes weaker and what needs attention
+      before more money is committed.</p>
+    <p class="loss">I am not using the audit to sell you advertising management, a website rebuild,
+      content creation or ongoing implementation. The recommendation may be to invest more. It may
+      also be to fix something you already have first.</p>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap narrow">
+    <p class="eyebrow">The fit</p>
+    <h2>Is the audit right for you?</h2>
+    <div class="cols2">
+      <div>
+        <h3 class="h3-pos">Designed for established consumer, ecommerce and service businesses that</h3>
+        <ul>
+          <li class="li-yes">have a proven offer and real customers;</li>
+          <li class="li-yes">use several marketing touchpoints;</li>
+          <li class="li-yes">have enough existing activity and evidence to diagnose;</li>
+          <li class="li-yes">are preparing to improve or invest further in marketing;</li>
+          <li class="li-yes">have the ability to implement recommendations; and</li>
+          <li class="li-yes">want independent direction before deciding what to fund next.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="h3-neg">Not designed for businesses that</h3>
+        <ul>
+          <li class="li-no">are still pre-launch;</li>
+          <li class="li-no">need complete marketing management;</li>
+          <li class="li-no">want a full annual strategy; or</li>
+          <li class="li-no">require original market research.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panelsec">
+  <div class="wrap">
+    <div class="offer-card rev">
+      <p class="eyebrow">Investment</p>
+      <h2>AUD $2,000</h2>
+      <p style="margin-top:2px;font-size:14.5px">Your audit includes:</p>
+      <ul class="inc">
+        <li>30-minute initial clarity call;</li>
+        <li>structured evidence collection;</li>
+        <li>diagnosis of one priority customer path;</li>
+        <li>review of the relevant website and selected marketing touchpoints;</li>
+        <li>Customer Path Map;</li>
+        <li>Marketing Diagnosis;</li>
+        <li>detailed 30-Day Action Plan;</li>
+        <li>6 to 10-page visual decision brief; and</li>
+        <li>30-minute findings call.</li>
+      </ul>
+      <div class="split">Delivered within 14 business days after the required evidence has been
+        received.</div>
+      <div class="btn-row">
+        <a href="https://calendly.com/valeriya_finogeeva/automate-your-marketing" class="btn">Book a 30-minute clarity call</a>
+        <a href="#finding" class="tlink">See what a finding looks like</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Before you invest more,<br/>understand the journey<br/>you <span class="it">already</span> have</h2>
+    <p class="lead">You do not need another list of marketing tactics. You need to see what your
+      customer is experiencing, where the path becomes weaker and what your team should do about
+      it.</p>
+    <p class="undernote">Map the path. Diagnose the gaps. Fix the journey. Then decide what
+      deserves more investment.</p>
+    <div class="btn-row">
+      <a href="https://calendly.com/valeriya_finogeeva/automate-your-marketing" class="btn">Book a 30-minute clarity call</a>
+    </div>
+    <p class="hero-terms">AUD $2,000 &middot; Delivered within 14 business days</p>
   </div>
 </section>
 
@@ -567,8 +874,6 @@
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* typewriter wordmark: valdoes + marketing <-> ai */
   if (!reduce) {
     var el = document.getElementById('tw'), mark = document.getElementById('mark');
     var words = ['marketing', 'ai'], wi = 0, ci = words[0].length, deleting = true;
@@ -582,26 +887,209 @@
     }
     setTimeout(tick, 2600);
   }
-
-  /* scroll reveals: full content without JS, JS arms then reveals */
   if (reduce) return;
   document.documentElement.className += ' js';
-  var targets = [].slice.call(document.querySelectorAll('.rev, #chart .bar-row'));
+  var targets = [].slice.call(document.querySelectorAll('.rev'));
   function showAll(){ targets.forEach(function(t){ if(t.className.indexOf(' in')<0) t.className += ' in'; }); }
   if (!('IntersectionObserver' in window)) { showAll(); return; }
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if (!e.isIntersecting) return;
-      if (e.target.parentNode && e.target.parentNode.id === 'chart') {
-        [].slice.call(e.target.parentNode.children).forEach(function(r){
-          if (r.className.indexOf(' in') < 0) r.className += ' in';
-        });
-      } else { e.target.className += ' in'; }
+      e.target.className += ' in';
       io.unobserve(e.target);
     });
   }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
   targets.forEach(function(t){ io.observe(t); });
   setTimeout(showAll, 3000);
+})();
+</script>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+  var sec = document.getElementById('check');
+  if (!sec) return;
+  var art = sec.querySelector('.j-art');
+  var scenes = [].slice.call(sec.querySelectorAll('.scene'));
+  var bar = document.getElementById('jbar');
+  if (!art || !scenes.length) return;
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var r = sec.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var total = r.height - vh;
+    if (total <= 0) return;
+    var p = Math.min(1, Math.max(0, -r.top / total));
+    var over = art.offsetHeight - vh;
+    if (over > 0) art.style.transform = 'translate(-50%,' + (-p * over) + 'px)';
+    var idx = Math.min(scenes.length - 1, Math.floor(p * scenes.length));
+    scenes.forEach(function(s, j){
+      if (j === idx) { if (s.className.indexOf(' on') < 0) s.className += ' on'; }
+      else s.className = s.className.replace(' on', '');
+    });
+    if (bar) bar.style.width = (p * 100) + '%';
+  }
+  function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  if (art.complete) update(); else art.addEventListener('load', update);
+})();
+</script>
+
+<script>
+(function(){
+  var cv = document.getElementById('hero-dither');
+  if (!cv || !cv.getContext) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero = cv.parentNode;
+  var ctx = cv.getContext('2d');
+
+  var FW = 480, FH = 270, COLS = 12, FRAMES = 120, FPS = 5, FADE = 8;
+  var LEVELS = 6, CONTRAST = 1.35, FLOOR = 0.065, GAMMA = 0.8, INK = 'rgba(22,19,13,.95)';
+
+  /* 8x8 Bayer, recursed from the 4x4 with the 2x2 quadrant offsets 0/2/3/1 */
+  var B4 = [[0,8,2,10],[12,4,14,6],[3,11,1,9],[15,7,13,5]];
+  var BAYER = [];
+  for (var by = 0; by < 8; by++) {
+    BAYER[by] = [];
+    for (var bx = 0; bx < 8; bx++) {
+      BAYER[by][bx] = (B4[by % 4][bx % 4] * 4 + [[0,2],[3,1]][by >> 2][bx >> 2]) / 64;
+    }
+  }
+
+  var buf = document.createElement('canvas');
+  buf.width = FW; buf.height = FH;
+  var bctx = buf.getContext('2d', {willReadFrequently: true});
+  var img = new Image();
+  var lo = 0.05, hi = 0.95;
+  var cw = 0, ch = 0, cell = 11, cols = 0, rows = 0, scale = 1, ox = 0, oy = 0, maxR = 3;
+
+  function drawSrc(i, alpha){
+    bctx.globalAlpha = alpha == null ? 1 : alpha;
+    bctx.drawImage(img, (i % COLS) * FW, ((i / COLS) | 0) * FH, FW, FH, 0, 0, FW, FH);
+    bctx.globalAlpha = 1;
+  }
+
+  /* Auto-level against the 2nd/98th percentiles of 3 spread frames, then pin
+     for the whole sequence, so the dot density never pulses. */
+  function pinLevels(){
+    var histo = new Uint32Array(256), total = 0, picks = [0, 40, 80];
+    for (var k = 0; k < picks.length; k++) {
+      drawSrc(picks[k]);
+      var d = bctx.getImageData(0, 0, FW, FH).data;
+      for (var p = 0; p < d.length; p += 4) { histo[d[p]]++; total++; }
+    }
+    var acc = 0, loV = 0, hiV = 255;
+    for (var v = 0; v < 256; v++) {
+      acc += histo[v];
+      if (acc <= total * 0.02) loV = v;
+      if (acc < total * 0.98) hiV = v;
+    }
+    lo = loV / 255;
+    hi = Math.max(hiV / 255, lo + 0.05);
+  }
+
+  function size(){
+    cw = hero.clientWidth; ch = hero.clientHeight;
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = Math.round(cw * dpr); cv.height = Math.round(ch * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    /* cw/FW caps the grid at FW columns: past that the cells outrun the sprite
+       and the dither goes blocky instead of finer. */
+    cell = cw < 720 ? 3.5 : Math.max(4, cw / FW);
+    cols = Math.ceil(cw / cell); rows = Math.ceil(ch / cell);
+    /* Phone framing is a deliberate portrait of the statue alone, not a shrunk-down wide shot.
+       Frame map (480x270): hood rows 45-90 at x 56-104, robe to row 270 at x 32-115.
+       zoom 1.25 buys the vertical room to slide the crop; 0.76 lands the hood in the clear
+       band above the headline, 0.055 centres the robe behind the text. */
+    var phone = cw < 720;
+    scale = Math.max(cw / FW, ch / FH) * (phone ? 1.25 : 1);
+    ox = (FW - cw / scale) * (phone ? 0.055 : 0.5);
+    oy = (FH - ch / scale) * (phone ? 0.76 : 0.5);
+    maxR = cell * (1 - 0.30) * 0.85 / 2;
+  }
+
+  var px = 0, py = 0, tx = 0, ty = 0, energy = 0, tEnergy = 0, touched = false;
+  var hoverOK = window.matchMedia && window.matchMedia('(hover:hover)').matches;
+  if (hoverOK && !reduce) {
+    hero.addEventListener('pointermove', function(e){
+      var r = hero.getBoundingClientRect();
+      tx = e.clientX - r.left; ty = e.clientY - r.top;
+      if (!touched) { touched = true; px = tx; py = ty; }
+      tEnergy = 1;
+    });
+    hero.addEventListener('pointerleave', function(){ tEnergy = 0; });
+  }
+
+  function render(fi){
+    drawSrc(fi);
+    /* crossfade the wrap: the last FADE frames dissolve into the opening ones */
+    if (fi >= FRAMES - FADE) drawSrc(fi - (FRAMES - FADE), (fi - (FRAMES - FADE) + 1) / (FADE + 1));
+    var data = bctx.getImageData(0, 0, FW, FH).data;
+    ctx.clearRect(0, 0, cw, ch);
+    ctx.fillStyle = INK;
+    ctx.beginPath();
+    var R = 0.6 * Math.max(cw, ch), warp = energy > 0.02;
+    for (var iy = 0; iy < rows; iy++) {
+      for (var ix = 0; ix < cols; ix++) {
+        var cx = (ix + 0.5) * cell, cy = (iy + 0.5) * cell;
+        var bxF = ox + cx / scale, byF = oy + cy / scale;
+        if (warp) {
+          /* gentle scatter: displace the sampling coords, not the drawn dots */
+          var dx = cx - px, dy = cy - py, dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < R) {
+            var f = 1 - dist / R; f = f * f * (3 - 2 * f);
+            var h = Math.sin(ix * 127.1 + iy * 311.7) * 43758.5453; h -= Math.floor(h);
+            var mag = f * energy * 3.2;
+            bxF += Math.cos(h * 6.2832) * mag; byF += Math.sin(h * 6.2832) * mag;
+          }
+        }
+        var sx = bxF | 0, sy = byF | 0;
+        if (sx < 0) sx = 0; else if (sx >= FW) sx = FW - 1;
+        if (sy < 0) sy = 0; else if (sy >= FH) sy = FH - 1;
+        var v = (data[(sy * FW + sx) << 2] / 255 - lo) / (hi - lo);
+        if (v < 0) v = 0; else if (v > 1) v = 1;
+        v = 1 - ((v - 0.5) * CONTRAST + 0.5);   /* invert: dark subject on light ground */
+        if (v < FLOOR) continue;
+        if (v > 1) v = 1;
+        v = Math.pow(v, GAMMA);   /* lift the mid-tones: statue and pavilion are pale grey */
+        var sc = v * (LEVELS - 1), lev = sc | 0;
+        if (sc - lev > BAYER[iy & 7][ix & 7]) lev++;
+        if (lev <= 0) continue;
+        if (lev > LEVELS - 1) lev = LEVELS - 1;
+        var r = maxR * lev / (LEVELS - 1);
+        ctx.moveTo(cx + r, cy);
+        ctx.arc(cx, cy, r, 0, 6.2832);
+      }
+    }
+    ctx.fill();
+  }
+
+  var last = -1, t0 = 0, wtick = 0;
+  function tick(now){
+    if (!t0) t0 = now;
+    var fi = Math.floor((now - t0) / 1000 * FPS) % FRAMES;
+    px += (tx - px) * 0.14; py += (ty - py) * 0.14;
+    energy += (tEnergy - energy) * 0.08;
+    if (fi !== last) { last = fi; render(fi); }
+    else if (energy > 0.02 && ++wtick % 3 === 0) render(fi);  /* warp redraws at a third of rAF: the finer grid is 3x the dots */
+    requestAnimationFrame(tick);
+  }
+
+  img.onload = function(){
+    /* file:// viewing taints the canvas; skip the effect quietly there */
+    try { pinLevels(); } catch (e) { return; }
+    size();
+    window.addEventListener('resize', function(){
+      size();
+      if (reduce) render(0); else last = -1;
+    });
+    if (reduce) { render(0); return; }
+    requestAnimationFrame(tick);
+  };
+  img.src = 'assets/hero-dither.jpg';
 })();
 </script>
 
